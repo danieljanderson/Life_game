@@ -1,0 +1,24 @@
+{
+  "name": "life_game",
+  "version": "1.0.0",
+  "description": "strengthen my es6 skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieljanderson/life_game.git"
+  },
+  "author": "Daniel J Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danieljanderson/life_game/issues"
+  },
+  "homepage": "https://github.com/danieljanderson/life_game#readme",
+  "dependencies": {
+    "mocha": "^7.0.1",
+    "node": "^13.8.0",
+    "nodemon": "^2.0.2"
+  }
+}

@@ -1,0 +1,1 @@
+# this file is for me to document all the issues that I get stumped on and the solutions I found to fix the issues
