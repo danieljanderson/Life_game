@@ -4,7 +4,7 @@
   "description": "strengthen my es6 skills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon --exec 'mocha -R min --exit'"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/danieljanderson/life_game#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "mocha": "^7.0.1",
     "node": "^13.8.0",
     "nodemon": "^2.0.2"
