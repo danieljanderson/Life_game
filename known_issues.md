@@ -1,0 +1,1 @@
+I know that I don't check data types in my classes so you could make a number into a name.  I will need to change that.
