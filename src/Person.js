@@ -32,6 +32,20 @@ class Person {
   set name(newName) {
     this._name = newName;
   }
+  // get and set birthdate
+  get birthdate() {
+    return this._birthdate;
+  }
+  set birthdate(newBirthdate) {
+    this._birthdate = newBirthdate;
+  }
+  // get and set gender
+  get gender() {
+    return this._gender;
+  }
+  set gender(newGender) {
+    this._gender = newGender;
+  }
   //get and set for money
   get money() {
     return this._money;
