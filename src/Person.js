@@ -51,21 +51,21 @@ class Person {
     return this._money;
   }
   set money(newAmount) {
-    this._money = newAmount + this._money;
+    this._money = newAmount;
   }
   // get and set for charisma
   get charisma() {
     return this._charisma;
   }
   set charisma(newCharm) {
-    this._charisma = newCharm + this._charisma;
+    this._charisma = newCharm;
   }
   // get and set for feeling
   get feeling() {
     return this._feeling;
   }
   set feeling(newfeeling) {
-    this._feeling = newfeeling + this._feeling;
+    this._feeling = newfeeling;
   }
   // get and set hobbies
   get hobbies() {
@@ -102,7 +102,7 @@ class Person {
     this._money = this._money + amount;
   }
   withdrawal(amount) {
-    this._money = this._money + amount;
+    this._money = this._money - amount;
   }
 }
 module.exports = Person;

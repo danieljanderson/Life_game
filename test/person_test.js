@@ -48,4 +48,26 @@ describe('person.js', () => {
     daniel.gender = 'M';
     expect(daniel.gender).to.deep.equal('M');
   });
+
+  // the money property
+  it('retrieve the money', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.money).to.equal(10);
+  });
+  it('it will set the money', () => {
+    let daniel = new Person(...personDetails);
+    daniel.money = 60;
+    expect(daniel.money).to.equal(60);
+  });
+
+  // the charisma property
+  it('it will retrieve the charisma', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.charisma).to.equal(50);
+  });
+  it('it will set the charisma', () => {
+    let daniel = new Person(...personDetails);
+    daniel.charisma = 789;
+    expect(daniel.charisma).to.equal(789);
+  });
 });
