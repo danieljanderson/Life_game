@@ -18,6 +18,8 @@ const personDetails = [
 ];
 
 describe('person.js', () => {
+  // testing the getters and setters
+
   //the name property
   it('will retrieve the name', () => {
     let daniel = new Person(...personDetails);
@@ -92,7 +94,28 @@ describe('person.js', () => {
   it('it will set the intelligence', () => {
     let daniel = new Person(...personDetails);
     daniel.intelligence = 900;
-    console.log(daniel);
     expect(daniel.intelligence).to.equal(900);
+  });
+
+  //hobbies property
+  it('it will retrieve the hobbies array', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.hobbies).to.deep.equal(['golf', 'board_games']);
+  });
+  it('it will set the hobbies', () => {
+    let daniel = new Person(...personDetails);
+    daniel.hobbies = ['coding', 'baseball'];
+    expect(daniel.hobbies).to.deep.equal(['coding', 'baseball']);
+  });
+
+  // location
+  it('it will retrieve the location', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.location).to.deep.equal('Strongsville');
+  });
+  it('it will set the location', () => {
+    let daniel = new Person(...personDetails);
+    daniel.location = 'Akron';
+    expect(daniel.location).to.deep.equal('Akron');
   });
 });

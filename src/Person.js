@@ -79,7 +79,7 @@ class Person {
     return this._hobbies;
   }
   set hobbies(newHobby) {
-    this._hobbies.push(newHobby);
+    this._hobbies = newHobby;
   }
   // get and set location
   get location() {
