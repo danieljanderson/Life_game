@@ -9,7 +9,7 @@ class Person {
     intelligence,
     hobbies,
     location,
-    currentEmployer,
+    currentJob,
     employmentHistory,
     numberOfApp
   ) {
@@ -22,7 +22,7 @@ class Person {
     this._intelligence = intelligence;
     this._hobbies = hobbies;
     this._location = location;
-    this._currentEmployer = currentEmployer;
+    this._currentJob = currentJob;
     this._employmentHistory = employmentHistory;
     this._numberOfApp = numberOfApp;
   }
@@ -91,11 +91,11 @@ class Person {
     this._location = newLocation;
   }
   //get and set currentEmployer
-  get currentEmployer() {
-    return this._currentEmployer;
+  get currentJob() {
+    return this._currentJob;
   }
-  set currentEmployer(newEmployer) {
-    this._currentEmployer = newEmployer;
+  set currentJob(newEmployer) {
+    this._currentJob = newEmployer;
   }
   // get and set employmentHistory
   get employmentHistory() {
@@ -112,15 +112,25 @@ class Person {
     this._numberOfApp = newAmount;
   }
   //methods
-  applyForJobs() {
-    this._numberOfApplications++;
+  //todo add methods for adding a hobbie and then one for losing a hobby
+  //job methods
+  applyForJob() {
+    this._numberOfApp++;
   }
+  getNewJob(newJob) {
+    this._employmentHistory = [this._currentJob, ...this._employmentHistory];
+    this._currentJob = newJob;
+  }
+
+  //feeling methods
   depression(newFeeling) {
     this._feeling = this._feeling - newFeeling;
   }
   excited(newFeeling) {
     this._feeling = this._feeling + newFeeling;
   }
+
+  // money methods
   deposit(amount) {
     this._money = this._money + amount;
   }
@@ -128,4 +138,26 @@ class Person {
     this._money = this._money - amount;
   }
 }
+const personDetails = [
+  'Daniel',
+  'June,4',
+  'Male',
+  10,
+  50,
+  //feelings
+  45,
+  //intelligence
+  100,
+  ['golf', 'board_games'],
+  'Strongsville',
+  'state farm',
+  ['self'],
+  0
+];
+let sam = new Person(...personDetails);
+console.log(sam);
+sam.getNewJob('Autozone');
+console.log(sam);
+sam.getNewJob('Miller');
+console.log(sam);
 module.exports = Person;

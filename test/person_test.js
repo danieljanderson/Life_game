@@ -123,12 +123,12 @@ describe('person.js', () => {
   // current employer property
   it('it will retrieve the employer', () => {
     let daniel = new Person(...personDetails);
-    expect(daniel.currentEmployer).to.deep.equal('state farm');
+    expect(daniel.currentJob).to.deep.equal('state farm');
   });
   it('it will set the current employer', () => {
     let daniel = new Person(...personDetails);
-    daniel.currentEmployer = 'Nationwide';
-    expect(daniel.currentEmployer).to.deep.equal('Nationwide');
+    daniel.currentJob = 'Nationwide';
+    expect(daniel.currentJob).to.deep.equal('Nationwide');
   });
 
   //employment history
@@ -151,5 +151,35 @@ describe('person.js', () => {
     let daniel = new Person(...personDetails);
     daniel.numberOfApp = 8;
     expect(daniel.numberOfApp).to.equal(8);
+  });
+
+  //METHODS
+
+  // job related methods
+  it('it will add a app to the number of apps', () => {
+    let daniel = new Person(...personDetails);
+    daniel.applyForJob();
+    daniel.applyForJob();
+    expect(daniel.numberOfApp).to.equal(2);
+  });
+  it('running the new job method will add the new job to the current job and shift the old job to employment history', () => {
+    const daniel = new Person(...personDetails);
+    daniel.getNewJob('Dairy Queen');
+    expect(daniel.currentJob).to.deep.equal('Dairy Queen');
+    expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
+  });
+  it('it will add two jobs to the job history', () => {
+    const sam = new Person(...personDetails);
+    console.log(sam);
+    sam.getNewJob('Autozone');
+    console.log(sam);
+    sam.getNewJob('Miller');
+    console.log(sam);
+    expect(sam.currentJob).to.deep.equal('Miller');
+    expect(sam.employmentHistory).to.deep.equal([
+      'Autozone',
+      'state farm',
+      'self'
+    ]);
   });
 });
