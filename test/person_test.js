@@ -15,7 +15,7 @@ const personDetails = [
   'Strongsville',
   'state farm',
   ['self'],
-  null
+  0
 ];
 
 describe('person.js', () => {
@@ -129,5 +129,27 @@ describe('person.js', () => {
     let daniel = new Person(...personDetails);
     daniel.currentEmployer = 'Nationwide';
     expect(daniel.currentEmployer).to.deep.equal('Nationwide');
+  });
+
+  //employment history
+  it('it will retrieve the employment history', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.employmentHistory).to.deep.equal(['self']);
+  });
+  it('it will set the employment history', () => {
+    let daniel = new Person(...personDetails);
+    daniel.employmentHistory = ['auto zone'];
+    expect(daniel.employmentHistory).to.deep.equal(['auto zone']);
+  });
+
+  //number of apps
+  it('it will retrieve the number of times someone applied for a job', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.numberOfApp).to.equal(0);
+  });
+  it('it will set the number of apps', () => {
+    let daniel = new Person(...personDetails);
+    daniel.numberOfApp = 8;
+    expect(daniel.numberOfApp).to.equal(8);
   });
 });

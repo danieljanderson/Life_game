@@ -11,7 +11,7 @@ class Person {
     location,
     currentEmployer,
     employmentHistory,
-    numberOfApplications
+    numberOfApp
   ) {
     this._name = name;
     this._birthdate = birthdate;
@@ -24,7 +24,7 @@ class Person {
     this._location = location;
     this._currentEmployer = currentEmployer;
     this._employmentHistory = employmentHistory;
-    this._numberOfApplications = numberOfApplications;
+    this._numberOfApp = numberOfApp;
   }
   // getters and setters
   // get and set for names
@@ -102,7 +102,14 @@ class Person {
     return this._employmentHistory;
   }
   set employmentHistory(newJob) {
-    this._employmentHistory.push(newJob);
+    this._employmentHistory = newJob;
+  }
+  // get and set numberApps
+  get numberOfApp() {
+    return this._numberOfApp;
+  }
+  set numberOfApp(newAmount) {
+    this._numberOfApp = newAmount;
   }
   //methods
   applyForJobs() {
