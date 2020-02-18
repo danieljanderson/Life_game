@@ -7,7 +7,9 @@ const personDetails = [
   'Male',
   10,
   50,
+  //feelings
   45,
+  //intelligence
   100,
   ['golf', 'board_games'],
   'Strongsville',
@@ -69,5 +71,28 @@ describe('person.js', () => {
     let daniel = new Person(...personDetails);
     daniel.charisma = 789;
     expect(daniel.charisma).to.equal(789);
+  });
+
+  // feeling property
+  it('it will retrieve the feelings', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.feeling).to.equal(45);
+  });
+  it('it will set the feeling property', () => {
+    let daniel = new Person(...personDetails);
+    daniel.feeling = 80;
+    expect(daniel.feeling).to.equal(80);
+  });
+
+  // intelligence property
+  it('it will retrieve the intelligence', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.intelligence).to.equal(100);
+  });
+  it('it will set the intelligence', () => {
+    let daniel = new Person(...personDetails);
+    daniel.intelligence = 900;
+    console.log(daniel);
+    expect(daniel.intelligence).to.equal(900);
   });
 });

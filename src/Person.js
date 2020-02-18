@@ -64,8 +64,15 @@ class Person {
   get feeling() {
     return this._feeling;
   }
-  set feeling(newfeeling) {
-    this._feeling = newfeeling;
+  set feeling(newFeeling) {
+    this._feeling = newFeeling;
+  }
+  // get and set intelligence
+  get intelligence() {
+    return this._intelligence;
+  }
+  set intelligence(newIntelligence) {
+    this._intelligence = newIntelligence;
   }
   // get and set hobbies
   get hobbies() {
