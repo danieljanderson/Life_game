@@ -9,6 +9,7 @@ class Person {
     intelligence,
     hobbies,
     location,
+    currentEmployer,
     employmentHistory,
     numberOfApplications
   ) {
@@ -21,6 +22,7 @@ class Person {
     this._intelligence = intelligence;
     this._hobbies = hobbies;
     this._location = location;
+    this._currentEmployer = currentEmployer;
     this._employmentHistory = employmentHistory;
     this._numberOfApplications = numberOfApplications;
   }
@@ -87,6 +89,13 @@ class Person {
   }
   set location(newLocation) {
     this._location = newLocation;
+  }
+  //get and set currentEmployer
+  get currentEmployer() {
+    return this._currentEmployer;
+  }
+  set currentEmployer(newEmployer) {
+    this._currentEmployer = newEmployer;
   }
   // get and set employmentHistory
   get employmentHistory() {

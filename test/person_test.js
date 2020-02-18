@@ -13,7 +13,8 @@ const personDetails = [
   100,
   ['golf', 'board_games'],
   'Strongsville',
-  'self',
+  'state farm',
+  ['self'],
   null
 ];
 
@@ -108,7 +109,7 @@ describe('person.js', () => {
     expect(daniel.hobbies).to.deep.equal(['coding', 'baseball']);
   });
 
-  // location
+  // location property
   it('it will retrieve the location', () => {
     let daniel = new Person(...personDetails);
     expect(daniel.location).to.deep.equal('Strongsville');
@@ -117,5 +118,16 @@ describe('person.js', () => {
     let daniel = new Person(...personDetails);
     daniel.location = 'Akron';
     expect(daniel.location).to.deep.equal('Akron');
+  });
+
+  // current employer property
+  it('it will retrieve the employer', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.currentEmployer).to.deep.equal('state farm');
+  });
+  it('it will set the current employer', () => {
+    let daniel = new Person(...personDetails);
+    daniel.currentEmployer = 'Nationwide';
+    expect(daniel.currentEmployer).to.deep.equal('Nationwide');
   });
 });
