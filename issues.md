@@ -14,3 +14,11 @@ daniel.getNewJob('Autozone');
 daniel.getNewJob('Miller');
 it adds state farm twice to the employmentHistory array.
 It seems that the method getNewJob is running as soon as the class is being invocked.  Meaning that its running getNewJob before I mean to.
+
+some pointed out that this.employmentHistory.unshift(this.currentJob) is mutating the data directly.  instead I should write it like this :
+this._employmentHistory = [this._currentJob, ...this._employmentHistory];
+    this._currentJob = newJob;
+
+
+The reason why I had the above issue is because I was making a shallow copy of the array of employmentHistory.  Spread syntax doesnt copy nested arrays.  and employmentHistory is nested because its storied inside the variable of person.  
+That fixed the issue.

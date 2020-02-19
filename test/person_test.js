@@ -170,16 +170,41 @@ describe('person.js', () => {
   });
   it('it will add two jobs to the job history', () => {
     const sam = new Person(...personDetails);
-    console.log(sam);
     sam.getNewJob('Autozone');
-    console.log(sam);
     sam.getNewJob('Miller');
-    console.log(sam);
     expect(sam.currentJob).to.deep.equal('Miller');
     expect(sam.employmentHistory).to.deep.equal([
       'Autozone',
       'state farm',
       'self'
     ]);
+  });
+  it('it will remove the current job and add unemployed', () => {
+    const daniel = new Person(...personDetails);
+    daniel.getFired();
+    expect(daniel.currentJob).to.deep.equal('unemployed');
+    expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
+  });
+  it('person will get fired from one and then get hired at another job', () => {
+    const daniel = new Person(...personDetails);
+    daniel.getFired();
+    daniel.getNewJob('OEC');
+    daniel.getNewJob('Hyland');
+    expect(daniel.currentJob).to.deep.equal('Hyland');
+    expect(daniel.employmentHistory).to.deep.equal([
+      'OEC',
+      'state farm',
+      'self'
+    ]);
+  });
+  it('it will subtract the feeling', () => {
+    const daniel = new Person(...personDetails);
+    daniel.depression(5);
+    expect(daniel.feeling).to.equal(40);
+  });
+  it('it will add the feeling', () => {
+    const daniel = new Person(...personDetails);
+    daniel.excited(5);
+    expect(daniel.feeling).to.equal(50);
   });
 });

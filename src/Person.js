@@ -118,8 +118,16 @@ class Person {
     this._numberOfApp++;
   }
   getNewJob(newJob) {
-    this._employmentHistory = [this._currentJob, ...this._employmentHistory];
-    this._currentJob = newJob;
+    if (this._currentJob !== 'unemployed') {
+      this._employmentHistory = [this._currentJob, ...this._employmentHistory];
+      this._currentJob = newJob;
+    } else {
+      this._currentJob = newJob;
+    }
+  }
+  getFired() {
+    this._employmentHistory = [this._currentJob, ...this.employmentHistory];
+    this._currentJob = 'unemployed';
   }
 
   //feeling methods
@@ -138,26 +146,5 @@ class Person {
     this._money = this._money - amount;
   }
 }
-const personDetails = [
-  'Daniel',
-  'June,4',
-  'Male',
-  10,
-  50,
-  //feelings
-  45,
-  //intelligence
-  100,
-  ['golf', 'board_games'],
-  'Strongsville',
-  'state farm',
-  ['self'],
-  0
-];
-let sam = new Person(...personDetails);
-console.log(sam);
-sam.getNewJob('Autozone');
-console.log(sam);
-sam.getNewJob('Miller');
-console.log(sam);
+
 module.exports = Person;
