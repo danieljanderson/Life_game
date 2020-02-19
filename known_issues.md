@@ -5,3 +5,5 @@ I have to add logic to search the employment history to see if the person has wo
 I have to add logic to so if someone gets a job they really want the mood goes up more than if they get a job that they didnt really want.
 
 I have to add logic so if someone losses a job they really enjoyed the mood goes down more than if they lose a job they didn't really want.
+
+Have to add two types of accounts savings and checking and logic to see if they are bankruptcy

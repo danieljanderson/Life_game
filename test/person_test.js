@@ -207,4 +207,14 @@ describe('person.js', () => {
     daniel.excited(5);
     expect(daniel.feeling).to.equal(50);
   });
+  it('it will add money', () => {
+    const daniel = new Person(...personDetails);
+    daniel.deposit(10);
+    expect(daniel.money).to.equal(20);
+  });
+  it('it will subtract money', () => {
+    const daniel = new Person(...personDetails);
+    daniel.withdrawal(5);
+    expect(daniel.money).to.equal(5);
+  });
 });
