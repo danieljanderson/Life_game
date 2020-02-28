@@ -52,7 +52,8 @@ class Relationship {
         this._dating = true;
       } else if (
         this._dating === true &&
-        this.connection > 60 && this.connection < 80
+        this.connection > 60 &&
+        this.connection < 80
       ) {
         console.log(
           `You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`
@@ -66,5 +67,14 @@ class Relationship {
     } else {
       this._dating = 'NOT POSSIBLE';
     }
+  }
+  addActivity(newActivity) {
+    this._activityHistory = [newActivity, ...this._activityHistory];
+  }
+  removeHobby(Activity) {
+    //finds the activity in the activityHistory array and removes it
+    this._activityHistory.splice(this._activityHistory.indexOf(Activity), 1);
+    // reasigns the this._activityHistory to the new array
+    this._activityHistory = this._activityHistory;
   }
 }

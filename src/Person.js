@@ -116,11 +116,14 @@ class Person {
 
   // hobbie methods
   addHobby(newHobby) {
+    //this makes a deep copy of hobbies
     this.hobbies = [newHobby, ...this.hobbies];
   }
   removeHobby(Hobby) {
+    // this finds the hobby to remove from the Hobby array and removes it
     this._hobbies.splice(this._hobbies.indexOf(Hobby), 1);
-    this._hobbies = this.hobbies;
+    //this reasigns the hard copy to the new hobbies array
+    this._hobbies = this._hobbies;
   }
   //job methods
   applyForJob() {
