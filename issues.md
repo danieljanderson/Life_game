@@ -22,3 +22,33 @@ this._employmentHistory = [this._currentJob, ...this._employmentHistory];
 
 The reason why I had the above issue is because I was making a shallow copy of the array of employmentHistory.  Spread syntax doesnt copy nested arrays.  and employmentHistory is nested because its storied inside the variable of person.  
 That fixed the issue.
+
+# Friday Feb 28 2020
+
+I am having a issue with my design.  So Inheritance is when a class gets functions from a parent class (any time you see the key word `extends` its a parent function of the what ever comes next.)  However my design is already having issues.  If I keep going the way I am going I am going to have a Person class, a Relationship class , a dating class , and a jobs class.  This is where I am introduced to composition.  
+https://tylermcginnis.com/javascript-inheritance-vs-composition/
+https://alligator.io/js/class-composition/
+https://www.youtube.com/watch?v=PFmuCDHHpwk
+
+Composition is using premade functions to define the objects.  In other words inheritance is designing objects on what they are and composition is designing objects around what they do.
+
+Whatching the last link is very helpful.  In it the author describes the difference between primitives and Reference types
+the main take away is primitives value is stored in the variable name and reference  variables store the address of said value.
+
+primitives in javascript are : Number, string, boolean, symbol, undifined, and null
+and the reference types are Objects,arrays and functions
+
+for example if i do this
+x =6
+y=5
+x=4
+y will always be 5 no matter how many times I change x.
+
+if I do this 
+x = [3,4]
+y = x
+
+x = [3,2,3]
+y will change with  x because its pointing to an address NOT A VALUE.
+
+My design might need to be refactored.

@@ -38,5 +38,26 @@ class Relationship {
   }
   set dating(dating){
       this._dating = dating
-  }
+    }
+    // methods
+    checkRelationshipStatus(){
+        if((this.members[0].gender === 'male' && this.members[1]==='female') || (this.members[0].gender === 'female' && this.members[1] == 'male')){
+            if(this.connection === 100 && this._dating===false){
+                console.log(`congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`)
+                this._dating= true
+            }
+            else if ((this._dating === true) && (this.connection> 60 && this.connection<80)){ 
+                console.log(`You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`)
+            }
+            else if (this.dating === true && this.connection<60){
+                console.log(`You ${this.members[0].name} and ${this.members[1].name} break up`)
+                this._dating = false
+            }
+        }
+        else{
+            this._dating = 'NOT POSSIBLE'
+        }
+
+
+    }
 }
