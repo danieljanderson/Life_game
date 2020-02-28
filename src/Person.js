@@ -113,6 +113,15 @@ class Person {
   }
   //methods
   //todo add methods for adding a hobbie and then one for losing a hobby
+
+  // hobbie methods
+  addHobby(newHobby) {
+    this.hobbies = [newHobby, ...this.hobbies];
+  }
+  removeHobby(Hobby) {
+    this._hobbies.splice(this._hobbies.indexOf(Hobby), 1);
+    this._hobbies = this.hobbies;
+  }
   //job methods
   applyForJob() {
     this._numberOfApp++;

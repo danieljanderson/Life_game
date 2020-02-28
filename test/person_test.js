@@ -217,4 +217,21 @@ describe('person.js', () => {
     daniel.withdrawal(5);
     expect(daniel.money).to.equal(5);
   });
+  it('it will add a hobbie', () => {
+    const daniel = new Person(...personDetails);
+    daniel.addHobby('coding');
+    expect(daniel.hobbies).to.deep.equal(['coding', 'golf', 'board_games']);
+  });
+  it('it will remove a hobby', () => {
+    const daniel = new Person(...personDetails);
+    daniel.addHobby('basketball');
+    daniel.addHobby('tennis');
+    daniel.removeHobby('golf');
+    console.log(daniel.hobbies);
+    expect(daniel.hobbies).to.deep.equal([
+      'tennis',
+      'basketball',
+      'board_games'
+    ]);
+  });
 });
