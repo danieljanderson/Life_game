@@ -15,7 +15,8 @@ const personDetails = [
   'Strongsville',
   'state farm',
   ['self'],
-  0
+  0,
+  true
 ];
 
 describe('person.js', () => {
@@ -140,6 +141,17 @@ describe('person.js', () => {
     let daniel = new Person(...personDetails);
     daniel.employmentHistory = ['auto zone'];
     expect(daniel.employmentHistory).to.deep.equal(['auto zone']);
+  });
+
+  // has car
+  it('it will retrieve the value if he has a car or not', () => {
+    let daniel = new Person(...personDetails);
+    expect(daniel.hasCar).to.equal(true);
+  });
+  it('it will change the has car from true to false', () => {
+    let daniel = new Person(...personDetails);
+    daniel.hasCar = false;
+    expect(daniel.hasCar).to.equal(false);
   });
 
   //number of apps

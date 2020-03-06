@@ -11,7 +11,8 @@ class Person {
     location,
     currentJob,
     employmentHistory,
-    numberOfApp
+    numberOfApp,
+    car
   ) {
     this._name = name;
     this._birthdate = birthdate;
@@ -25,6 +26,7 @@ class Person {
     this._currentJob = currentJob;
     this._employmentHistory = employmentHistory;
     this._numberOfApp = numberOfApp;
+    this._hasCar = car;
   }
   // getters and setters
   // get and set for names
@@ -111,6 +113,14 @@ class Person {
   set numberOfApp(newAmount) {
     this._numberOfApp = newAmount;
   }
+  // get and set for car property
+  get hasCar() {
+    return this._hasCar;
+  }
+  set hasCar(car) {
+    this._hasCar = car;
+  }
+
   //methods
   //todo add methods for adding a hobbie and then one for losing a hobby
 

@@ -13,3 +13,5 @@ Have to add two types of accounts savings and checking and logic to see if they 
 come up with something that checks the hobbies between person 1 and person 2 and then suggest doing said event.  If you end up doing it the connection increases more than if you chose to do something else.
 
 keep track of how many times a activity has been done.
+
+I need to add a way to keep track of the length of time someone started to date and when it ended.
