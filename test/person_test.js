@@ -239,7 +239,6 @@ describe('person.js', () => {
     daniel.addHobby('basketball');
     daniel.addHobby('tennis');
     daniel.removeHobby('golf');
-    console.log(daniel.hobbies);
     expect(daniel.hobbies).to.deep.equal([
       'tennis',
       'basketball',

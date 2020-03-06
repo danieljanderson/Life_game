@@ -12,8 +12,8 @@ class Relationship {
   get members() {
     return this._members;
   }
-  set members(person1, person2) {
-    this._members = [person1, person2];
+  set members(newMembers) {
+    this._members = newMembers;
   }
 
   // activity History
@@ -77,6 +77,9 @@ class Relationship {
     } else {
       this._dating = 'NOT POSSIBLE';
     }
+  }
+  getMemberNames() {
+    return [this.members[0], this.members[1]];
   }
   addActivity(newActivity) {
     this._activityHistory = [newActivity, ...this._activityHistory];

@@ -31,3 +31,13 @@ const person2Details = [
   'Great Lake Cheese',
   ['self', 0]
 ];
+
+describe('Testing Relationship.js', () => {
+  it('it will retrieve the members', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJana = new Relationship(daniel, janna);
+    expect(danielJana.members[0].name).to.deep.equal('Daniel');
+    expect(danielJana.members[1].name).to.deep.equal('Janna');
+  });
+});
