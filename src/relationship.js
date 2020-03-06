@@ -1,10 +1,10 @@
-const Person = require('./Person');
 class Relationship {
   constructor(person1, person2) {
     this._members = [person1, person2];
     this._activityHistory = [];
     this._connection = 0;
     this._dating = false;
+    this._startDatingDate = new Date();
   }
   // SETTERS AND GETTERS
 
@@ -39,6 +39,15 @@ class Relationship {
   set dating(dating) {
     this._dating = dating;
   }
+
+  // start dating
+  get startDatingDate() {
+    return this._startDatingDate;
+  }
+  set startDatingDate(date) {
+    this._startDatingDate = date;
+  }
+
   // methods
   checkRelationshipStatus() {
     if (
@@ -63,6 +72,7 @@ class Relationship {
           `You ${this.members[0].name} and ${this.members[1].name} break up`
         );
         this._dating = false;
+        this._endDating = new Date();
       }
     } else {
       this._dating = 'NOT POSSIBLE';
@@ -78,3 +88,4 @@ class Relationship {
     this._activityHistory = this._activityHistory;
   }
 }
+module.exports = Relationship;
