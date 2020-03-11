@@ -12,7 +12,7 @@ class Relationship {
   get members() {
     return this._members;
   }
-  set members(newMembers) {
+  set members([newMembers]) {
     this._members = newMembers;
   }
 

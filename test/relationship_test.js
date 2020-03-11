@@ -40,4 +40,18 @@ describe('Testing Relationship.js', () => {
     expect(danielJana.members[0].name).to.deep.equal('Daniel');
     expect(danielJana.members[1].name).to.deep.equal('Janna');
   });
+  it('it will change the names', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let tonyLeah = new Relationship(daniel, janna);
+    console.log('first person before the change ' + tonyLeah.members[0].name);
+    console.log('second person beofe the change' + tonyLeah.members[1].name);
+    daniel.name = 'Tony';
+    janna.name = 'Leah';
+    newName = [daniel, janna];
+    tonyLeah.members = [newName];
+
+    expect(tonyLeah.members[0].name).to.deep.equal('Tony');
+    expect(tonyLeah.members[1].name).to.deep.equal('Leah');
+  });
 });
