@@ -83,4 +83,29 @@ describe('Testing Relationship.js', () => {
       'Hiking'
     ]);
   });
+
+  // testing the getter and setters for the connection property
+  it('it will set the connection value', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.connection = 5;
+    expect(danielJanna.connection).to.equal(5);
+  });
+  it('it will get the connection', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.connection = 6;
+    let tempConnection = danielJanna.connection;
+    expect(danielJanna.connection).to.equal(tempConnection);
+  });
+  it('it will override the connection', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.connection = 6;
+    danielJanna.connection = 10;
+    expect(danielJanna.connection).to.equal(10);
+  });
 });

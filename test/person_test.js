@@ -208,6 +208,7 @@ describe('person.js', () => {
       'state farm',
       'self'
     ]);
+    // OTHER METHODS
   });
   it('it will subtract the feeling', () => {
     const daniel = new Person(...personDetails);
