@@ -61,8 +61,7 @@ describe('Testing Relationship.js', () => {
     let daniel = new Person(...person1Details);
     let janna = new Person(...person2Details);
     let danielJanna = new Relationship(daniel, janna);
-    danielJanna.activityHistory = ['Movies', 'Golf'];
-    expect(danielJanna.activityHistory).to.deep.equal(['Movies', 'Golf']);
+    expect(danielJanna.activityHistory).to.deep.equal([]);
   });
   it('it will get activity history', () => {
     let daniel = new Person(...person1Details);
@@ -72,25 +71,13 @@ describe('Testing Relationship.js', () => {
     let testGet = danielJanna.activityHistory;
     expect(danielJanna.activityHistory).to.deep.equal(testGet);
   });
-  it('it will override activity history', () => {
-    let daniel = new Person(...person1Details);
-    let janna = new Person(...person2Details);
-    let danielJanna = new Relationship(daniel, janna);
-    danielJanna.activityHistory = ['Movies', 'Golf'];
-    danielJanna.activityHistory = ['Board Games', 'Hiking'];
-    expect(danielJanna.activityHistory).to.deep.equal([
-      'Board Games',
-      'Hiking'
-    ]);
-  });
 
   // testing the getter and setters for the connection property
   it('it will set the connection value', () => {
     let daniel = new Person(...person1Details);
     let janna = new Person(...person2Details);
     let danielJanna = new Relationship(daniel, janna);
-    danielJanna.connection = 5;
-    expect(danielJanna.connection).to.equal(5);
+    expect(danielJanna.connection).to.equal(0);
   });
   it('it will get the connection', () => {
     let daniel = new Person(...person1Details);
@@ -100,12 +87,19 @@ describe('Testing Relationship.js', () => {
     let tempConnection = danielJanna.connection;
     expect(danielJanna.connection).to.equal(tempConnection);
   });
-  it('it will override the connection', () => {
+
+  // testing the getters and setters for dating property
+  it('it will get the dating property', () => {
     let daniel = new Person(...person1Details);
     let janna = new Person(...person2Details);
     let danielJanna = new Relationship(daniel, janna);
-    danielJanna.connection = 6;
-    danielJanna.connection = 10;
-    expect(danielJanna.connection).to.equal(10);
+    expect(danielJanna.dating).to.equal(false);
+  });
+  it('it will set the dating property', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.dating = true;
+    expect(danielJanna.dating).to.equal(true);
   });
 });
