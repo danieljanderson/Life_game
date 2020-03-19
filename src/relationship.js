@@ -48,12 +48,19 @@ class Relationship {
   set startDatingDate(date) {
     this._startDatingDate = date;
   }
-
+  // relationship status
+  get datingStatus() {
+    return this._datingStatus;
+  }
+  set datingStatus(newStatus) {
+    this._datingStatus = newStatus;
+  }
   // methods
   checkRelationshipStatus() {
     if (
-      (this.members[0].gender === 'male' && this.members[1] === 'female') ||
-      (this.members[0].gender === 'female' && this.members[1] == 'male')
+      (this.members[0].gender === 'Male' &&
+        this.members[1].gender === 'Female') ||
+      (this.members[0].gender === 'Female' && this.members[1].gender == 'Male')
     ) {
       if (this.connection === 100 && this._dating === false) {
         this._datingStatus = `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`;
@@ -63,8 +70,7 @@ class Relationship {
         this.connection > 60 &&
         this.connection < 80
       ) {
-        this
-          ._datingStatus`You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`;
+        this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`;
       } else if (this.dating === true && this.connection < 60) {
         this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} break up`;
         this._dating = false;

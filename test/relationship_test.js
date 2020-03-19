@@ -119,4 +119,25 @@ describe('Testing Relationship.js', () => {
       '2020-07-08T17:17:46.123Z'
     );
   });
+
+  // this will change dating status automatically
+  it('it will not be possible because both persons are males', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    janna.gender = 'Male';
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.checkRelationshipStatus();
+    expect(danielJanna.datingStatus).to.deep.equal('NOT POSSIBLE');
+  });
+  it('it will say that you just started to date', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.connection = 100;
+    danielJanna.checkRelationshipStatus();
+    expect(danielJanna.datingStatus).to.deep.equal(
+      `congratulations You Daniel and Janna just started dating`
+    );
+    expect(danielJanna.dating).to.equal(true);
+  });
 });
