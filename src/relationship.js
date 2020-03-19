@@ -5,6 +5,7 @@ class Relationship {
     this._connection = 0;
     this._dating = false;
     this._startDatingDate = new Date();
+    this._datingStatus = '';
   }
   // SETTERS AND GETTERS
 
@@ -55,27 +56,22 @@ class Relationship {
       (this.members[0].gender === 'female' && this.members[1] == 'male')
     ) {
       if (this.connection === 100 && this._dating === false) {
-        console.log(
-          `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`
-        );
+        this._datingStatus = `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`;
         this._dating = true;
       } else if (
         this._dating === true &&
         this.connection > 60 &&
         this.connection < 80
       ) {
-        console.log(
-          `You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`
-        );
+        this
+          ._datingStatus`You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`;
       } else if (this.dating === true && this.connection < 60) {
-        console.log(
-          `You ${this.members[0].name} and ${this.members[1].name} break up`
-        );
+        this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} break up`;
         this._dating = false;
         this._endDating = new Date();
       }
     } else {
-      this._dating = 'NOT POSSIBLE';
+      this._datingStatus = 'NOT POSSIBLE';
     }
   }
   getMemberNames() {
