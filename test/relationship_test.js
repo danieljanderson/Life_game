@@ -54,4 +54,33 @@ describe('Testing Relationship.js', () => {
     expect(tonyLeah.members[0].name).to.deep.equal('Tony');
     expect(tonyLeah.members[1].name).to.deep.equal('Leah');
   });
+  // testing the setters and getters for activity property.
+
+  //I have to test the setter for the the activity history because its not an argument in the constructor
+  it('it will set activity history', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.activityHistory = ['Movies', 'Golf'];
+    expect(danielJanna.activityHistory).to.deep.equal(['Movies', 'Golf']);
+  });
+  it('it will get activity history', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.activityHistory = ['Movies', 'Golf'];
+    let testGet = danielJanna.activityHistory;
+    expect(danielJanna.activityHistory).to.deep.equal(testGet);
+  });
+  it('it will override activity history', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.activityHistory = ['Movies', 'Golf'];
+    danielJanna.activityHistory = ['Board Games', 'Hiking'];
+    expect(danielJanna.activityHistory).to.deep.equal([
+      'Board Games',
+      'Hiking'
+    ]);
+  });
 });
