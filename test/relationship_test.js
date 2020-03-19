@@ -102,4 +102,21 @@ describe('Testing Relationship.js', () => {
     danielJanna.dating = true;
     expect(danielJanna.dating).to.equal(true);
   });
+
+  // testing the getters and setters for start dating date
+  it('it will get start dating date', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    expect(danielJanna.startDatingDate).to.deep.equal(new Date());
+  });
+  it('it will set the start date when they started to date', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.startDatingDate = '2020-07-08T17:17:46.123Z';
+    expect(danielJanna.startDatingDate).to.deep.equal(
+      '2020-07-08T17:17:46.123Z'
+    );
+  });
 });
