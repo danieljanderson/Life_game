@@ -6,6 +6,7 @@ class Relationship {
     this._dating = false;
     this._startDatingDate = new Date();
     this._datingStatus = '';
+    this._endDatingDate;
   }
   // SETTERS AND GETTERS
 
@@ -48,6 +49,15 @@ class Relationship {
   set startDatingDate(date) {
     this._startDatingDate = date;
   }
+
+  // end dating
+  get endDatingDate() {
+    return this._endDatingDate;
+  }
+  set endDatingDate(endDate) {
+    this._endDatingDate = endDate;
+  }
+
   // relationship status
   get datingStatus() {
     return this._datingStatus;
@@ -74,7 +84,7 @@ class Relationship {
       } else if (this.dating === true && this.connection < 60) {
         this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} break up`;
         this._dating = false;
-        this._endDating = new Date();
+        this._endDatingDate = new Date();
       }
     } else {
       this._datingStatus = 'NOT POSSIBLE';
