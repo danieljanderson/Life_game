@@ -169,4 +169,11 @@ describe('Testing Relationship.js', () => {
     expect(danielJanna.dating).to.equal(false);
     expect(danielJanna.endDatingDate).to.deep.equal(endDate);
   });
+  it('it will get the persons names', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    let memberNames = danielJanna.getMemberNames();
+    expect(memberNames).to.deep.equal(['Daniel', 'Janna']);
+  });
 });

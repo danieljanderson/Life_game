@@ -91,7 +91,7 @@ class Relationship {
     }
   }
   getMemberNames() {
-    return [this.members[0], this.members[1]];
+    return [this.members[0].name, this.members[1].name];
   }
   addActivity(newActivity) {
     this._activityHistory = [newActivity, ...this._activityHistory];
