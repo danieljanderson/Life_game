@@ -52,3 +52,25 @@ x = [3,2,3]
 y will change with  x because its pointing to an address NOT A VALUE.
 
 My design might need to be refactored.
+
+# March 25, 2020 
+I am having difficulty finding a solution to the ability to add multiple activies at once.  If I just add one activity it will work but not two.
+in my function I had 
+``` addActivity(newActivity, ...otherActivity) {
+    this._activityHistory = [
+      newActivity,
+      otherActivity,
+      ...this._activityHistory
+    ];
+  }```
+  the issue was that the out put would be ['golf,[swing,boardgames]]
+  as a side not golf and swing and boardgames are activites I wanted to add.
+  the reason why is that rest keeps everything in an array.  meaning that otherActivity becomes an array because rest doesnt unpack it.  
+   addActivity(newActivity, ...otherActivity) {
+    this._activityHistory = [
+      newActivity,
+      ...otherActivity,
+      ...this._activityHistory
+    ];
+  }
+  this solves it because rest unpacks the otherActivity array.

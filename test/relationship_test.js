@@ -176,4 +176,33 @@ describe('Testing Relationship.js', () => {
     let memberNames = danielJanna.getMemberNames();
     expect(memberNames).to.deep.equal(['Daniel', 'Janna']);
   });
+  it('it will add a activity', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.addActivity('Golf');
+    expect(danielJanna.activityHistory).to.deep.equal(['Golf']);
+  });
+  it('it will add multiple activity', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.addActivity('golf', 'boardgames', 'swing dancing');
+    expect(danielJanna.activityHistory).to.deep.equal([
+      'golf',
+      'boardgames',
+      'swing dancing'
+    ]);
+  });
+  it('it will remove an activity', () => {
+    let daniel = new Person(...person1Details);
+    let janna = new Person(...person2Details);
+    let danielJanna = new Relationship(daniel, janna);
+    danielJanna.addActivity('golf', 'boardgames', 'swing dancing');
+    danielJanna.removeHobby('boardgames');
+    expect(danielJanna.activityHistory).to.deep.equal([
+      'golf',
+      'swing dancing'
+    ]);
+  });
 });

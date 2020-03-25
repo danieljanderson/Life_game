@@ -15,3 +15,5 @@ come up with something that checks the hobbies between person 1 and person 2 and
 keep track of how many times a activity has been done.
 
 I need to add a way to keep track of the length of time someone started to date and when it ended.
+
+Add a way to remove multiple jobs, hobbies, etc

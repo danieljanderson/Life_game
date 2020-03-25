@@ -125,9 +125,9 @@ class Person {
   //todo add methods for adding a hobbie and then one for losing a hobby
 
   // hobbie methods
-  addHobby(newHobby) {
+  addHobby(newHobby, ...otherHobbies) {
     //this makes a deep copy of hobbies
-    this.hobbies = [newHobby, ...this.hobbies];
+    this.hobbies = [newHobby, ...otherHobbies, ...this.hobbies];
   }
   removeHobby(Hobby) {
     // this finds the hobby to remove from the Hobby array and removes it

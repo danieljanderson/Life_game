@@ -93,8 +93,12 @@ class Relationship {
   getMemberNames() {
     return [this.members[0].name, this.members[1].name];
   }
-  addActivity(newActivity) {
-    this._activityHistory = [newActivity, ...this._activityHistory];
+  addActivity(newActivity, ...otherActivity) {
+    this._activityHistory = [
+      newActivity,
+      ...otherActivity,
+      ...this._activityHistory
+    ];
   }
   removeHobby(Activity) {
     //finds the activity in the activityHistory array and removes it
