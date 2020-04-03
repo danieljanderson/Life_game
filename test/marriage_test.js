@@ -90,15 +90,9 @@ describe('testing Marriage class', () => {
     ]);
   });
   it('it will test to see if the start dating date and the wedding dates are different', () => {
-    function newMarriage(twoPeople) {
-      twoPeople = new Marriage(twoPeople);
-      console.log(danielLeah);
-      console.log('this is the twopeople!!!!!!!');
-      console.log(twoPeople);
-    }
     let daniel = new Person(...person1Details);
     let leah = new Person(...person2Details);
     let danielLeah = new Relationship(daniel, leah);
-    setTimeout(newMarriage, 1500, danielLeah);
+    danielLeah = new Marriage(danielLeah);
   });
 });
