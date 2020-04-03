@@ -38,13 +38,32 @@ describe('testing Marriage class', () => {
     let daniel = new Person(...person1Details);
     let leah = new Person(...person2Details);
     let danielLeah = new Relationship(daniel, leah);
-    console.log('this is danielLeah for relationship ');
-    console.log(danielLeah.members[0].name);
-    //console.log(danielLeah);
     danielLeah = new Marriage(danielLeah);
-    console.log('this is danielLeah for marriage ');
-    console.log(danielLeah.members[0].name);
-    expect(danielLeah.members[0].name).to.deep.equal('Danel');
-    //expect(danielLeah.members[1].name).to.deep.equal('Leah');
+    expect(danielLeah.members[0].name).to.deep.equal('Daniel');
+    expect(danielLeah.members[1].name).to.deep.equal('Leah');
+  });
+  it('it will add the money from the two married people together', () => {
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    danielLeah = new Marriage(danielLeah);
+    console.log(danielLeah);
+    expect(danielLeah.money).to.equal(40);
+  });
+  it('it will set the connection value', () => {
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    danielLeah = new Marriage(danielLeah);
+    expect(danielLeah.connection).to.equal(100);
+  });
+  it('it will get the connection', () => {
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    danielLeah = new Marriage(danielLeah);
+    danielLeah.connection = 6;
+    let tempConnection = danielLeah.connection;
+    expect(danielLeah.connection).to.equal(tempConnection);
   });
 });

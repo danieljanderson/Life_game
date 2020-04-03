@@ -127,7 +127,7 @@ describe('Testing Relationship.js', () => {
     janna.gender = 'Male';
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.datingStatus).to.deep.equal('NOT POSSIBLE');
+    expect(danielJanna.relationshipStatus).to.deep.equal('NOT POSSIBLE');
   });
   it('dating status will say started to date', () => {
     let daniel = new Person(...person1Details);
@@ -135,7 +135,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.connection = 100;
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.datingStatus).to.deep.equal(
+    expect(danielJanna.relationshipStatus).to.deep.equal(
       `congratulations You Daniel and Janna just started dating`
     );
     expect(danielJanna.dating).to.equal(true);
@@ -148,7 +148,7 @@ describe('Testing Relationship.js', () => {
     danielJanna.checkRelationshipStatus();
     danielJanna.connection = 65;
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.datingStatus).to.deep.equal(
+    expect(danielJanna.relationshipStatus).to.deep.equal(
       `You Daniel and Janna are close to breaking up`
     );
     expect(danielJanna.dating).to.equal(true);
@@ -163,7 +163,7 @@ describe('Testing Relationship.js', () => {
     danielJanna.connection = 0;
     danielJanna.checkRelationshipStatus();
     endDate = danielJanna.endDatingDate;
-    expect(danielJanna.datingStatus).to.deep.equal(
+    expect(danielJanna.relationshipStatus).to.deep.equal(
       `You Daniel and Janna break up`
     );
     expect(danielJanna.dating).to.equal(false);
