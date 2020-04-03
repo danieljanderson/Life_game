@@ -12,6 +12,7 @@ class Marriage extends Relationship {
     this._relationshipStatus = 'newlyWeds';
     this._connection = 100;
     this._dating = true;
+    this.activityHistory = relationshipDetails.activityHistory;
   }
   get money() {
     return this._money;

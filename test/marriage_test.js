@@ -47,7 +47,6 @@ describe('testing Marriage class', () => {
     let leah = new Person(...person2Details);
     let danielLeah = new Relationship(daniel, leah);
     danielLeah = new Marriage(danielLeah);
-    console.log(danielLeah);
     expect(danielLeah.money).to.equal(40);
   });
   it('it will set the connection value', () => {
@@ -65,5 +64,41 @@ describe('testing Marriage class', () => {
     danielLeah.connection = 6;
     let tempConnection = danielLeah.connection;
     expect(danielLeah.connection).to.equal(tempConnection);
+  });
+  it('it will keep the activity history', () => {
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    danielLeah.addActivity('golf', 'boardgames', 'swing dancing');
+    danielLeah.removeHobby('boardgames');
+    danielLeah = new Marriage(danielLeah);
+    expect(danielLeah.activityHistory).to.deep.equal(['golf', 'swing dancing']);
+  });
+  it('it will add to the activity history', () => {
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    danielLeah.addActivity('golf', 'boardgames', 'swing dancing');
+    danielLeah.removeHobby('boardgames');
+    danielLeah = new Marriage(danielLeah);
+    danielLeah.addActivity('video chat', 'hiking');
+    expect(danielLeah.activityHistory).to.deep.equal([
+      'video chat',
+      'hiking',
+      'golf',
+      'swing dancing'
+    ]);
+  });
+  it('it will test to see if the start dating date and the wedding dates are different', () => {
+    function newMarriage(twoPeople) {
+      twoPeople = new Marriage(twoPeople);
+      console.log(danielLeah);
+      console.log('this is the twopeople!!!!!!!');
+      console.log(twoPeople);
+    }
+    let daniel = new Person(...person1Details);
+    let leah = new Person(...person2Details);
+    let danielLeah = new Relationship(daniel, leah);
+    setTimeout(newMarriage, 1500, danielLeah);
   });
 });

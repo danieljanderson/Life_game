@@ -20,8 +20,13 @@ I need to add a way to keep track of the length of time someone started to date 
 
 Add a way to remove multiple jobs, hobbies, etc
 
+figure out how to change one persons info on the relationship.  IE if boyfriend gets fired after they start dating.
+
+when adding an activity make sure its not already in the array
+
 # for the marriage class
 add feature for kids
 
 add logic to have deaths.  
 
+figure out how to change one persons info on the relationship.  IE if husband gets fired after they start dating.
