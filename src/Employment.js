@@ -73,4 +73,26 @@ class Employment {
   set endDate(date) {
     this._endDate = date;
   }
+  // methods
+  payCheck() {
+    return this._numberOfHours * this._payRate;
+  }
+  raise(newRate) {
+    this._payRate = newRate;
+  }
+  // methods
+  promotion(newPayrate, newTitle, newJobDudies) {
+    if (newTitle === undefined) {
+      //           // if you got a raise but kept the same job title than this should keep the same job title
+      this._jobTitle = this._jobTitle;
+    } else {
+      this._jobTitle = newTitle;
+    }
+    if (newJobDudies === undefined) {
+      this._jobDuties = this._jobDuties;
+    } else {
+      this._jobDuties = newJobDudies;
+    }
+    this._payRate = newPayrate;
+  }
 }
