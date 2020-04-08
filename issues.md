@@ -74,3 +74,22 @@ in my function I had
     ];
   }
   this solves it because rest unpacks the otherActivity array.
+```
+#  March 26, 2020
+I am making a sub class of Relationships.  However the issue is how its storing things.  
+so when I go from relationship to marriage the data looks like this
+Relationship
+members:['person one','person 2']
+and then all the methods below it.
+
+the marriage then goes like this
+marriage{
+    relationship[members[]]
+}
+
+The solution to it was that I need to send the members of the relationship in the constructor of the marriage class.
+I need to do this
+```
+   super(relationshipDetails.members[0], relationshipDetails.members[1]);
+   ``` 
+   the reason being is that the constructor of the relationship class is looking for two people.

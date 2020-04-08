@@ -5,7 +5,7 @@ class Relationship {
     this._connection = 0;
     this._dating = false;
     this._startDatingDate = new Date();
-    this._datingStatus = '';
+    this._relationshipStatus = '';
     this._endDatingDate;
   }
   // SETTERS AND GETTERS
@@ -59,11 +59,11 @@ class Relationship {
   }
 
   // relationship status
-  get datingStatus() {
-    return this._datingStatus;
+  get relationshipStatus() {
+    return this._relationshipStatus;
   }
-  set datingStatus(newStatus) {
-    this._datingStatus = newStatus;
+  set relationshipStatus(newStatus) {
+    this._relationshipStatus = newStatus;
   }
   // methods
   checkRelationshipStatus() {
@@ -73,21 +73,21 @@ class Relationship {
       (this.members[0].gender === 'Female' && this.members[1].gender == 'Male')
     ) {
       if (this.connection === 100 && this._dating === false) {
-        this._datingStatus = `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`;
+        this._relationshipStatus = `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`;
         this._dating = true;
       } else if (
         this._dating === true &&
         this.connection > 60 &&
         this.connection < 80
       ) {
-        this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`;
+        this._relationshipStatus = `You ${this.members[0].name} and ${this.members[1].name} are close to breaking up`;
       } else if (this.dating === true && this.connection < 60) {
-        this._datingStatus = `You ${this.members[0].name} and ${this.members[1].name} break up`;
+        this._relationshipStatus = `You ${this.members[0].name} and ${this.members[1].name} break up`;
         this._dating = false;
         this._endDatingDate = new Date();
       }
     } else {
-      this._datingStatus = 'NOT POSSIBLE';
+      this._relationshipStatus = 'NOT POSSIBLE';
     }
   }
   getMemberNames() {
