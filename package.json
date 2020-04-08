@@ -18,8 +18,8 @@
   "homepage": "https://github.com/danieljanderson/life_game#readme",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.0.1",
-    "node": "^13.8.0",
+    "mocha": "^7.1.1",
+    "node": "^13.12.0",
     "nodemon": "^2.0.2"
   }
 }
