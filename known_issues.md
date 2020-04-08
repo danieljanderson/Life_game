@@ -30,3 +30,7 @@ add feature for kids
 add logic to have deaths.  
 
 figure out how to change one persons info on the relationship.  IE if husband gets fired after they start dating.
+
+# for the employment class
+add benefits
+and ptos
