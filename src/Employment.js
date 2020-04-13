@@ -29,7 +29,7 @@ class Employment {
     return this._location;
   }
   set location(newLocation) {
-    this._companyName = newLocation;
+    this._location = newLocation;
   }
   get jobTitle() {
     return this._jobTitle;
@@ -82,7 +82,7 @@ class Employment {
   }
   // methods
   promotion(newPayrate, newTitle, newJobDudies) {
-    if (newTitle === undefined) {
+    if (newTitle === undefined || newTitle === this.jobTitle) {
       //           // if you got a raise but kept the same job title than this should keep the same job title
       this._jobTitle = this._jobTitle;
     } else {
@@ -93,6 +93,10 @@ class Employment {
     } else {
       this._jobDuties = newJobDudies;
     }
-    this._payRate = newPayrate;
+    raise(newPayrate);
+  }
+  fired() {
+    this._endDate = new Date();
   }
 }
+module.exports = Employment;
