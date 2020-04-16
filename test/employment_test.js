@@ -73,4 +73,9 @@ describe('Employment.js', () => {
     job.payRate = 80;
     expect(job.payRate).to.equal(80);
   });
+  it('it will calculate the paycheck', () => {
+    let job = new Employment(...employmentDetails);
+    money = job.payCheck();
+    expect(money).to.equal(800);
+  });
 });

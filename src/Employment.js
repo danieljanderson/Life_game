@@ -78,7 +78,7 @@ class Employment {
     return this._numberOfHours * this._payRate;
   }
   raise(newRate) {
-    this._payRate = newRate;
+    this._payRate = this._payRate + newRate;
   }
   // methods
   promotion(newPayrate, newTitle, newJobDudies) {
