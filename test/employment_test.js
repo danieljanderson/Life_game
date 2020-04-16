@@ -78,4 +78,5 @@ describe('Employment.js', () => {
     money = job.payCheck();
     expect(money).to.equal(800);
   });
+  it('it will give you a promotion', () => {});
 });
