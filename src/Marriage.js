@@ -15,6 +15,12 @@ class Marriage extends Relationship {
     this.activityHistory = relationshipDetails.activityHistory;
     this.startDatingDate = relationshipDetails.startDatingDate;
   }
+  get weddingDay() {
+    return this._weddingDay;
+  }
+  set weddingDay(date) {
+    this._weddingDay = date;
+  }
   get money() {
     return this._money;
   }

@@ -17,7 +17,7 @@ const person1Details = [
   'Strongsville',
   'state farm',
   ['self'],
-  0
+  0,
 ];
 const person2Details = [
   'Leah',
@@ -30,7 +30,7 @@ const person2Details = [
   ['golf', 'movies'],
   'Parma',
   'Great Lake Cheese',
-  ['self', 0]
+  ['self', 0],
 ];
 
 describe('testing Marriage class', () => {
@@ -86,13 +86,16 @@ describe('testing Marriage class', () => {
       'video chat',
       'hiking',
       'golf',
-      'swing dancing'
+      'swing dancing',
     ]);
   });
   it('it will test to see if the start dating date and the wedding dates are different', () => {
     let daniel = new Person(...person1Details);
     let leah = new Person(...person2Details);
     let danielLeah = new Relationship(daniel, leah);
-    danielLeah = new Marriage(danielLeah);
+    let danielLeahMarriage = new Marriage(danielLeah);
+    expect(danielLeah.startDatingDate).to.not.deep.equal(
+      danielLeahMarriage.weddingDay
+    );
   });
 });
