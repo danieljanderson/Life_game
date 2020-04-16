@@ -93,7 +93,7 @@ class Employment {
     } else {
       this._jobDuties = newJobDudies;
     }
-    raise(newPayrate);
+    this.raise(newPayrate);
   }
   fired() {
     this._endDate = new Date();

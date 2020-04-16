@@ -78,5 +78,34 @@ describe('Employment.js', () => {
     money = job.payCheck();
     expect(money).to.equal(800);
   });
-  it('it will give you a promotion', () => {});
+  it('it will give you a promotion', () => {
+    let job = new Employment(...employmentDetails);
+    job.promotion(5, 'programming manager', 'i boss people around all day');
+    expect(job.payRate).to.equal(25);
+    expect(job.jobTitle).to.deep.equal('programming manager');
+    expect(job.jobDuties).to.deep.equal('i boss people around all day');
+  });
+  it('raise will only take one argument', () => {
+    let job = new Employment(...employmentDetails);
+    job.promotion(5);
+    expect(job.payRate).to.equal(25);
+    expect(job.jobTitle).to.deep.equal('Programmer');
+    expect(job.jobDuties).to.deep.equal(
+      'I write code for a living.  I make apis using C#'
+    );
+  });
+  it('raise method will now take only two arguments', () => {
+    let job = new Employment(...employmentDetails);
+    job.promotion(5, 'ITO');
+    expect(job.payRate).to.equal(25);
+    expect(job.jobTitle).to.deep.equal('ITO');
+    expect(job.jobDuties).to.deep.equal(
+      'I write code for a living.  I make apis using C#'
+    );
+  });
+  it('it will run the fired method', () => {
+    let job = new Employment(...employmentDetails);
+    job.fired();
+    expect(job.endDate).to.be.instanceOf(Date);
+  });
 });
