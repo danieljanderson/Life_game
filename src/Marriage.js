@@ -1,4 +1,4 @@
-const Relationship = require('../src/Relationship');
+const Relationship = require('./Relationship');
 
 class Marriage extends Relationship {
   constructor(relationshipDetails) {
