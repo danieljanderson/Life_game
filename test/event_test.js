@@ -38,4 +38,17 @@ describe('tests event class', () => {
     daniel = Event.payDay(daniel);
     expect(daniel.money).to.equal(810);
   });
+  it('it will remove the current job and add unemployed', () => {
+    let daniel = new Person(...danielDetails);
+    const danieljob = new Employment(...jobDetailsDaniel);
+    daniel.currentJob = danieljob;
+    console.log('daniel job');
+    console.log(daniel.currentJob);
+    console.log('daniel feelings');
+    console.log(daniel.feeling);
+    daniel = Event.fired(daniel);
+    console.log(daniel);
+    //expect(daniel.currentJob.).to.deep.equal('unemployed');
+    expect(daniel.feeling).to.be.below(45);
+  });
 });

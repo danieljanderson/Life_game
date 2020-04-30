@@ -16,7 +16,7 @@ const personDetails = [
   'state farm',
   ['self'],
   0,
-  true
+  true,
 ];
 
 describe('person.js', () => {
@@ -188,14 +188,16 @@ describe('person.js', () => {
     expect(sam.employmentHistory).to.deep.equal([
       'Autozone',
       'state farm',
-      'self'
+      'self',
     ]);
   });
+  //TODO move getFired and getNew tests into event test.
   it('it will remove the current job and add unemployed', () => {
     const daniel = new Person(...personDetails);
     daniel.getFired();
     expect(daniel.currentJob).to.deep.equal('unemployed');
     expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
+    expect(daniel.feeling).to.be.below(45);
   });
   it('person will get fired from one and then get hired at another job', () => {
     const daniel = new Person(...personDetails);
@@ -206,7 +208,7 @@ describe('person.js', () => {
     expect(daniel.employmentHistory).to.deep.equal([
       'OEC',
       'state farm',
-      'self'
+      'self',
     ]);
     // OTHER METHODS
   });
@@ -243,7 +245,7 @@ describe('person.js', () => {
     expect(daniel.hobbies).to.deep.equal([
       'tennis',
       'basketball',
-      'board_games'
+      'board_games',
     ]);
   });
 });

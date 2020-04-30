@@ -93,3 +93,28 @@ I need to do this
    super(relationshipDetails.members[0], relationshipDetails.members[1]);
    ``` 
    the reason being is that the constructor of the relationship class is looking for two people.
+
+# April 30th 
+
+this is part of the Event class 
+
+``` static getRandomNumber() {
+    //this will get a number that is random between 0 and 10
+    const x = Math.round(Math.random() * 10);
+    console.log('this is the random number' + x);
+    return x;
+  }
+  I wanted to use this funtion in 
+  ```static fired(person) {
+    person.employmentHistory = [person.currentJob, ...person.employmentHistory];
+    person._currentJob = 'unemployed';
+    console.log(getRandomNumber());
+    person.feeling = person.depression(getRandomNumber());
+    return person;
+  }```
+  but I keep getting getRandomNumber is undefined as a result.
+
+  I fixed it I didnt need to call person  here
+  ```person.feeling = person.depression(getRandomNumber());
+  ```
+  because I was storing the change inside the person already.
