@@ -80,4 +80,11 @@ describe('it combines all the classes', () => {
     expect(daniel.currentJob).to.deep.equal('unemployed');
     expect(daniel.employmentHistory).to.deep.equal([danielJob]);
   });
+  it('will display the payrate and number of hours', () => {
+    const daniel = new Person(...danielDetails);
+    const danielJob = new Employment(...jobDetailsDaniel);
+    daniel.currentJob = danielJob;
+    expect(daniel.currentJob.payRate).to.equal(20);
+    expect(daniel.currentJob.numberOfHours).to.equal(40);
+  });
 });
