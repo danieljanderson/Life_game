@@ -16,7 +16,8 @@ class Event {
   static fired(person) {
     person.employmentHistory = [person.currentJob, ...person.employmentHistory];
     person._currentJob = 'unemployed';
-    person.depression(getRandomNumber());
+    person.feeling = person.depression(getRandomNumber());
+    //person.depression(getRandomNumber());
     console.log('this hi random number is ' + person.feeling);
     return person;
   }
