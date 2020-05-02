@@ -3,8 +3,7 @@ const Relationship = require('./Relationship');
 class Marriage extends Relationship {
   constructor(relationshipDetails) {
     super(relationshipDetails.members[0], relationshipDetails.members[1]);
-    console.log(relationshipDetails.members[0].money);
-    console.log(relationshipDetails.members[1].money);
+
     this._money =
       relationshipDetails.members[0].money +
       relationshipDetails.members[1].money;

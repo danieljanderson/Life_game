@@ -16,7 +16,7 @@ const person1Details = [
   'Strongsville',
   'state farm',
   ['self'],
-  0
+  0,
 ];
 const person2Details = [
   'Janna',
@@ -29,7 +29,7 @@ const person2Details = [
   ['golf', 'movies'],
   'Parma',
   'Great Lake Cheese',
-  ['self', 0]
+  ['self', 0],
 ];
 
 describe('Testing Relationship.js', () => {
@@ -45,8 +45,6 @@ describe('Testing Relationship.js', () => {
     let daniel = new Person(...person1Details);
     let janna = new Person(...person2Details);
     let tonyLeah = new Relationship(daniel, janna);
-    console.log('first person before the change ' + tonyLeah.members[0].name);
-    console.log('second person beofe the change' + tonyLeah.members[1].name);
     daniel.name = 'Tony';
     janna.name = 'Leah';
     newName = [daniel, janna];
@@ -191,7 +189,7 @@ describe('Testing Relationship.js', () => {
     expect(danielJanna.activityHistory).to.deep.equal([
       'golf',
       'boardgames',
-      'swing dancing'
+      'swing dancing',
     ]);
   });
   it('it will remove an activity', () => {
@@ -202,7 +200,7 @@ describe('Testing Relationship.js', () => {
     danielJanna.removeHobby('boardgames');
     expect(danielJanna.activityHistory).to.deep.equal([
       'golf',
-      'swing dancing'
+      'swing dancing',
     ]);
   });
 });

@@ -27,6 +27,20 @@ class Person {
     this._employmentHistory = employmentHistory;
     this._numberOfApp = numberOfApp;
     this._hasCar = car;
+    this._jobMessage = '';
+    this._networking = false;
+  }
+  get jobMessage() {
+    return this._jobMessage;
+  }
+  set jobMessage(newMessage) {
+    this._jobMessage = newMessage;
+  }
+  get networking() {
+    return this._networking;
+  }
+  set networking(didNetworking) {
+    this._networking = didNetworking;
   }
   // getters and setters
   // get and set for names
@@ -140,20 +154,20 @@ class Person {
     this._numberOfApp++;
   }
   //todo move getNewJob into event file because its an event and not something a person owns.
-  getNewJob(newJob) {
-    if (this._currentJob !== 'unemployed') {
-      this._employmentHistory = [this._currentJob, ...this._employmentHistory];
-      this._currentJob = newJob;
-    } else {
-      this._currentJob = newJob;
-    }
-  }
+  // getNewJob(newJob) {
+  //   if (this._currentJob !== 'unemployed') {
+  //     this._employmentHistory = [this._currentJob, ...this._employmentHistory];
+  //     this._currentJob = newJob;
+  //   } else {
+  //     this._currentJob = newJob;
+  //   }
+  // }
   // todo MOVED THIS INTO EVENT CLASS BECAUSE ITS MORE OF AN EVENT THAT A THING A PERSON DOES OR OWNS
-  getFired() {
-    this._employmentHistory = [this._currentJob, ...this.employmentHistory];
-    this._currentJob = 'unemployed';
-    this.depression(Math.round(Math.random() * 10));
-  }
+  // getFired() {
+  //   this._employmentHistory = [this._currentJob, ...this.employmentHistory];
+  //   this._currentJob = 'unemployed';
+  //   this.depression(Math.round(Math.random() * 10));
+  // }
 
   //feeling methods
   depression(newFeeling) {

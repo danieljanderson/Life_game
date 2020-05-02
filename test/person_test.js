@@ -19,7 +19,7 @@ const personDetails = [
   true,
 ];
 
-describe('person.js', () => {
+describe('testing person.js class', () => {
   // testing the getters and setters
 
   //the name property
@@ -174,43 +174,48 @@ describe('person.js', () => {
     daniel.applyForJob();
     expect(daniel.numberOfApp).to.equal(2);
   });
-  it('running the new job method will add the new job to the current job and shift the old job to employment history', () => {
-    const daniel = new Person(...personDetails);
-    daniel.getNewJob('Dairy Queen');
-    expect(daniel.currentJob).to.deep.equal('Dairy Queen');
-    expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
-  });
-  it('it will add two jobs to the job history', () => {
-    const sam = new Person(...personDetails);
-    sam.getNewJob('Autozone');
-    sam.getNewJob('Miller');
-    expect(sam.currentJob).to.deep.equal('Miller');
-    expect(sam.employmentHistory).to.deep.equal([
-      'Autozone',
-      'state farm',
-      'self',
-    ]);
-  });
+  // it('running the new job method will add the new job to the current job and shift the old job to employment history', () => {
+  //   const daniel = new Person(...personDetails);
+  //   daniel.getNewJob('Dairy Queen');
+  //   expect(daniel.currentJob).to.deep.equal('Dairy Queen');
+  //   expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
+  //});
+  // it('it will add two jobs to the job history', () => {
+  //   const sam = new Person(...personDetails);
+  //   sam.getNewJob('Autozone');
+  //   sam.getNewJob('Miller');
+  //   expect(sam.currentJob).to.deep.equal('Miller');
+  //   expect(sam.employmentHistory).to.deep.equal([
+  //     'Autozone',
+  //     'state farm',
+  //     'self',
+  //   ]);
+  // });
   //TODO move getFired and getNew tests into event test.
-  it('it will remove the current job and add unemployed', () => {
+  // it('it will remove the current job and add unemployed', () => {
+  //   const daniel = new Person(...personDetails);
+  //   daniel.getFired();
+  //   expect(daniel.currentJob).to.deep.equal('unemployed');
+  //   expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
+  //   expect(daniel.feeling).to.be.below(45);
+  //});
+  // it('person will get fired from one and then get hired at another job', () => {
+  //   const daniel = new Person(...personDetails);
+  //   daniel.getFired();
+  //   daniel.getNewJob('OEC');
+  //   daniel.getNewJob('Hyland');
+  //   expect(daniel.currentJob).to.deep.equal('Hyland');
+  //   expect(daniel.employmentHistory).to.deep.equal([
+  //     'OEC',
+  //     'state farm',
+  //     'self',
+  //   ]);
+  // OTHER METHODS
+  // });
+  it('it will change the networking to true', () => {
     const daniel = new Person(...personDetails);
-    daniel.getFired();
-    expect(daniel.currentJob).to.deep.equal('unemployed');
-    expect(daniel.employmentHistory).to.deep.equal(['state farm', 'self']);
-    expect(daniel.feeling).to.be.below(45);
-  });
-  it('person will get fired from one and then get hired at another job', () => {
-    const daniel = new Person(...personDetails);
-    daniel.getFired();
-    daniel.getNewJob('OEC');
-    daniel.getNewJob('Hyland');
-    expect(daniel.currentJob).to.deep.equal('Hyland');
-    expect(daniel.employmentHistory).to.deep.equal([
-      'OEC',
-      'state farm',
-      'self',
-    ]);
-    // OTHER METHODS
+    daniel.networking = true;
+    expect(daniel.networking).to.deep.equal(true);
   });
   it('it will subtract the feeling', () => {
     const daniel = new Person(...personDetails);

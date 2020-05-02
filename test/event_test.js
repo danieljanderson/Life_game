@@ -64,4 +64,40 @@ describe('tests event class', () => {
     expect(daniel.employmentHistory).to.deep.equal([danielJob]);
     expect(daniel.currentJob).to.deep.equal(newJob);
   });
+  it('study will increase intelligence', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.study(daniel);
+    expect(daniel.intelligence).to.be.greaterThan(100);
+  });
+  it('I will not be asked to come for an interview', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.apply(daniel, 9, 8);
+    console.log(daniel);
+    expect(daniel.numberOfApp).to.equal(1);
+    expect(daniel.jobMessage).to.deep.equal(
+      `Due to the high volume of applicants we regrate to inform you we went with another candidate`
+    );
+  });
+  it('I will  be asked to come for an interview because I networked', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.networking = true;
+    daniel = Event.apply(daniel, 9, 8);
+    expect(daniel.numberOfApp).to.equal(1);
+    expect(daniel.jobMessage).to.deep.equal(
+      `congratulations you moved on to the second round`
+    );
+  });
+  it('I will  be asked to come for an interview because I numbers are equal', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.apply(daniel, 9, 9);
+    expect(daniel.numberOfApp).to.equal(1);
+    expect(daniel.jobMessage).to.deep.equal(
+      `congratulations you moved on to the second round`
+    );
+  });
+  it('testing to see if it will break if you dont send numbers', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.apply(daniel);
+    expect(daniel.numberOfApp).to.equal(1);
+  });
 });

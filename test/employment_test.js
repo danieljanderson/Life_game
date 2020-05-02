@@ -56,7 +56,7 @@ describe('Employment.js', () => {
   it('it will set the job details', () => {
     let job = new Employment(...employmentDetails);
     job.jobDuties = 'I write code';
-    console.log(job.jobDuties);
+
     expect(job.jobDuties).to.deep.equal('I write code');
   });
   it('it will get the number of hours per week', () => {

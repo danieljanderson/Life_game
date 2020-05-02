@@ -18,7 +18,35 @@ class Event {
     person._currentJob = 'unemployed';
     //person.feeling = person.depression(getRandomNumber());
     person.depression(getRandomNumber());
-    console.log('this hi random number is ' + person.feeling);
+    return person;
+  }
+  /*todo the process of applying for a job goes you apply.  they see if your resume match, then you interview, then you get hired
+  step 1 you apply
+  step 2 they see if you match requirements
+  step 3 interview
+  step 4 you get hired
+  each step is a different but connected event and you can be turned down at any step.  except one.  the following are going to be the implintation of this into this program
+  step 1 just increase number of applications on person.  if number gets above a certain amount you lose feeling
+  step 2 is they upload a document and it scans to see if your wording matches the wording of the job duties (idk how i will do this at this point)
+  step 3 interview computer will randomize other canidates and choose the best one based on intelligence and chrisma (leaning more towards chrisma) you lose majore feeling if you dont get choosen here
+  step 4 you get hired gain major feeling based on the difficulty of the job
+  */
+  static apply(person, randomNumber1, randomNumber2) {
+    person.applyForJob();
+    if (randomNumber1 === undefined || randomNumber2 === undefined) {
+      randomNumber1 = getRandomNumber() + 1;
+      randomNumber2 = getRandomNumber() + 1;
+    }
+    //simulates just applying to online which only has a 10 percent chance of success
+    else if (randomNumber1 === randomNumber2) {
+      person.jobMessage = `congratulations you moved on to the second round`;
+    }
+    // this will then make it into a 80 percent chance of success because thats where the jobs are
+    else if (person.networking === true && randomNumber1 > randomNumber2) {
+      person.jobMessage = `congratulations you moved on to the second round`;
+    } else {
+      person.jobMessage = `Due to the high volume of applicants we regrate to inform you we went with another candidate`;
+    }
     return person;
   }
   static hired(person, job) {
@@ -33,11 +61,14 @@ class Event {
     }
     return person;
   }
+  static study(person) {
+    person.intelligence = person.intelligence + getRandomNumber() + 1;
+    return person;
+  }
 }
 function getRandomNumber() {
   //this will get a number that is random between 0 and 10
   const x = Math.round(Math.random() * 10);
-  console.log('this is the random number' + x);
   return x;
 }
 //const y = Event.getRandomNumber();
