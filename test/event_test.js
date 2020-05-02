@@ -42,13 +42,26 @@ describe('tests event class', () => {
     let daniel = new Person(...danielDetails);
     const danieljob = new Employment(...jobDetailsDaniel);
     daniel.currentJob = danieljob;
-    console.log('daniel job');
-    console.log(daniel.currentJob);
-    console.log('daniel feelings');
-    console.log(daniel.feeling);
     daniel = Event.fired(daniel);
-    console.log(daniel);
-    //expect(daniel.currentJob.).to.deep.equal('unemployed');
+    expect(daniel.currentJob).to.deep.equal('unemployed');
     expect(daniel.feeling).to.be.below(45);
+  });
+  it('it will add state farm to the employment history', () => {
+    let daniel = new Person(...danielDetails);
+    const danielJob = new Employment(...jobDetailsDaniel);
+    const job2 = [
+      'Kemper',
+      'Akron Ohio',
+      'Programmer',
+      'John Talyor',
+      'I write node code',
+      40,
+      30,
+    ];
+    const newJob = new Employment(...job2);
+    daniel.currentJob = danielJob;
+    daniel = Event.hired(daniel, newJob);
+    expect(daniel.employmentHistory).to.deep.equal([danielJob]);
+    expect(daniel.currentJob).to.deep.equal(newJob);
   });
 });
