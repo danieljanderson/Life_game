@@ -135,7 +135,33 @@ describe('tests event class', () => {
     let daniel = new Person(...danielDetails);
     daniel.jobMessage = `congratulations you moved on to the second round`;
     daniel.charisma = 10.5;
+    console.log(daniel);
     daniel = Event.phoneInterview(daniel);
     expect(daniel.jobMessage).to.deep.equal('sorry we went with someone else');
+  });
+  it('job screening will fail', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.intelligence = 0;
+    daniel = Event.jobScreening(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      ' we appreciate your applying but we went with someone else'
+    );
+  });
+  it('job screening will pass', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.intelligence = 100000;
+    daniel = Event.jobScreening(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'we would like to schedule a phone interview with you'
+    );
+  });
+  it('phone interview will pass', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.charisma = 10000;
+    daniel.jobMessage = 'we would like to schedule a phone interview with you';
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'we would like to invite you to do an in-person interview'
+    );
   });
 });

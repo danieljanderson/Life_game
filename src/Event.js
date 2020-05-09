@@ -49,15 +49,33 @@ class Event {
     }
     return person;
   }
-  //todo make an aptitude test.  ie prescreening.  this will relay more on knowledge than anything
+  static jobScreening(person) {
+    // this will be heavy on knowledge.  multiple it by 2
+    let knowledgeRequirements = getRandomNumber() * 2;
+    if (knowledgeRequirements == 0) {
+      knowledgeRequirements = 5;
+    }
+    if (person.intelligence >= knowledgeRequirements) {
+      person.jobMessage =
+        'we would like to schedule a phone interview with you';
+    } else {
+      person.jobMessage =
+        ' we appreciate your applying but we went with someone else';
+    }
+    return person;
+  }
+  //todo make an aptitude test.  ie prescreening.  this will relay more on knowledge
   static phoneInterview(person) {
     //todo change jobMessage to second interview true or false not a string
     if (
-      person.jobMessage === 'congratulations you moved on to the second round'
+      person.jobMessage ===
+        'congratulations you moved on to the second round' ||
+      person.jobMessage ===
+        'we would like to schedule a phone interview with you'
     ) {
       // this is for if charisma if less than 10
       if (person.charisma <= 10) {
-        const charismaRequirments = getRandomNumber();
+        let charismaRequirments = getRandomNumber();
         // incase getRandomNumber is 0
         if (charismaRequirments == 0) {
           charismaRequirments = 1;
@@ -71,7 +89,7 @@ class Event {
       }
       //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
       else if (person.charisma > 10) {
-        const charismaRequirments = getRandomNumber() * 10;
+        let charismaRequirments = getRandomNumber() * 10;
         // incase getRandomNumber is 0
         if (charismaRequirments == 0) {
           charismaRequirments = 11;
