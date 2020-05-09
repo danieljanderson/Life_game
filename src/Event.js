@@ -58,6 +58,10 @@ class Event {
       // this is for if charisma if less than 10
       if (person.charisma <= 10) {
         const charismaRequirments = getRandomNumber();
+        // incase getRandomNumber is 0
+        if (charismaRequirments == 0) {
+          charismaRequirments = 1;
+        }
         if (person.charisma >= charismaRequirments) {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
@@ -68,6 +72,10 @@ class Event {
       //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
       else if (person.charisma > 10) {
         const charismaRequirments = getRandomNumber() * 10;
+        // incase getRandomNumber is 0
+        if (charismaRequirments == 0) {
+          charismaRequirments = 11;
+        }
         if (person.charisma >= charismaRequirments) {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
@@ -97,7 +105,7 @@ class Event {
 }
 function getRandomNumber() {
   //this will get a number that is random between 0 and 10
-  const x = Math.round(Math.random() * 10);
+  const x = Math.round(Math.random() * 9);
   return x;
 }
 

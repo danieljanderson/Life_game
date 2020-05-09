@@ -31,6 +31,11 @@ const jobDetailsDaniel = [
   20,
 ];
 describe('tests event class', () => {
+  it('it will add intelligence', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.study(daniel);
+    expect(daniel.intelligence).to.be.greaterThan(100);
+  });
   it('test the paycheck method', () => {
     let daniel = new Person(...danielDetails);
     const danieljob = new Employment(...jobDetailsDaniel);
@@ -125,5 +130,12 @@ describe('tests event class', () => {
     expect(daniel.jobMessage).to.deep.equal(
       'we would like to invite you to do an in-person interview'
     );
+  });
+  it('the > 10 it will tell me i failed the interview', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage = `congratulations you moved on to the second round`;
+    daniel.charisma = 10.5;
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal('sorry we went with someone else');
   });
 });
