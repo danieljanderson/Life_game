@@ -94,4 +94,36 @@ describe('tests event class', () => {
       `congratulations you moved on to the second round`
     );
   });
+  it('it will return an error because phone interview shouldnt have been run', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      `error you shouldn't have run the interview function in the first place`
+    );
+  });
+  it('it will fail because i dont have charisma', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage = `congratulations you moved on to the second round`;
+    daniel.charisma = -1;
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal('sorry we went with someone else');
+  });
+  it('i will be going to an in person interview', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage = `congratulations you moved on to the second round`;
+    daniel.charisma = 10;
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'we would like to invite you to do an in-person interview'
+    );
+  });
+  it('the > 10 it will tell me to come in for a in person ', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage = `congratulations you moved on to the second round`;
+    daniel.charisma = 100;
+    daniel = Event.phoneInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'we would like to invite you to do an in-person interview'
+    );
+  });
 });

@@ -26,6 +26,7 @@ class Event {
   step 3 interview
   step 4 you get hired
   each step is a different but connected event and you can be turned down at any step.  except one.  the following are going to be the implintation of this into this program
+  future additions to the steps
   step 1 just increase number of applications on person.  if number gets above a certain amount you lose feeling
   step 2 is they upload a document and it scans to see if your wording matches the wording of the job duties (idk how i will do this at this point)
   step 3 interview computer will randomize other canidates and choose the best one based on intelligence and chrisma (leaning more towards chrisma) you lose majore feeling if you dont get choosen here
@@ -45,6 +46,35 @@ class Event {
       person.jobMessage = `congratulations you moved on to the second round`;
     } else {
       person.jobMessage = `Due to the high volume of applicants we regrate to inform you we went with another candidate`;
+    }
+    return person;
+  }
+  //todo make an aptitude test.  ie prescreening.  this will relay more on knowledge than anything
+  static phoneInterview(person) {
+    //todo change jobMessage to second interview true or false not a string
+    if (
+      person.jobMessage === 'congratulations you moved on to the second round'
+    ) {
+      // this is for if charisma if less than 10
+      if (person.charisma <= 10) {
+        const charismaRequirments = getRandomNumber();
+        if (person.charisma >= charismaRequirments) {
+          person.jobMessage =
+            'we would like to invite you to do an in-person interview';
+        } else {
+          person.jobMessage = 'sorry we went with someone else';
+        }
+      }
+      //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
+      else if (person.charisma > 10) {
+        const charismaRequirments = getRandomNumber() * 10;
+        if (person.charisma >= charismaRequirments) {
+          person.jobMessage =
+            'we would like to invite you to do an in-person interview';
+        } else person.jobMessage = 'sorry we went with someone else';
+      }
+    } else {
+      person.jobMessage = `error you shouldn't have run the interview function in the first place`;
     }
     return person;
   }
@@ -70,6 +100,5 @@ function getRandomNumber() {
   const x = Math.round(Math.random() * 10);
   return x;
 }
-//const y = Event.getRandomNumber();
-//console.log(y);
+
 module.exports = Event;
