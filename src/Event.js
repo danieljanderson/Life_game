@@ -31,18 +31,17 @@ class Event {
   step 3 interview computer will randomize other canidates and choose the best one based on intelligence and chrisma (leaning more towards chrisma) you lose majore feeling if you dont get choosen here
   step 4 you get hired gain major feeling based on the difficulty of the job
   */
-  static apply(person, randomNumber1, randomNumber2) {
+  static apply(person, randomNumber1) {
     person.applyForJob();
-    if (randomNumber1 === undefined || randomNumber2 === undefined) {
+    if (randomNumber1 === undefined) {
       randomNumber1 = getRandomNumber() + 1;
-      randomNumber2 = getRandomNumber() + 1;
     }
     //simulates just applying to online which only has a 10 percent chance of success
-    else if (randomNumber1 === randomNumber2) {
+    else if (randomNumber1 === 0) {
       person.jobMessage = `congratulations you moved on to the second round`;
     }
     // this will then make it into a 80 percent chance of success because thats where the jobs are
-    else if (person.networking === true && randomNumber1 > randomNumber2) {
+    else if (person.networking === true && randomNumber1 < 8) {
       person.jobMessage = `congratulations you moved on to the second round`;
     } else {
       person.jobMessage = `Due to the high volume of applicants we regrate to inform you we went with another candidate`;

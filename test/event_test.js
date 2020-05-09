@@ -71,8 +71,7 @@ describe('tests event class', () => {
   });
   it('I will not be asked to come for an interview', () => {
     let daniel = new Person(...danielDetails);
-    daniel = Event.apply(daniel, 9, 8);
-    console.log(daniel);
+    daniel = Event.apply(daniel, 6);
     expect(daniel.numberOfApp).to.equal(1);
     expect(daniel.jobMessage).to.deep.equal(
       `Due to the high volume of applicants we regrate to inform you we went with another candidate`
@@ -81,23 +80,18 @@ describe('tests event class', () => {
   it('I will  be asked to come for an interview because I networked', () => {
     let daniel = new Person(...danielDetails);
     daniel.networking = true;
-    daniel = Event.apply(daniel, 9, 8);
+    daniel = Event.apply(daniel, 7);
     expect(daniel.numberOfApp).to.equal(1);
     expect(daniel.jobMessage).to.deep.equal(
       `congratulations you moved on to the second round`
     );
   });
-  it('I will  be asked to come for an interview because I numbers are equal', () => {
+  it('I will  be asked to come for an interview because the number is 0', () => {
     let daniel = new Person(...danielDetails);
-    daniel = Event.apply(daniel, 9, 9);
+    daniel = Event.apply(daniel, 0);
     expect(daniel.numberOfApp).to.equal(1);
     expect(daniel.jobMessage).to.deep.equal(
       `congratulations you moved on to the second round`
     );
-  });
-  it('testing to see if it will break if you dont send numbers', () => {
-    let daniel = new Person(...danielDetails);
-    daniel = Event.apply(daniel);
-    expect(daniel.numberOfApp).to.equal(1);
   });
 });
