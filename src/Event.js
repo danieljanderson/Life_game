@@ -105,8 +105,10 @@ class Event {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
           person.excited(getRandomNumber());
-        } else person.jobMessage = 'sorry we went with someone else';
-        person.depression(getRandomNumber());
+        } else {
+          person.jobMessage = 'sorry we went with someone else';
+          person.depression(getRandomNumber());
+        }
       }
     } else {
       person.jobMessage = `error you shouldn't have run the interview function in the first place`;
