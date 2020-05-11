@@ -40,12 +40,15 @@ class Event {
     //simulates just applying to online which only has a 10 percent chance of success
     else if (randomNumber1 === 0) {
       person.jobMessage = `congratulations you moved on to the second round`;
+      person.excited(person.numberOfApp);
     }
     // this will then make it into a 80 percent chance of success because thats where the jobs are
     else if (person.networking === true && randomNumber1 < 8) {
       person.jobMessage = `congratulations you moved on to the second round`;
+      person.excited(person.numberOfApp);
     } else {
       person.jobMessage = `Due to the high volume of applicants we regrate to inform you we went with another candidate`;
+      person.depression(person.numberOfApp);
     }
     return person;
   }
@@ -58,9 +61,11 @@ class Event {
     if (person.intelligence >= knowledgeRequirements) {
       person.jobMessage =
         'we would like to schedule a phone interview with you';
+      person.excited(person.numberOfApp);
     } else {
       person.jobMessage =
         ' we appreciate your applying but we went with someone else';
+      person.depression(person.numberOfApp);
     }
     return person;
   }
@@ -83,8 +88,10 @@ class Event {
         if (person.charisma >= charismaRequirments) {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
+          person.excited(getRandomNumber());
         } else {
           person.jobMessage = 'sorry we went with someone else';
+          person.depression(getRandomNumber());
         }
       }
       //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
@@ -97,7 +104,9 @@ class Event {
         if (person.charisma >= charismaRequirments) {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
+          person.excited(getRandomNumber());
         } else person.jobMessage = 'sorry we went with someone else';
+        person.depression(getRandomNumber());
       }
     } else {
       person.jobMessage = `error you shouldn't have run the interview function in the first place`;

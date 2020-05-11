@@ -171,6 +171,10 @@ class Person {
 
   //feeling methods
   depression(newFeeling) {
+    // check if new feeling is 0
+    if (newFeeling == 0) {
+      newFeeling - 1;
+    }
     this._feeling = this._feeling - newFeeling;
   }
   excited(newFeeling) {
