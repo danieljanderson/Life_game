@@ -34,7 +34,7 @@ class Person {
     return this._numberInterviews;
   }
   set numberInterviews(interview) {
-    this._numberInterviews = this._numberInterviews + interview;
+    this._numberInterviews = interview;
   }
   get jobMessage() {
     return this._jobMessage;

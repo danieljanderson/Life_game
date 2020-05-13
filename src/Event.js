@@ -124,13 +124,13 @@ class Event {
     return person;
   }
   static inPersonInterview(person) {
+    person.numberInterviews = person.numberInterviews + 1;
+    //person.inPersonInterview++
+    //++person.numberInterviews;
     if (
       person.jobMessage ===
       'we would like to invite you to do an in-person interview'
     ) {
-      //person.numberInterviews++;
-      console.log(person.numberInterviews);
-      person.numberInterviews = person.numberInterviews + 1;
       const computerCandidate1 = getRandomNumber() + getRandomNumber();
       const computerCandidate2 = getRandomNumber() + getRandomNumber();
       const computerCandidate3 = getRandomNumber() + getRandomNumber();
