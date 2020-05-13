@@ -122,3 +122,10 @@ this is part of the Event class
 
   # May 13, 2020
   I dont understand why this   person.numberInterviews = person.numberInterviews + 1; evaluates to from 1 to 3
+
+  The problem i had was i had the setter for person.numberInterviews adding one.
+  it was 
+  set numberInterivews (interview){
+    this._numberInterviews = this._numberInterviews + 1
+  }
+  when i got rid of the plus one it the test passes.
