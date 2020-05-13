@@ -15,7 +15,6 @@ const personDetails = [
   'Strongsville',
   'state farm',
   ['self'],
-  0,
   true,
 ];
 

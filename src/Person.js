@@ -11,7 +11,6 @@ class Person {
     location,
     currentJob,
     employmentHistory,
-    numberOfApp,
     car
   ) {
     this._name = name;
@@ -25,10 +24,11 @@ class Person {
     this._location = location;
     this._currentJob = currentJob;
     this._employmentHistory = employmentHistory;
-    this._numberOfApp = numberOfApp;
     this._hasCar = car;
+    this._numberOfApp = 0;
     this._jobMessage = '';
     this._networking = false;
+    this._numberInterviews = 0;
   }
   get jobMessage() {
     return this._jobMessage;

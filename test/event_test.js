@@ -137,7 +137,7 @@ describe('tests event class', () => {
     );
     expect(daniel.feeling).to.be.greaterThan(45);
   });
-  it('the > 10 it will tell me i failed the interview', () => {
+  it('the > 10 it will tell me i failed the  phone interview', () => {
     let daniel = new Person(...danielDetails);
     daniel.jobMessage = `congratulations you moved on to the second round`;
     daniel.charisma = 10.5;

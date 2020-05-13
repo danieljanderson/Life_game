@@ -133,8 +133,8 @@ class Event {
   }
 }
 function getRandomNumber() {
-  //this will get a number that is random between 0 and 10
-  const x = Math.round(Math.random() * 9);
+  //this will get a number that is random between 1 and 10
+  const x = Math.floor(Math.random() * 10) + 1;
   return x;
 }
 
