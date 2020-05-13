@@ -118,3 +118,7 @@ this is part of the Event class
   ```person.feeling = person.depression(getRandomNumber());
   ```
   because I was storing the change inside the person already.
+
+
+  # May 13, 2020
+  I dont understand why this   person.numberInterviews = person.numberInterviews + 1; evaluates to from 1 to 3

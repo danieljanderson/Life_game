@@ -1,5 +1,6 @@
 ## Notes on the Person Class
-get rid of the number of apps in the constructor 
+Add a way the person can gain charisma
+move apply to the Event Class
 
 ## Notes on event class
 there are a number of ways to get a job
@@ -27,3 +28,10 @@ if you pass you will gain feeling + randomNumber (between 1-9)
 in person interview.  Computer will get two random numbers and add them together if the out come is greater than the person than they will lose feeling / divded by the number of interviews they have been on.
 
 if they successd they will gain feeling * by the number of interviews they have been on.
+
+
+
+##inPerson Interview might need to be scaled some how. for when the person gets better charisma and such than it will be two easy to get a job.  maybe make the person into levels
+
+in person interview.  when someone fails their first interview feelings should be taken away.  right now their isnt
+

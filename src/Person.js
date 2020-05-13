@@ -30,6 +30,12 @@ class Person {
     this._networking = false;
     this._numberInterviews = 0;
   }
+  get numberInterviews() {
+    return this._numberInterviews;
+  }
+  set numberInterviews(interview) {
+    this._numberInterviews = this._numberInterviews + interview;
+  }
   get jobMessage() {
     return this._jobMessage;
   }

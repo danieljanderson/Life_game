@@ -96,11 +96,19 @@ class Event {
       }
       //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
       else if (person.charisma > 10) {
-        let charismaRequirments = getRandomNumber() * 10;
-        // incase getRandomNumber is 0
-        if (charismaRequirments == 0) {
-          charismaRequirments = 11;
-        }
+        //this will be the last result
+        //let charismaRequirments = getRandomNumber() * 10;
+        // this keeps on breaking so i am consoleloging the numbers
+        let randomnumber = getRandomNumber();
+        console.log(
+          'this is the random number in the phone interview > 10 ' +
+            randomnumber
+        );
+        let charismaRequirments = randomnumber * 10;
+        console.log(
+          'this is the charismaRequirments in phone interview > 10 ' +
+            charismaRequirments
+        );
         if (person.charisma >= charismaRequirments) {
           person.jobMessage =
             'we would like to invite you to do an in-person interview';
@@ -115,7 +123,38 @@ class Event {
     }
     return person;
   }
+  static inPersonInterview(person) {
+    if (
+      person.jobMessage ===
+      'we would like to invite you to do an in-person interview'
+    ) {
+      //person.numberInterviews++;
+      console.log(person.numberInterviews);
+      person.numberInterviews = person.numberInterviews + 1;
+      const computerCandidate1 = getRandomNumber() + getRandomNumber();
+      const computerCandidate2 = getRandomNumber() + getRandomNumber();
+      const computerCandidate3 = getRandomNumber() + getRandomNumber();
+      const humanCandidate = person.charisma + person.intelligence;
+      if (
+        humanCandidate > computerCandidate1 &&
+        humanCandidate > computerCandidate2 &&
+        humanCandidate > computerCandidate3
+      ) {
+        person.feeling = person.feeling * person.numberInterviews;
+        person.jobMessage = 'Congratulations we would like to offer you a job';
+      } else {
+        person.feeling = Math.floor(person.feeling / person.numberInterviews);
+        person.jobMessage =
+          'We regret to inform you that we went with someonelse';
+      }
+    } else {
+      person.jobMessage = 'ERROR inPersonInterview was not supposed to be run';
+    }
+    return person;
+  }
   static hired(person, job) {
+    person.numberOfApp = 0;
+    person.numberInterviews = 0;
     if (person.currentJob !== 'unemployed') {
       person.employmentHistory = [
         person.currentJob,

@@ -170,4 +170,38 @@ describe('tests event class', () => {
       'we would like to invite you to do an in-person interview'
     );
   });
+  it('inperson interview shouldnt have run', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.inPersonInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'ERROR inPersonInterview was not supposed to be run'
+    );
+  });
+  it('inperson interview should fail', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel.charisma = 0;
+    daniel.intelligence = 0;
+    daniel = Event.inPersonInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'We regret to inform you that we went with someonelse'
+    );
+    expect(daniel.feeling).to.equal(45);
+  });
+  it('inperson interview should fail and divide it by 2', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel.charisma = 0;
+    daniel.intelligence = 0;
+    daniel = Event.inPersonInterview(daniel);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel = Event.inPersonInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'We regret to inform you that we went with someonelse'
+    );
+    expect(daniel.feeling).to.equal(22);
+  });
 });
