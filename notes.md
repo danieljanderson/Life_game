@@ -1,3 +1,13 @@
+I might need to work on the scaling of skills.  it might be too easy to get jobs.  like for example 
+if (randomnumber is > 3)
+skill + 1
+if(randomnumber is > 8)
+skill + 2
+if (random number is =10)
+skill  + 3
+
+the above example might also work for taking away skills
+
 ## Notes on the Person Class
 Add a way the person can gain charisma
 move apply to the Event Class

@@ -156,6 +156,7 @@ class Person {
     this._hobbies = this._hobbies;
   }
   //job methods
+  //TODO move this to the event class
   applyForJob() {
     this._numberOfApp++;
   }

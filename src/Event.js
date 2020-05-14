@@ -1,10 +1,17 @@
 class Event {
-  //   static getRandomNumber() {
-  //     //this will get a number that is random between 0 and 10
-  //     const x = Math.round(Math.random() * 10);
-  //     console.log('this is the random number' + x);
-  //     return x;
-  //   }
+  static selfStudy(person) {
+    person.intelligence = person.intelligence + getRandomNumber();
+    return person;
+  }
+  static selfHelp(person) {
+    person.charisma = person.charisma + getRandomNumber();
+    return person;
+  }
+
+  //!END OF SELF HELP (THINGS THAT MODIFY FEELINGS, CHARISMA, AND INTELLIGENCE)
+
+  //!THIS IS THE START OF THE EMPLOYMENT EVENTS
+
   static payDay(person) {
     let paycheck;
     paycheck = person.currentJob.payRate * person.currentJob.numberOfHours;
@@ -170,10 +177,7 @@ class Event {
     }
     return person;
   }
-  static study(person) {
-    person.intelligence = person.intelligence + getRandomNumber() + 1;
-    return person;
-  }
+  //! END OF EMPLOYMENT EVENTS
 }
 function getRandomNumber() {
   //this will get a number that is random between 1 and 10

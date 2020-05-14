@@ -31,11 +31,21 @@ const jobDetailsDaniel = [
   20,
 ];
 describe('tests event class', () => {
+  //! START OF SELF HELP SECTION  TEST (THINGS THAT MODIFY feeling, charisma , and intelligence )
   it('it will add intelligence', () => {
     let daniel = new Person(...danielDetails);
-    daniel = Event.study(daniel);
+    daniel = Event.selfStudy(daniel);
     expect(daniel.intelligence).to.be.greaterThan(100);
   });
+  it('self help will add to charisma', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.selfHelp(daniel);
+    expect(daniel.charisma).to.be.greaterThan(50);
+  });
+
+  //! END OF SELF HELP SECTION TEST (THINGS THAT MODIFY FEELING, CHARISMA, AND INTELLIGENCE)
+
+  //!START OF THE EMPLOYMENT  FUNCTION TEST
   it('test the paycheck method', () => {
     let daniel = new Person(...danielDetails);
     const danieljob = new Employment(...jobDetailsDaniel);
@@ -65,13 +75,17 @@ describe('tests event class', () => {
     ];
     const newJob = new Employment(...job2);
     daniel.currentJob = danielJob;
+    daniel.numberInterviews = 100;
+    daniel.numberOfApp = 100;
     daniel = Event.hired(daniel, newJob);
     expect(daniel.employmentHistory).to.deep.equal([danielJob]);
     expect(daniel.currentJob).to.deep.equal(newJob);
+    expect(daniel.numberInterviews).to.equal(0);
+    expect(daniel.numberOfApp).to.equal(0);
   });
   it('study will increase intelligence', () => {
     let daniel = new Person(...danielDetails);
-    daniel = Event.study(daniel);
+    daniel = Event.selfStudy(daniel);
     expect(daniel.intelligence).to.be.greaterThan(100);
   });
   it('I will not be asked to come for an interview', () => {
@@ -231,4 +245,5 @@ describe('tests event class', () => {
     );
     expect(daniel.feeling).to.equal(90);
   });
+  //! END OF EMPLOYMENT FUNCTION TEST
 });
