@@ -33,5 +33,5 @@ if they successd they will gain feeling * by the number of interviews they have 
 
 ##inPerson Interview might need to be scaled some how. for when the person gets better charisma and such than it will be two easy to get a job.  maybe make the person into levels
 
-in person interview.  when someone fails their first interview feelings should be taken away.  right now their isnt
+in person interview.  when someone fails or pass their first interview feelings is feelings should get modified.  right now it isnt
 

@@ -204,4 +204,31 @@ describe('tests event class', () => {
     );
     expect(daniel.feeling).to.equal(22);
   });
+  it('in person interview should pass', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel.charisma = 100;
+    daniel.intelligence = 100;
+    daniel = Event.inPersonInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'Congratulations we would like to offer you a job'
+    );
+    expect(daniel.feeling).to.equal(45);
+  });
+  it('in person interview will pass and then multiply by 2 since its my second interview', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel.charisma = 100;
+    daniel.intelligence = 100;
+    daniel = Event.inPersonInterview(daniel);
+    daniel.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    daniel = Event.inPersonInterview(daniel);
+    expect(daniel.jobMessage).to.deep.equal(
+      'Congratulations we would like to offer you a job'
+    );
+    expect(daniel.feeling).to.equal(90);
+  });
 });

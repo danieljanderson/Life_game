@@ -105,6 +105,10 @@ class Event {
             randomnumber
         );
         let charismaRequirments = randomnumber * 10;
+        if (charismaRequirments == 10) {
+          //if charismaRequirments is 10 it needs to be 11
+          charismaRequirments = 11;
+        }
         console.log(
           'this is the charismaRequirments in phone interview > 10 ' +
             charismaRequirments
