@@ -1,3 +1,16 @@
+//todo add a function called try something new.  where feeling is taken away but charisma is add and intelligence is added.
+//todo add a function that you do something on your hobbies array.  feelings get added
+//todo add a function that takes rent out
+//todo add a function that makes you go gorcory shop and take money out
+/////todo add a function that makes you buy a car
+/////todo add logic in the buy a car funtion to make sure you cant buy more than you can afford
+/////todo add a function that you sell a car
+//todo add a function that makes you move
+//todo add a function that gets you evicted
+//todo figure out if you want to modify objects in two places or not.
+//todo go plan to go over code sometime
+//todo still have to make a relationship and marriage section
+//todo start utilizing the persons names on the strings.
 class Event {
   //! START PERSON EVENTS
 
@@ -15,22 +28,15 @@ class Event {
     return person;
   }
   static buyCar(person, amount) {
-    person.numberCar = person.numberCar + 1;
-    person.money = person.money - amount;
+    // checks to see if you have enough money to buy the thing
+    if (person.money >= amount) {
+      person.numberCar = person.numberCar + 1;
+      person.money = person.money - amount;
+    } else {
+      person.moneyMessage = `You can't buy this car right now.`;
+    }
     return person;
   }
-
-  //todo add a function called try something new.  where feeling is taken away but charisma is add and intelligence is added.
-  //todo add a function that you do something on your hobbies array.  feelings get added
-  //todo add a function that takes rent out
-  //todo add a function that makes you go gorcory shop and take money out
-  //todo add a function that makes you buy a car
-  //todo add a function that you sell a car
-  //todo add a function that makes you move
-  //todo add a function that gets you evicted
-  //todo figure out if you want to modify objects in two places or not.
-  //todo go plan to go over code sometime
-  //todo still have to make a relationship and marriage section
 
   //! END OF SINGLE PERSON EVENT
 

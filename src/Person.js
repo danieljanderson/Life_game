@@ -29,6 +29,13 @@ class Person {
     this._jobMessage = '';
     this._networking = false;
     this._numberInterviews = 0;
+    this._moneyMessage = '';
+  }
+  get moneyMessage() {
+    return this._moneyMessage;
+  }
+  set moneyMessage(newMessage) {
+    this._moneyMessage = newMessage;
   }
   get numberInterviews() {
     return this._numberInterviews;

@@ -42,7 +42,21 @@ describe('tests event class', () => {
     daniel = Event.selfHelp(daniel);
     expect(daniel.charisma).to.be.greaterThan(50);
   });
-  it('sell car', () => {
+  it('buy a car', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.money = 8010;
+    daniel = Event.buyCar(daniel, 8010);
+    expect(daniel.numberCar).to.equal(1);
+    expect(daniel.money).to.equal(0);
+  });
+  it('will not allow me to buy a car because I dont have enough money', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.buyCar(daniel, 8000);
+    expect(daniel.moneyMessage).to.deep.equal(
+      `You can't buy this car right now.`
+    );
+  });
+  it('sell a car', () => {
     let daniel = new Person(...danielDetails);
     daniel.numberCar = 1;
     daniel = Event.sellCar(daniel, 8000);

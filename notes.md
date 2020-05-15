@@ -45,3 +45,5 @@ if they successd they will gain feeling * by the number of interviews they have 
 
 in person interview.  when someone fails or pass their first interview feelings is feelings should get modified.  right now it isnt
 
+# when you buy a car you should be able to take out a lone and than pay that back by a percentage per month.
+
