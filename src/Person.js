@@ -24,7 +24,7 @@ class Person {
     this._location = location;
     this._currentJob = currentJob;
     this._employmentHistory = employmentHistory;
-    this._hasCar = car;
+    this._numberCar = car;
     this._numberOfApp = 0;
     this._jobMessage = '';
     this._networking = false;
@@ -134,11 +134,11 @@ class Person {
     this._numberOfApp = newAmount;
   }
   // get and set for car property
-  get hasCar() {
-    return this._hasCar;
+  get numberCar() {
+    return this._numberCar;
   }
-  set hasCar(car) {
-    this._hasCar = car;
+  set numberCar(car) {
+    this._numberCar = car;
   }
 
   //methods

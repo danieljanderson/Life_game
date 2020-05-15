@@ -31,7 +31,7 @@ const jobDetailsDaniel = [
   20,
 ];
 describe('tests event class', () => {
-  //! START OF SELF HELP SECTION  TEST (THINGS THAT MODIFY feeling, charisma , and intelligence )
+  //! START OF SINGLE PERSON SECTION  TEST
   it('it will add intelligence', () => {
     let daniel = new Person(...danielDetails);
     daniel = Event.selfStudy(daniel);
@@ -42,8 +42,15 @@ describe('tests event class', () => {
     daniel = Event.selfHelp(daniel);
     expect(daniel.charisma).to.be.greaterThan(50);
   });
+  it('sell car', () => {
+    let daniel = new Person(...danielDetails);
+    daniel.numberCar = 1;
+    daniel = Event.sellCar(daniel, 8000);
+    expect(daniel.numberCar).to.equal(0);
+    expect(daniel.money).to.equal(8010);
+  });
 
-  //! END OF SELF HELP SECTION TEST (THINGS THAT MODIFY FEELING, CHARISMA, AND INTELLIGENCE)
+  //! END OF SINGLE PERSON SECTION TEST
 
   //!START OF THE EMPLOYMENT  FUNCTION TEST
   it('test the paycheck method', () => {

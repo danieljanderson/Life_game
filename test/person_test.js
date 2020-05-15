@@ -15,7 +15,7 @@ const personDetails = [
   'Strongsville',
   'state farm',
   ['self'],
-  true,
+  1,
 ];
 
 describe('testing person.js class', () => {
@@ -145,12 +145,12 @@ describe('testing person.js class', () => {
   // has car
   it('it will retrieve the value if he has a car or not', () => {
     let daniel = new Person(...personDetails);
-    expect(daniel.hasCar).to.equal(true);
+    expect(daniel.numberCar).to.equal(1);
   });
-  it('it will change the has car from true to false', () => {
+  it('it will change the has car from 1 to 0', () => {
     let daniel = new Person(...personDetails);
-    daniel.hasCar = false;
-    expect(daniel.hasCar).to.equal(false);
+    daniel.numberCar = 0;
+    expect(daniel.numberCar).to.equal(0);
   });
 
   //number of apps
