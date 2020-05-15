@@ -11,9 +11,17 @@
 //todo go plan to go over code sometime
 //todo still have to make a relationship and marriage section
 //todo start utilizing the persons names on the strings.
+//todo make function that gets rid of eviction after 7 years
 class Event {
   //! START PERSON EVENTS
 
+  static eviction(person) {
+    person.evicted = true;
+    person.evictedDate = new Date();
+    person.depression(getRandomNumber());
+    person.location = '';
+    return person;
+  }
   static selfStudy(person) {
     person.intelligence = person.intelligence + getRandomNumber();
     return person;

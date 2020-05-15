@@ -30,6 +30,20 @@ class Person {
     this._networking = false;
     this._numberInterviews = 0;
     this._moneyMessage = '';
+    this._evicted = false;
+    this._evictedDate = '';
+  }
+  get evicted() {
+    return this._evicted;
+  }
+  set evicted(kickedOut) {
+    this._evicted = kickedOut;
+  }
+  get evictedDate() {
+    return this._evictedDate;
+  }
+  set evictedDate(newDate) {
+    this._evictedDate = newDate;
   }
   get moneyMessage() {
     return this._moneyMessage;

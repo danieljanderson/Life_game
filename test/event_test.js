@@ -63,6 +63,14 @@ describe('tests event class', () => {
     expect(daniel.numberCar).to.equal(0);
     expect(daniel.money).to.equal(8010);
   });
+  it('i will get evicted', () => {
+    let daniel = new Person(...danielDetails);
+    daniel = Event.eviction(daniel);
+    expect(daniel.evicted).to.equal(true);
+    expect(daniel.evictedDate).to.be.an.instanceOf(Date);
+    expect(daniel.location).to.deep.equal('');
+    expect(daniel.feeling).to.be.lessThan(45);
+  });
 
   //! END OF SINGLE PERSON SECTION TEST
 
