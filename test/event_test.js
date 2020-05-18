@@ -119,6 +119,11 @@ describe('tests event class', () => {
       expect(daniel.feeling).to.be.lessThan(45);
       expect(daniel.charisma).to.equal(51);
     });
+    it('Move will change the persons location', () => {
+      let daniel = new Person(...danielDetails);
+      daniel = Event.move(daniel, 'Cleveland');
+      expect(daniel.location).to.deep.equal('Cleveland');
+    });
   });
   //! END OF SINGLE PERSON SECTION TEST
 

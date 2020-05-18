@@ -1,4 +1,4 @@
-//todo add a function called try something new.  where feeling is taken away but charisma is add and intelligence is added.
+/////todo add a function called try something new.  where feeling is taken away but charisma is add and intelligence is added.
 //todo add a function that you do something on your hobbies array.  feelings get added
 /////todo add a function that takes rent out
 /////todo add a function that makes you go shopping and take money out
@@ -66,6 +66,10 @@ class Event {
     person.feeling = person.feeling - getRandomNumber();
     person.intelligence = person.intelligence + getRandomNumber();
     person.charisma = person.charisma + 1;
+    return person;
+  }
+  static move(person, location) {
+    person.location = location;
     return person;
   }
 
