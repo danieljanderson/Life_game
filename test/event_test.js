@@ -9,16 +9,31 @@ const danielDetails = [
   'Daniel',
   'June,4',
   'Male',
+  //money
   10,
+
+  //charisma
   50,
+
   //feelings
   45,
+
   //intelligence
   100,
+
+  //hobbies
   ['golf', 'board_games'],
+
+  // location
   'Strongsville',
+
+  //current job
   'na',
+
+  //job history
   [],
+
+  //numberCar
   0,
 ];
 const jobDetailsDaniel = [
@@ -96,6 +111,13 @@ describe('tests event class', () => {
       let daniel = new Person(...danielDetails);
       daniel = Event.shopping(daniel, 5);
       expect(daniel.money).to.equal(5);
+    });
+    it('testing tryingSomethingNew', () => {
+      let daniel = new Person(...danielDetails);
+      daniel = Event.trySomethingNew(daniel);
+      expect(daniel.intelligence).to.be.greaterThan(100);
+      expect(daniel.feeling).to.be.lessThan(45);
+      expect(daniel.charisma).to.equal(51);
     });
   });
   //! END OF SINGLE PERSON SECTION TEST
