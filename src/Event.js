@@ -6,7 +6,7 @@
 /////todo add logic in the buy a car funtion to make sure you cant buy more than you can afford
 /////todo add a function that you sell a car
 //todo add a function that makes you move
-//todo add a function that gets you evicted
+/////todo add a function that gets you evicted
 //todo figure out if you want to modify objects in two places or not.
 //todo go plan to go over code sometime
 //todo still have to make a relationship and marriage section
@@ -14,7 +14,14 @@
 //todo make function that gets rid of eviction after 7 years
 class Event {
   //! START PERSON EVENTS
-
+  static rent(person, amount) {
+    if (person.money < amount) {
+      person.moneyMessage = `you need to talk to you landlord you can't pay rent this month`;
+    } else {
+      person.withdrawal(amount);
+    }
+    return person;
+  }
   static eviction(person) {
     person.evicted = true;
     person.evictedDate = new Date();
