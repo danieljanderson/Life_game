@@ -85,6 +85,18 @@ describe('tests event class', () => {
       daniel = Event.rent(daniel, 300);
       expect(daniel.money).to.equal(50);
     });
+    it('will not allow me to go shopping', () => {
+      let daniel = new Person(...danielDetails);
+      daniel = Event.shopping(daniel, 300);
+      expect(daniel.moneyMessage).to.deep.equal(
+        `you can't buy this because you dont have money`
+      );
+    });
+    it('it will deduct the shopping cost', () => {
+      let daniel = new Person(...danielDetails);
+      daniel = Event.shopping(daniel, 5);
+      expect(daniel.money).to.equal(5);
+    });
   });
   //! END OF SINGLE PERSON SECTION TEST
 

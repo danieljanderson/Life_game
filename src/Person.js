@@ -208,7 +208,7 @@ class Person {
   excited(newFeeling) {
     this._feeling = this._feeling + newFeeling;
   }
-
+  //todo move the deposit and withdrawl function inside the event class.
   // money methods
   deposit(amount) {
     this._money = this._money + amount;

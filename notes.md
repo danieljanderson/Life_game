@@ -47,3 +47,6 @@ in person interview.  when someone fails or pass their first interview feelings 
 
 # when you buy a car you should be able to take out a lone and than pay that back by a percentage per month.
 
+# notes on the main program
+When Event.trySomethingNew is implemented the question "did you enjoy it it"  gets asked and if the answer is yes is added to the person.hobbies array
+
