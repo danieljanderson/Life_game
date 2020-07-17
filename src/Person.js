@@ -1,3 +1,5 @@
+//todo make is depressed variable and then make it a boolean.
+//todo make a function that changes the depressed variable based on feeling value
 class Person {
   constructor(
     name,
@@ -181,7 +183,7 @@ class Person {
   applyForJob() {
     this._numberOfApp++;
   }
-  //todo move getNewJob into event file because its an event and not something a person owns.
+  /////todo move getNewJob into event file because its an event and not something a person owns.
   // getNewJob(newJob) {
   //   if (this._currentJob !== 'unemployed') {
   //     this._employmentHistory = [this._currentJob, ...this._employmentHistory];
@@ -190,7 +192,7 @@ class Person {
   //     this._currentJob = newJob;
   //   }
   // }
-  // todo MOVED THIS INTO EVENT CLASS BECAUSE ITS MORE OF AN EVENT THAT A THING A PERSON DOES OR OWNS
+  ///// todo MOVED THIS INTO EVENT CLASS BECAUSE ITS MORE OF AN EVENT THAT A THING A PERSON DOES OR OWNS
   // getFired() {
   //   this._employmentHistory = [this._currentJob, ...this.employmentHistory];
   //   this._currentJob = 'unemployed';

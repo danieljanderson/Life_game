@@ -1,12 +1,13 @@
 /////todo add a function called try something new.  where feeling is taken away but charisma is add and intelligence is added.
-//todo add a function that you do something on your hobbies array.  feelings get added
+
 /////todo add a function that takes rent out
 /////todo add a function that makes you go shopping and take money out
 /////todo add a function that makes you buy a car
 /////todo add logic in the buy a car funtion to make sure you cant buy more than you can afford
 /////todo add a function that you sell a car
-//todo add a function that makes you move
+/////todo add a function that makes you move
 /////todo add a function that gets you evicted
+//todo refactor the depression function so that its just a check and not modifying the variable.  I will still need to do something like "person.feeling = person.feeling - getRandomNumber()"
 //todo figure out if you want to modify objects in two places or not.
 //todo go plan to go over code sometime
 //todo still have to make a relationship and marriage section
