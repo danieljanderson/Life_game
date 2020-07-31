@@ -154,46 +154,13 @@ class Event {
       // this is for if charisma if less than 10
       if (person.charisma <= 10) {
         let charismaRequirments = getRandomNumber();
-        // incase getRandomNumber is 0
-        if (charismaRequirments == 0) {
-          charismaRequirments = 1;
-        }
-        if (person.charisma >= charismaRequirments) {
-          person.jobMessage =
-            'we would like to invite you to do an in-person interview';
-          person.excited(getRandomNumber());
-        } else {
-          person.jobMessage = 'sorry we went with someone else';
-          person.depression(getRandomNumber());
-        }
+        evaluatePhoneInterview(person, charismaRequirments);
       }
       //this is for charisma if more than 10.  I dont know the scaling yet which is why i have two
       else if (person.charisma > 10) {
         //this will be the last result
-        //let charismaRequirments = getRandomNumber() * 10;
-        // this keeps on breaking so i am consoleloging the numbers
-        let randomnumber = getRandomNumber();
-        console.log(
-          'this is the random number in the phone interview > 10 ' +
-            randomnumber
-        );
-        let charismaRequirments = randomnumber * 10;
-        if (charismaRequirments == 10) {
-          //if charismaRequirments is 10 it needs to be 11
-          charismaRequirments = 11;
-        }
-        console.log(
-          'this is the charismaRequirments in phone interview > 10 ' +
-            charismaRequirments
-        );
-        if (person.charisma >= charismaRequirments) {
-          person.jobMessage =
-            'we would like to invite you to do an in-person interview';
-          person.excited(getRandomNumber());
-        } else {
-          person.jobMessage = 'sorry we went with someone else';
-          person.depression(getRandomNumber());
-        }
+        let charismaRequirments = getRandomNumber() * 10;
+        evaluatePhoneInterview(person, charismaRequirments);
       }
     } else {
       person.jobMessage = `error you shouldn't have run the interview function in the first place`;
@@ -249,6 +216,16 @@ function getRandomNumber() {
   //this will get a number that is random between 1 and 10
   const x = Math.floor(Math.random() * 10) + 1;
   return x;
+}
+function evaluatePhoneInterview(person, charismaRequirments) {
+  if (person.charisma >= charismaRequirments) {
+    person.jobMessage =
+      'we would like to invite you to do an in-person interview';
+    person.excited(getRandomNumber());
+  } else {
+    person.jobMessage = 'sorry we went with someone else';
+    person.depression(getRandomNumber());
+  }
 }
 
 module.exports = Event;

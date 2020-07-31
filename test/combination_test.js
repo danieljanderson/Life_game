@@ -1,8 +1,8 @@
 //This file is strickly to help look up where data is stored in the object.
 
 const Person = require('../src/Person');
-const Marriage = require('../src/Marriage');
-const Relationship = require('../src/Relationship');
+//const Marriage = require('../src/Marriage');
+//const Relationship = require('../src/Relationship');
 const Employment = require('../src/Employment');
 const chai = require('chai');
 const expect = chai.expect;

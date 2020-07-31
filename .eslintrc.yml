@@ -1,0 +1,14 @@
+env:
+  browser: true
+  commonjs: true
+  es2020: true
+  node: true
+  mocha: true
+extends: 'eslint:recommended'
+parserOptions:
+  ecmaVersion: 11
+rules: 
+  no-undef: off
+  no-self-assign: off
+  no-unused-vars: off
+  max-statements: [error,10]

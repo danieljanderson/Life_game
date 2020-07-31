@@ -4,7 +4,8 @@
   "description": "strengthen my es6 skills",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec 'mocha -R min --exit'"
+    "test": "nodemon --exec 'mocha -R min --exit'",
+    "lint": "eslint --ext=js --ignore-path=.gitignore --max-warnings=0 --color . || true"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "mocha": "^7.0.1",
     "node": "^13.8.0",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0"
   }
 }

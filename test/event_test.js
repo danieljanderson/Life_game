@@ -58,19 +58,21 @@ describe('tests event class', () => {
       daniel = Event.selfHelp(daniel);
       expect(daniel.charisma).to.be.greaterThan(50);
     });
-    it('buy a car', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.money = 8010;
-      daniel = Event.buyCar(daniel, 8010);
-      expect(daniel.numberCar).to.equal(1);
-      expect(daniel.money).to.equal(0);
-    });
-    it('will not allow me to buy a car because I dont have enough money', () => {
-      let daniel = new Person(...danielDetails);
-      daniel = Event.buyCar(daniel, 8000);
-      expect(daniel.moneyMessage).to.deep.equal(
-        `You can't buy this car right now.`
-      );
+    describe('buyCar', () => {
+      it('buy a car', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.money = 8010;
+        daniel = Event.buyCar(daniel, 8010);
+        expect(daniel.numberCar).to.equal(1);
+        expect(daniel.money).to.equal(0);
+      });
+      it('will not allow me to buy a car because I dont have enough money', () => {
+        let daniel = new Person(...danielDetails);
+        daniel = Event.buyCar(daniel, 8000);
+        expect(daniel.moneyMessage).to.deep.equal(
+          `You can't buy this car right now.`
+        );
+      });
     });
     it('sell a car', () => {
       let daniel = new Person(...danielDetails);
@@ -79,27 +81,30 @@ describe('tests event class', () => {
       expect(daniel.numberCar).to.equal(0);
       expect(daniel.money).to.equal(8010);
     });
-    it('i will get evicted', () => {
-      let daniel = new Person(...danielDetails);
-      daniel = Event.eviction(daniel);
-      expect(daniel.evicted).to.equal(true);
-      expect(daniel.evictedDate).to.be.an.instanceOf(Date);
-      expect(daniel.location).to.deep.equal('');
-      expect(daniel.feeling).to.be.lessThan(45);
+    describe('housingfuntions', () => {
+      it('i will get evicted', () => {
+        let daniel = new Person(...danielDetails);
+        daniel = Event.eviction(daniel);
+        expect(daniel.evicted).to.equal(true);
+        expect(daniel.evictedDate).to.be.an.instanceOf(Date);
+        expect(daniel.location).to.deep.equal('');
+        expect(daniel.feeling).to.be.lessThan(45);
+      });
+      it(`cant't pay my rent`, () => {
+        let daniel = new Person(...danielDetails);
+        daniel = Event.rent(daniel, 300);
+        expect(daniel.moneyMessage).to.deep.equal(
+          `you need to talk to you landlord you can't pay rent this month`
+        );
+      });
+      it('it will deduct money for rent', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.money = 350;
+        daniel = Event.rent(daniel, 300);
+        expect(daniel.money).to.equal(50);
+      });
     });
-    it(`cant't pay my rent`, () => {
-      let daniel = new Person(...danielDetails);
-      daniel = Event.rent(daniel, 300);
-      expect(daniel.moneyMessage).to.deep.equal(
-        `you need to talk to you landlord you can't pay rent this month`
-      );
-    });
-    it('it will deduct money for rent', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.money = 350;
-      daniel = Event.rent(daniel, 300);
-      expect(daniel.money).to.equal(50);
-    });
+
     it('will not allow me to go shopping', () => {
       let daniel = new Person(...danielDetails);
       daniel = Event.shopping(daniel, 300);
