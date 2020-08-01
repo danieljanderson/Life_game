@@ -204,139 +204,146 @@ describe('tests event class', () => {
       );
       expect(daniel.feeling).to.equal(46);
     });
-    it('it will return an error because phone interview shouldnt have been run', () => {
-      let daniel = new Person(...danielDetails);
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        `error you shouldn't have run the interview function in the first place`
-      );
+    describe('phone interview functions', () => {
+      it('it will return an error because phone interview shouldnt have been run', () => {
+        let daniel = new Person(...danielDetails);
+        daniel = Event.phoneInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          `error you shouldn't have run the interview function in the first place`
+        );
+      });
+      it('phone interview  will fail because i dont have charisma', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage = `congratulations you moved on to the second round`;
+        daniel.charisma = -1;
+        daniel = Event.phoneInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'sorry we went with someone else'
+        );
+        expect(daniel.feeling).to.lessThan(45);
+      });
+      it('phone interview will pass i will be going to an in person interview', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage = `congratulations you moved on to the second round`;
+        daniel.charisma = 10;
+        daniel = Event.phoneInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'we would like to invite you to do an in-person interview'
+        );
+        expect(daniel.feeling).to.greaterThan(45);
+      });
+      describe('greater than 10 chrisma test', () => {
+        it('the > 10 it will tell me to come in for a in person ', () => {
+          let daniel = new Person(...danielDetails);
+          daniel.jobMessage = `congratulations you moved on to the second round`;
+          daniel.charisma = 100;
+          daniel = Event.phoneInterview(daniel);
+          expect(daniel.jobMessage).to.deep.equal(
+            'we would like to invite you to do an in-person interview'
+          );
+          expect(daniel.feeling).to.be.greaterThan(45);
+        });
+        it('the > 10 it will tell me i failed the  phone interview', () => {
+          let daniel = new Person(...danielDetails);
+          daniel.jobMessage = `congratulations you moved on to the second round`;
+          daniel.charisma = 10.5;
+          daniel = Event.phoneInterview(daniel);
+          expect(daniel.jobMessage).to.deep.equal(
+            'sorry we went with someone else'
+          );
+          expect(daniel.feeling).to.be.lessThan(45);
+        });
+        it('phone interview will pass', () => {
+          let daniel = new Person(...danielDetails);
+          daniel.charisma = 10000;
+          daniel.jobMessage =
+            'we would like to schedule a phone interview with you';
+          daniel = Event.phoneInterview(daniel);
+          expect(daniel.jobMessage).to.deep.equal(
+            'we would like to invite you to do an in-person interview'
+          );
+        });
+      });
     });
-    it('phone interview  will fail because i dont have charisma', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage = `congratulations you moved on to the second round`;
-      daniel.charisma = -1;
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'sorry we went with someone else'
-      );
-      expect(daniel.feeling).to.lessThan(45);
-    });
-    it('phone interview will pass i will be going to an in person interview', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage = `congratulations you moved on to the second round`;
-      daniel.charisma = 10;
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'we would like to invite you to do an in-person interview'
-      );
-      expect(daniel.feeling).to.greaterThan(45);
-    });
-    it('the > 10 it will tell me to come in for a in person ', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage = `congratulations you moved on to the second round`;
-      daniel.charisma = 100;
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'we would like to invite you to do an in-person interview'
-      );
-      expect(daniel.feeling).to.be.greaterThan(45);
-    });
-    it('the > 10 it will tell me i failed the  phone interview', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage = `congratulations you moved on to the second round`;
-      daniel.charisma = 10.5;
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'sorry we went with someone else'
-      );
-      expect(daniel.feeling).to.be.lessThan(45);
-    });
-    it('job screening will fail', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.intelligence = 0;
-      daniel = Event.jobScreening(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        ' we appreciate your applying but we went with someone else'
-      );
-    });
-    it('job screening will pass', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.intelligence = 100000;
-      daniel = Event.jobScreening(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'we would like to schedule a phone interview with you'
-      );
-    });
-    it('phone interview will pass', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.charisma = 10000;
-      daniel.jobMessage =
-        'we would like to schedule a phone interview with you';
-      daniel = Event.phoneInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'we would like to invite you to do an in-person interview'
-      );
-    });
-    it('inperson interview shouldnt have run', () => {
-      let daniel = new Person(...danielDetails);
-      daniel = Event.inPersonInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'ERROR inPersonInterview was not supposed to be run'
-      );
-    });
-    it('inperson interview should fail', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel.charisma = 0;
-      daniel.intelligence = 0;
-      daniel = Event.inPersonInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'We regret to inform you that we went with someonelse'
-      );
-      expect(daniel.feeling).to.equal(45);
-    });
-    it('inperson interview should fail and divide it by 2', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel.charisma = 0;
-      daniel.intelligence = 0;
-      daniel = Event.inPersonInterview(daniel);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel = Event.inPersonInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'We regret to inform you that we went with someonelse'
-      );
-      expect(daniel.feeling).to.equal(22);
-    });
-    it('in person interview should pass', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel.charisma = 100;
-      daniel.intelligence = 100;
-      daniel = Event.inPersonInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'Congratulations we would like to offer you a job'
-      );
-      expect(daniel.feeling).to.equal(45);
-    });
-    it('in person interview will pass and then multiply by 2 since its my second interview', () => {
-      let daniel = new Person(...danielDetails);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel.charisma = 100;
-      daniel.intelligence = 100;
-      daniel = Event.inPersonInterview(daniel);
-      daniel.jobMessage =
-        'we would like to invite you to do an in-person interview';
-      daniel = Event.inPersonInterview(daniel);
-      expect(daniel.jobMessage).to.deep.equal(
-        'Congratulations we would like to offer you a job'
-      );
-      expect(daniel.feeling).to.equal(90);
+    describe('inperson interview', () => {
+      it('job screening will fail', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.intelligence = 0;
+        daniel = Event.jobScreening(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          ' we appreciate your applying but we went with someone else'
+        );
+      });
+      it('job screening will pass', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.intelligence = 100000;
+        daniel = Event.jobScreening(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'we would like to schedule a phone interview with you'
+        );
+      });
+
+      it('inperson interview shouldnt have run', () => {
+        let daniel = new Person(...danielDetails);
+        daniel = Event.inPersonInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'ERROR inPersonInterview was not supposed to be run'
+        );
+      });
+      it('inperson interview should fail', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel.charisma = 0;
+        daniel.intelligence = 0;
+        daniel = Event.inPersonInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'We regret to inform you that we went with someonelse'
+        );
+        expect(daniel.feeling).to.equal(45);
+      });
+      it('inperson interview should fail and divide it by 2', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel.charisma = 0;
+        daniel.intelligence = 0;
+        daniel = Event.inPersonInterview(daniel);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel = Event.inPersonInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'We regret to inform you that we went with someonelse'
+        );
+        expect(daniel.feeling).to.equal(22);
+      });
+      it('in person interview should pass', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel.charisma = 100;
+        daniel.intelligence = 100;
+        daniel = Event.inPersonInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'Congratulations we would like to offer you a job'
+        );
+        expect(daniel.feeling).to.equal(45);
+      });
+      it('in person interview will pass and then multiply by 2 since its my second interview', () => {
+        let daniel = new Person(...danielDetails);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel.charisma = 100;
+        daniel.intelligence = 100;
+        daniel = Event.inPersonInterview(daniel);
+        daniel.jobMessage =
+          'we would like to invite you to do an in-person interview';
+        daniel = Event.inPersonInterview(daniel);
+        expect(daniel.jobMessage).to.deep.equal(
+          'Congratulations we would like to offer you a job'
+        );
+        expect(daniel.feeling).to.equal(90);
+      });
     });
   });
   //! END OF EMPLOYMENT FUNCTION TEST
