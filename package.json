@@ -4,7 +4,9 @@
   "description": "strengthen my es6 skills",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec 'mocha -R min --exit'"
+    "test": "nodemon --exec 'mocha -R min --exit'",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,22 @@
     "node": "^13.8.0",
     "nodemon": "^2.0.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
