@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React,{Component} from "react"
+import PersonComponent from './PersonComponent'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  render(){
+    return (
+      <div className="App">
+        <PersonComponent 
+        name="Daniel"
+        birthdate="06/12/1990"
+        gender="Male"
+        money={1000}
+        charisma={30}
+        feeling={50}
+        intelligence={100}
+        hobbies={["Golf","Coding","Board Games"]}
+        location="Cleveland Ohio"
+        currentJob="unemployed"
+        employmentHistory={["State Farm","AutoZone"]}
+        car="yes"/>
+      </div>
+    );
+  }
 }
 
 export default App;
+
