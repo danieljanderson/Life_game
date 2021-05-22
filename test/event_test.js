@@ -15,7 +15,7 @@ const danielDetails = [
   //charisma
   50,
 
-  //feelings
+  //feeling
   45,
 
   //intelligence
@@ -112,12 +112,27 @@ describe('tests event class', () => {
       daniel = Event.shopping(daniel, 5);
       expect(daniel.money).to.equal(5);
     });
-    it('testing tryingSomethingNew', () => {
+    it('testing tryingSomethingNew that person enjoyed', () => {
       let daniel = new Person(...danielDetails);
-      daniel = Event.trySomethingNew(daniel);
+      daniel = Event.trySomethingNew(daniel,"coding",'yes');
       expect(daniel.intelligence).to.be.greaterThan(100);
-      expect(daniel.feeling).to.be.lessThan(45);
-      expect(daniel.charisma).to.equal(51);
+      expect(daniel.charisma).to.be.greaterThan(50);
+      expect(daniel.hobbies).to.deep.equal(['coding', 'golf', 'board_games'])
+    });
+    it('testing tryingSomethingNew that is enjoyed with up Yes',()=>{
+      let daniel = new Person(...danielDetails);
+      daniel = Event.trySomethingNew(daniel,"coding",'Yes');
+      expect(daniel.intelligence).to.be.greaterThan(100);
+      expect(daniel.charisma).to.be.greaterThan(50);
+      expect(daniel.hobbies).to.deep.equal(['coding', 'golf', 'board_games'])
+    })
+    it('testing tryingSomethingNew that person is not enjoyed', () => {
+      let daniel = new Person(...danielDetails);
+      daniel = Event.trySomethingNew(daniel,"coding",'no');
+      expect(daniel.intelligence).to.be.greaterThan(100);
+      expect(daniel.feeling).to.be.lessThan(45)
+      expect(daniel.charisma).to.be.lessThan(50);
+      expect(daniel.hobbies).to.deep.equal([ 'golf', 'board_games'])
     });
     it('Move will change the persons location', () => {
       let daniel = new Person(...danielDetails);

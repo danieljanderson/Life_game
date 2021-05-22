@@ -63,10 +63,21 @@ class Event {
     }
     return person;
   }
-  static trySomethingNew(person) {
+  static trySomethingNew(person,event,enjoyed) {
     person.feeling = person.feeling - getRandomNumber();
+    if(enjoyed==='yes' ||  enjoyed==='Yes'){
+      console.log("in the if statement of trySomethingNew")
+      person.feeling = person.feeling + getRandomNumber()
+      person.charisma = person.charisma + getRandomNumber()
+      person.addHobby(event)
+    }
+    else{
+      console.log("inside the else of trySomethingNew")
+      person.feeling = person.feeling - getRandomNumber()
+      person.charisma = person.charisma - getRandomNumber()
+    }
     person.intelligence = person.intelligence + getRandomNumber();
-    person.charisma = person.charisma + 1;
+    
     return person;
   }
   static move(person, location) {
@@ -155,7 +166,7 @@ class Event {
       if (person.charisma <= 10) {
         let charismaRequirments = getRandomNumber();
         // incase getRandomNumber is 0
-        if (charismaRequirments == 0) {
+        if (charismaRequirments === 0) {
           charismaRequirments = 1;
         }
         if (person.charisma >= charismaRequirments) {
@@ -178,7 +189,7 @@ class Event {
             randomnumber
         );
         let charismaRequirments = randomnumber * 10;
-        if (charismaRequirments == 10) {
+        if (charismaRequirments === 10) {
           //if charismaRequirments is 10 it needs to be 11
           charismaRequirments = 11;
         }
