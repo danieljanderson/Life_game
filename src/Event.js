@@ -239,7 +239,7 @@ class Event {
       ];
       person.currentJob = job;
     } else {
-      person.currentJob = Job;
+      person.currentJob = job;
     }
     return person;
   }

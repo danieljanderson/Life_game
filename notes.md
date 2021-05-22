@@ -10,7 +10,7 @@ the above example might also work for taking away skills
 
 ## Notes on the Person Class
 Add a way the person can gain charisma
-move apply to the Event Class
+
 
 ## Notes on event class
 there are a number of ways to get a job
@@ -44,6 +44,8 @@ if they successd they will gain feeling * by the number of interviews they have 
 ##inPerson Interview might need to be scaled some how. for when the person gets better charisma and such than it will be two easy to get a job.  maybe make the person into levels
 
 in person interview.  when someone fails or pass their first interview feelings is feelings should get modified.  right now it isnt
+
+I need add a ghosting function.
 
 # when you buy a car you should be able to take out a lone and than pay that back by a percentage per month.
 
