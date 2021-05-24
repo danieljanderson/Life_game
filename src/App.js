@@ -1,6 +1,7 @@
 import React,{Component} from "react"
 import PersonComponent from './PersonComponent'
 import './App.css';
+import ChoiceComponent from './ChoiceComponent'
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
         currentJob="unemployed"
         employmentHistory={["State Farm","AutoZone"]}
         car="yes"/>
+        <ChoiceComponent></ChoiceComponent>
       </div>
     );
   }
