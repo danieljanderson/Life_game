@@ -241,6 +241,11 @@ describe('testing person.js class', () => {
     daniel.addHobby('coding');
     expect(daniel.hobbies).to.deep.equal(['coding', 'golf', 'board_games']);
   });
+  it('it will add multiple hubbies',()=>{
+    const daniel = new Person(...personDetails);
+    daniel.addHobby('coding','dancing');
+    expect(daniel.hobbies).to.deep.equal(['coding','dancing', 'golf', 'board_games']);
+  })
   it('it will remove a hobby', () => {
     const daniel = new Person(...personDetails);
     daniel.addHobby('basketball');
