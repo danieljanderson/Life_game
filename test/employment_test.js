@@ -75,7 +75,7 @@ describe('Employment.js', () => {
   });
   it('it will calculate the paycheck', () => {
     let job = new Employment(...employmentDetails);
-    money = job.payCheck();
+    let money = job.payCheck();
     expect(money).to.equal(800);
   });
   it('it will give you a promotion', () => {

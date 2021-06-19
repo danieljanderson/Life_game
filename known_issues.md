@@ -18,7 +18,7 @@ keep track of how many times a activity has been done.
 
 I need to add a way to keep track of the length of time someone started to date and when it ended.
 
-Add a way to remove multiple jobs, hobbies, etc
+Add a way to remove multiple jobs, hobbies, etc (solved/implemented)
 
 figure out how to change one persons info on the relationship.  IE if boyfriend gets fired after they start dating.
 
