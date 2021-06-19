@@ -6,10 +6,9 @@ class JobActionComponent extends Component{
 
     render(){
         return(
-            <div className="ChoiceComponent">
-                <ButtonComponent className="jobChoice" buttonName= "Job Choice"></ButtonComponent>
-                <ButtonComponent className="friendChoice" buttonName= "Friend Choice"></ButtonComponent>
-                <ButtonComponent className="personChoice" buttonName="Person Choice"></ButtonComponent>
+            <div className="JobActionComponent">
+                <ButtonComponent className="GoToWork" buttonName= "Go to Work"></ButtonComponent>
+               
             </div>
         )
     }
