@@ -151,6 +151,13 @@ describe('tests event class', () => {
       daniel = Event.payDay(daniel);
       expect(daniel.money).to.equal(810);
     });
+    it('it will add work hours',()=>{
+      let daniel = new Person(...danielDetails);
+      const danieljob = new Employment(...jobDetailsDaniel);
+      daniel.currentJob = danieljob;
+      daniel = Event.goToWork(daniel,20)
+      expect(daniel.currentJob.numberOfHours).to.equal(60)
+    })
     it('it will remove the current job and add unemployed', () => {
       let daniel = new Person(...danielDetails);
       const danieljob = new Employment(...jobDetailsDaniel);

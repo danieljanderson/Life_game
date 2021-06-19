@@ -96,6 +96,12 @@ class Event {
 
     return person;
   }
+  static goToWork(person,hours){
+    let newHours= person.currentJob.numberOfHours + hours
+    person.currentJob.numberOfHours=newHours
+    return person
+    
+  }
 
   static fired(person) {
     person.employmentHistory = [person.currentJob, ...person.employmentHistory];
