@@ -100,4 +100,3 @@ class Employment {
   }
 }
 module.exports = Employment;
-
