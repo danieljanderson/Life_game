@@ -8,6 +8,7 @@ class LifeGameComponent extends Component{
         name:"Charisse",
         birthdate: "6/12/1990",
         gender: "Male",
+        // the below need to be added to state because they change
         money:1000,
         charisma:30,
         feeling:50,
@@ -20,7 +21,18 @@ class LifeGameComponent extends Component{
     }
     constructor(props){
         super(props)
-        this.state={}
+        this.state={
+            money:100000,
+            charisma:50,
+            feeling:50,
+            intelligence:50,
+            hobbies:[],
+            location:"",
+            currentJob:"",
+            employmentHistory:[],
+            car:true
+
+        }
     }
 
     render(){
@@ -30,15 +42,15 @@ class LifeGameComponent extends Component{
                 name={this.props.name}
                 birthdate={this.props.birthdate}
                 gender={this.props.gender}
-                money={this.props.money}
-                charisma={this.props.charisma}
-                feeling={this.props.feeling}
-                intelligence={this.props.intelligence}
-                hobbies={this.props.hobbies}
-                location={this.props.location}
-                currentJob={this.props.currentJob}
-                employmentHistory={this.props.currentJob}
-                car={this.props.car ? "Yes": "No"}
+                money={this.state.money}
+                charisma={this.state.charisma}
+                feeling={this.state.feeling}
+                intelligence={this.state.intelligence}
+                hobbies={this.state.hobbies}
+                location={this.state.location}
+                currentJob={this.state.currentJob}
+                employmentHistory={this.state.currentJob}
+                car={this.state.car ? "Yes": "No"}
             />
             <ChoiceComponent></ChoiceComponent>
             
