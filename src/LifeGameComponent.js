@@ -8,7 +8,7 @@ class LifeGameComponent extends Component{
         name:"Charisse",
         birthdate: "6/12/1990",
         gender: "Male",
-        // the below need to be added to state because they change
+        // the below need to be added to state because they change.  HOwever they will probably be coming into this component as props.
         money:1000,
         charisma:30,
         feeling:50,

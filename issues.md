@@ -129,3 +129,48 @@ this is part of the Event class
     this._numberInterviews = this._numberInterviews + 1
   }
   when i got rid of the plus one it the test passes.
+
+  # July 17, 2021
+  I am just started implementing the react portion of this project.  I created a JobActionComponent that will make a person go to work when the button is clicked.  To test it I tried to evoke it immeditly using  `<h1>{this.createPerson()}</h1>` that code.  As a result I got this error:
+  
+   `Error: Objects are not valid as a React child (found: object with keys {_name, _birthdate, _gender, _money, _charisma, _feeling, _intelligence, _hobbies, _location, _currentJob, _employmentHistory, _numberCar, _numberOfApp, _jobMessage, _networking, _numberInterviews, _moneyMessage, _evicted, _evictedDate}). If you meant to render a collection of children, use an array instead.` 
+
+   Since I am new to react I have no Idea why this is happening.   This is my original code :
+  
+  `class JobActionComponent extends Component{
+   
+    createPerson(){
+        const personDetails = [
+            'Daniel',
+            'June,4',
+            'Male',
+            10,
+            50,
+            //feelings
+            45,
+            //intelligence
+            100,
+            ['golf', 'board_games'],
+            'Strongsville',
+            'state farm',
+            ['self'],
+            1,
+          ]
+        const newPerson = new Person(...personDetails)
+        return newPerson
+    }
+    
+
+    render(){
+        return(
+            <div className="JobActionComponent">
+                [//TODO there will be alot more buttons other than this]
+                <h1>{this.createPerson()}</h1>
+                <ButtonComponent className="GoToWork" buttonName= "Go to Work"></ButtonComponent>
+               
+            </div>
+        )
+    }
+}`
+
+I will get someone to help me and try to understand where I went wrong.  I am going through a tutorial while I am doing this project too so I might learn something in the future.  I tried using `this.createPerson = this.createPerson.bind(this);` because maybe `this` keyword lost its context but nope still getting that same error.  Now I am going to go online for help and continue working on my tutorial in the mean time.

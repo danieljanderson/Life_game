@@ -14,7 +14,7 @@ class ChoiceComponent extends Component{
                 <ButtonComponent className="jobChoice" buttonName= "Job Choice"></ButtonComponent>
                 <ButtonComponent className="friendChoice" buttonName= "Friend Choice"></ButtonComponent>
                 <ButtonComponent className="personChoice" buttonName="Person Choice"></ButtonComponent>
-
+                [//  TODO HIDE THESE COMPONENTS SO THEY ONLY SHOW UP WHEN YOU CLICK THE ABOVE BUTTONS.]
                 <JobActionComponent></JobActionComponent>
                 <FriendActionComponent></FriendActionComponent>
                 <PersonActionComponent></PersonActionComponent>
