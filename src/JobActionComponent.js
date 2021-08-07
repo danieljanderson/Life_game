@@ -38,9 +38,7 @@ class JobActionComponent extends Component{
     render(){
         return(
             <div className="JobActionComponent">
-                [//TODO there will be alot more buttons other than this]
-                <h1>{this.createPerson()}</h1>
-                <ButtonComponent className="GoToWork" buttonName= "Go to Work"></ButtonComponent>
+            
                
             </div>
         )
