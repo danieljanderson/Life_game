@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './LifeGameComponent.css'
 import PersonComponent from './PersonComponent'
 import ChoiceComponent from './ChoiceComponent'
+import NewPersonFormComponent from './NewPersonFormComponent'
 
 class LifeGameComponent extends Component{
     static defaultProps ={
@@ -22,10 +23,10 @@ class LifeGameComponent extends Component{
     constructor(props){
         super(props)
         this.state={
-            money:100000,
-            charisma:50,
-            feeling:50,
-            intelligence:50,
+            money:1000,
+            charisma:10,
+            feeling:10,
+            intelligence:10,
             hobbies:[],
             location:"",
             currentJob:"",
@@ -34,14 +35,15 @@ class LifeGameComponent extends Component{
 
         }
     }
-
+    // I AM going to need help getting form data from this form
     render(){
         return(
         <div className="LifeGameComponent">
+            <NewPersonFormComponent></NewPersonFormComponent>
             <PersonComponent 
-                name={this.props.name}
-                birthdate={this.props.birthdate}
-                gender={this.props.gender}
+                name={this.state.name}
+                birthdate={this.state.birthdate}
+                gender={this.state.gender}
                 money={this.state.money}
                 charisma={this.state.charisma}
                 feeling={this.state.feeling}
@@ -52,7 +54,9 @@ class LifeGameComponent extends Component{
                 employmentHistory={this.state.currentJob}
                 car={this.state.car ? "Yes": "No"}
             />
+            
             <ChoiceComponent></ChoiceComponent>
+            
             
         </div>
         )
