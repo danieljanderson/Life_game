@@ -176,6 +176,7 @@ class Person {
     // this finds the hobby to remove from the Hobby array and removes it
     this._hobbies.splice(this._hobbies.indexOf(Hobby), 1);
     //this reasigns the hard copy to the new hobbies array
+    // eslint-disable-next-line
     this._hobbies = this._hobbies;
   }
   //job methods
