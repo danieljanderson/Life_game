@@ -4,23 +4,33 @@ class NewPersonFormComponent extends Component{
     constructor(props){
         super(props)
         this.state = {
-            name:'',
-            birthdate:'',
-            gender:'',
-            hobbies:'',
-            location:'',
-            currentJob:''
+            name:this.props.name,
+            birthdate:this.props.birthdate,
+            gender:this.props.birthdate,
+            hobbies:this.props.hobbies,
+            location:this.props.location,
+            currentJob:this.props.currentJob,
+            setParentState:this.props.functionName
          }
          this.handleChange = this.handleChange.bind(this)
          this.handleSubmit = this.handleSubmit.bind(this)
+        
     }
     handleChange(evt){
         this.setState({[evt.target.name]:evt.target.value})
 
     }
     handleSubmit(evt){
+        let name = this.state.name
+        let birthdate = this.state.birthdate
+        let gender = this.state.gender
+        let location = this.state.location
         evt.preventDefault()
-        this.setState({})
+        // this sets the state for the new PersonFormComponent
+        this.setState({name,birthdate,gender,location})
+        
+        // this sends the data up to lifeGameComponent
+        this.state.setParentState({name,birthdate,gender,location})
     }
     render(){
         return(

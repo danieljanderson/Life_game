@@ -5,24 +5,13 @@ import ChoiceComponent from './ChoiceComponent'
 import NewPersonFormComponent from './NewPersonFormComponent'
 
 class LifeGameComponent extends Component{
-    static defaultProps ={
-        name:"Charisse",
-        birthdate: "6/12/1990",
-        gender: "Male",
-        // the below need to be added to state because they change.  HOwever they will probably be coming into this component as props.
-        money:1000,
-        charisma:30,
-        feeling:50,
-        intelligence:100,
-        hobbies:["Golf","Coding","Board Games"],
-        location:"Cleveland Ohio",
-        currentJob:"unemployed",
-        employmentHistory:["State Farm","AutoZone"],
-        car:true
-    }
+    
     constructor(props){
         super(props)
         this.state={
+            name:'',
+            birthdate:'',
+            gender:'',
             money:1000,
             charisma:10,
             feeling:10,
@@ -34,12 +23,21 @@ class LifeGameComponent extends Component{
             car:true
 
         }
+        this.setState = this.setState.bind(this)
     }
     // I AM going to need help getting form data from this form
     render(){
         return(
         <div className="LifeGameComponent">
-            <NewPersonFormComponent></NewPersonFormComponent>
+            <NewPersonFormComponent
+              name={this.state.name}
+              birthdate={this.state.birthdate}
+              gender={this.state.gender}
+              hobbies={this.state.hobbies}
+              location={this.state.location}
+              currentJob={this.state.currentJob}
+              functionName={this.setState}
+            ></NewPersonFormComponent>
             <PersonComponent 
                 name={this.state.name}
                 birthdate={this.state.birthdate}
