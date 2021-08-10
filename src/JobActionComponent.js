@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import ButtonComponent from './ButtonComponent'
+//import ButtonComponent from './ButtonComponent'
 //import Event from './Event'
 import Person from './Person'
 //import Employment from './Employment'
