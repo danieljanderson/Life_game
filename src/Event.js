@@ -91,14 +91,15 @@ class Event {
 
   static payDay(person) {
     let paycheck;
-    paycheck = person.currentJob.payRate * person.currentJob.numberOfHours;
+    paycheck = person.currentJob.payRate * person.currentJob.numberOfHoursWorked;
+    person.currentJob.numberOfHoursWorked = 0
     person.deposit(paycheck);
 
     return person;
   }
-  static goToWork(person,hours){
-    let newHours= person.currentJob.numberOfHours + hours
-    person.currentJob.numberOfHours=newHours
+  static workedHours(person,hours){
+    let newHours= person.currentJob.numberOfHoursWorked + hours
+    person.currentJob.numberOfHoursWorked=newHours
     return person
     
   }
@@ -124,28 +125,29 @@ class Event {
   */
   static apply(person, randomNumber1) {
     person.applyForJob();
+    
     if (randomNumber1 === undefined) {
-      randomNumber1 = getRandomNumber() + 1;
+      randomNumber1 = getRandomNumber() - 1;
     }
     //simulates just applying to online which only has a 10 percent chance of success
-    else if (randomNumber1 === 0) {
+     if (randomNumber1 === 0) {
       person.jobMessage = `congratulations you moved on to the second round`;
-      person.excited(person.numberOfApp);
+      person.excited(person.numberOfJobApp);
     }
     // this will then make it into a 80 percent chance of success because thats where the jobs are
     else if (person.networking === true && randomNumber1 < 8) {
       person.jobMessage = `congratulations you moved on to the second round`;
-      person.excited(person.numberOfApp);
+      person.excited(person.numberOfJobApp);
     } else {
       person.jobMessage = `Due to the high volume of applicants we regrate to inform you we went with another candidate`;
-      person.depression(person.numberOfApp);
+      person.depression(person.numberOfJobApp);
     }
     return person;
   }
   static jobScreening(person) {
     // this will be heavy on knowledge.  multiple it by 2
     let knowledgeRequirements = getRandomNumber() * 2;
-    if (knowledgeRequirements == 0) {
+    if (knowledgeRequirements === 0) {
       knowledgeRequirements = 5;
     }
     if (person.intelligence >= knowledgeRequirements) {

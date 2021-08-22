@@ -6,54 +6,7 @@ const Relationship = require('../src/Relationship');
 const Employment = require('../src/Employment');
 const chai = require('chai');
 const expect = chai.expect;
-const danielDetails = [
-  'Daniel',
-  'June,4',
-  'Male',
-  10,
-  50,
-  //feelings
-  45,
-  //intelligence
-  100,
-  ['golf', 'board_games'],
-  'Strongsville',
-  'na',
-  [],
-  0,
-];
-const emilyDetails = [
-  'Emily',
-  'May 4',
-  'Female',
-  10,
-  50,
-  45,
-  100,
-  ['swing dance', 'interview people', 'write'],
-  'Detroit',
-  'na',
-  [],
-  0,
-];
-const jobDetailsDaniel = [
-  'State Farm',
-  'Strongsville',
-  'Programmer',
-  'John Smith',
-  'I write code for a living.  I make apis using C#',
-  40,
-  20,
-];
-const jobDetailsEmily = [
-  'Self',
-  'Detriot',
-  'Storyteller',
-  'no one is her supervisor',
-  'tell stories',
-  40,
-  15,
-];
+
 describe('it combines all the classes', () => {
   // it('it will store the job object in the person object', () => {
   //   const daniel = new Person(...danielDetails);
@@ -83,8 +36,10 @@ describe('it combines all the classes', () => {
   //   expect(daniel.employmentHistory).to.deep.equal([danielJob]);
   // });
   it('will display the payrate and number of hours', () => {
-    const daniel = new Person(...danielDetails);
-    const danielJob = new Employment(...jobDetailsDaniel);
+    const daniel = new Person();
+    const danielJob = new Employment();
+    danielJob.numberOfHours = 40
+    danielJob.payRate = 20
     daniel.currentJob = danielJob;
     expect(daniel.currentJob.payRate).to.equal(20);
     expect(daniel.currentJob.numberOfHours).to.equal(40);

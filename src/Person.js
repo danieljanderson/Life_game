@@ -2,32 +2,21 @@
 //todo make a function that changes the depressed variable based on feeling value
 class Person {
   constructor(
-    name,
-    birthdate,
-    gender,
-    money,
-    charisma,
-    feeling,
-    intelligence,
-    hobbies,
-    location,
-    currentJob,
-    employmentHistory,
-    car
+   
   ) {
-    this._name = name;
-    this._birthdate = birthdate;
-    this._gender = gender;
-    this._money = money;
-    this._charisma = charisma;
-    this._feeling = feeling;
-    this._intelligence = intelligence;
-    this._hobbies = hobbies;
-    this._location = location;
-    this._currentJob = currentJob;
-    this._employmentHistory = employmentHistory;
-    this._numberCar = car;
-    this._numberOfApp = 0;
+    this._name = '';
+    this._birthdate = '';
+    this._gender = '';
+    this._money = 0;
+    this._charisma = 0;
+    this._feeling = 0;
+    this._intelligence = 0;
+    this._hobbies = [];
+    this._location = '';
+    this._currentJob = '';
+    this._employmentHistory = '';
+    this._numberCar = 0;
+    this._numberOfJobApp = 0;
     this._jobMessage = '';
     this._networking = false;
     this._numberInterviews = 0;
@@ -150,11 +139,11 @@ class Person {
     this._employmentHistory = newJob;
   }
   // get and set numberApps
-  get numberOfApp() {
-    return this._numberOfApp;
+  get numberOfJobApp() {
+    return this._numberOfJobApp;
   }
-  set numberOfApp(newAmount) {
-    this._numberOfApp = newAmount;
+  set numberOfJobApp(newAmount) {
+    this._numberOfJobApp = newAmount;
   }
   // get and set for car property
   get numberCar() {
@@ -182,7 +171,7 @@ class Person {
   //job methods
   //TODO move this to the event class
   applyForJob() {
-    this._numberOfApp++;
+    this._numberOfJobApp++;
   }
   /////todo move getNewJob into event file because its an event and not something a person owns.
   // getNewJob(newJob) {
@@ -220,5 +209,5 @@ class Person {
     this._money = this._money - amount;
   }
 }
-export default Person
-//module.exports = Person;
+//export default Person
+module.exports = Person;

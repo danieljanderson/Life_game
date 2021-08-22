@@ -1,22 +1,16 @@
 class Employment {
   constructor(
-    companyName,
-    location,
-    jobTitle,
-    supervisor,
-    jobDuties,
-    numberOfHours,
-    payRate
+   
   ) {
-    this._companyName = companyName;
-    this._location = location;
-    this._jobTitle = jobTitle;
-    this._supervisor = supervisor;
+    this._companyName = '';
+    this._location = '';
+    this._jobTitle = '';
+    this._supervisor = '';
     this._startDate = new Date();
-    this._jobDuties = jobDuties;
-    this._numberOfHours = numberOfHours;
-    this._payRate = payRate;
-    this._endDate;
+    this._jobDuties = '';
+    this._numberOfHoursWorked = 0;
+    this._payRate = 0;
+    this._endDate = new Date();
   }
   // set and getters
   get companyName() {
@@ -55,11 +49,11 @@ class Employment {
   set jobDuties(taskes) {
     this._jobDuties = taskes;
   }
-  get numberOfHours() {
-    return this._numberOfHours;
+  get numberOfHoursWorked() {
+    return this._numberOfHoursWorked;
   }
-  set numberOfHours(hours) {
-    this._numberOfHours = hours;
+  set numberOfHoursWorked(hours) {
+    this._numberOfHoursWorked = hours;
   }
   get payRate() {
     return this._payRate;
@@ -75,7 +69,7 @@ class Employment {
   }
   // methods
   payCheck() {
-    return this._numberOfHours * this._payRate;
+    return this._numberOfHoursWorked * this._payRate;
   }
   raise(newRate) {
     this._payRate = this._payRate + newRate;

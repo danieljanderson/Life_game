@@ -6,7 +6,7 @@ class Relationship {
     this._dating = false;
     this._startDatingDate = new Date();
     this._relationshipStatus = '';
-    this._endDatingDate;
+    this._endDatingDate = new Date();
   }
   // SETTERS AND GETTERS
 
@@ -68,9 +68,13 @@ class Relationship {
   // methods
   checkRelationshipStatus() {
     if (
-      (this.members[0].gender === 'Male' &&
+     ( (this.members[0].gender === 'Male' &&
         this.members[1].gender === 'Female') ||
-      (this.members[0].gender === 'Female' && this.members[1].gender == 'Male')
+      (this.members[0].gender === 'Female' && this.members[1].gender === 'Male')) ||(
+        (this.members[0].gender === 'male' &&
+        this.members[1].gender === 'female') ||
+      (this.members[0].gender === 'female' && this.members[1].gender === 'male')
+      )
     ) {
       if (this.connection === 100 && this._dating === false) {
         this._relationshipStatus = `congratulations You ${this.members[0].name} and ${this.members[1].name} just started dating`;

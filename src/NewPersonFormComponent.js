@@ -3,15 +3,7 @@ import { Component } from "react"
 class NewPersonFormComponent extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            name:this.props.name,
-            birthdate:this.props.birthdate,
-            gender:this.props.birthdate,
-            hobbies:this.props.hobbies,
-            location:this.props.location,
-            currentJob:this.props.currentJob,
-            setParentState:this.props.functionName
-         }
+        this.state = { }
          this.handleChange = this.handleChange.bind(this)
          this.handleSubmit = this.handleSubmit.bind(this)
         
@@ -20,6 +12,7 @@ class NewPersonFormComponent extends Component{
         this.setState({[evt.target.name]:evt.target.value})
 
     }
+
     handleSubmit(evt){
         let name = this.state.name
         let birthdate = this.state.birthdate
