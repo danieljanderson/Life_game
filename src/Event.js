@@ -270,4 +270,5 @@ function getRandomNumber() {
   return x;
 }
 
-module.exports = Event;
+//module.exports = Event;
+export default Event

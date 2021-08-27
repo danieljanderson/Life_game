@@ -1,5 +1,5 @@
-const Person = require('../src/Person');
-const Relationship = require('../src/Relationship');
+import Person from'../src/Person';
+import Relationship from '../src/Relationship';
 
 
 describe('Testing Relationship.js', () => {

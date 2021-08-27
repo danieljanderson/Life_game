@@ -1,4 +1,4 @@
-const Person = require('../src/Person');
+import Person from '../src/Person';
 
 
 describe('testing person.js class', () => {

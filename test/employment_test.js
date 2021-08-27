@@ -1,4 +1,4 @@
-const Employment = require('../src/Employment');
+import Employment from '../src/Employment';
 
 describe('Employment.js', () => {
   it('get the company name', () => {

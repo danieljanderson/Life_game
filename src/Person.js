@@ -209,5 +209,5 @@ class Person {
     this._money = this._money - amount;
   }
 }
-//export default Person
-module.exports = Person;
+export default Person
+//module.exports = Person;

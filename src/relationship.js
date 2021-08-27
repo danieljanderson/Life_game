@@ -111,4 +111,5 @@ class Relationship {
     this._activityHistory = this._activityHistory;
   }
 }
-module.exports = Relationship;
+//module.exports = Relationship;
+export default Relationship

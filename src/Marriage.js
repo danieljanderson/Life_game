@@ -48,4 +48,5 @@ class Marriage extends Relationship {
     }
   }
 }
-module.exports = Marriage;
+//module.exports = Marriage;
+export default Marriage

@@ -1,8 +1,6 @@
-const Person = require('../src/Person');
-const Marriage = require('../src/Marriage');
-const Relationship = require('../src/Relationship');
-const Employment = require('../src/Employment');
-const Event = require('../src/Event');
+import Person from '../src/Person';
+import Employment from '../src/Employment';
+import Event  from'../src/Event';
 
 
 describe('tests event class', () => {
