@@ -1,7 +1,5 @@
 const Person = require('../src/Person');
 const Relationship = require('../src/Relationship');
-const chai = require('chai');
-const expect = chai.expect;
 
 
 describe('Testing Relationship.js', () => {
@@ -12,8 +10,8 @@ describe('Testing Relationship.js', () => {
     let janna = new Person();
     janna.name ='Janna'
     let danielJana = new Relationship(daniel, janna);
-    expect(danielJana.members[0].name).to.deep.equal('Daniel');
-    expect(danielJana.members[1].name).to.deep.equal('Janna');
+    expect(danielJana.members[0].name).toEqual('Daniel');
+    expect(danielJana.members[1].name).toEqual('Janna');
   });
   
   // testing the setters and getters for activity property.
@@ -23,7 +21,7 @@ describe('Testing Relationship.js', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
-    expect(danielJanna.activityHistory).to.deep.equal([]);
+    expect(danielJanna.activityHistory).toEqual([]);
   });
   it('it will set activity history', () => {
     let daniel = new Person();
@@ -31,7 +29,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.activityHistory = ['Movies', 'Golf'];
     let testGet = danielJanna.activityHistory;
-    expect(danielJanna.activityHistory).to.deep.equal(testGet);
+    expect(danielJanna.activityHistory).toEqual(testGet);
   });
 
   // testing the getter and setters for the connection property
@@ -39,7 +37,7 @@ describe('Testing Relationship.js', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
-    expect(danielJanna.connection).to.equal(0);
+    expect(danielJanna.connection).toBe(0);
   });
   it('it will set the connection', () => {
     let daniel = new Person();
@@ -47,7 +45,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.connection = 6;
     let tempConnection = danielJanna.connection;
-    expect(danielJanna.connection).to.equal(tempConnection);
+    expect(danielJanna.connection).toBe(tempConnection);
   });
 
   // testing the getters and setters for dating property
@@ -55,14 +53,14 @@ describe('Testing Relationship.js', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
-    expect(danielJanna.dating).to.equal(false);
+    expect(danielJanna.dating).toBe(false);
   });
   it('it will set the dating property', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.dating = true;
-    expect(danielJanna.dating).to.equal(true);
+    expect(danielJanna.dating).toBe(true);
   });
 
   // testing the getters and setters for start dating date
@@ -72,7 +70,7 @@ describe('Testing Relationship.js', () => {
     let janna = new Person();
     janna.gender ='Female'
     let danielJanna = new Relationship(daniel, janna);
-    expect(danielJanna.startDatingDate).to.deep.equal(new Date());
+    expect(danielJanna.startDatingDate).toEqual(new Date());
   });
   it('it will get start dating date lowercase male and female', () => {
     let daniel = new Person();
@@ -80,7 +78,7 @@ describe('Testing Relationship.js', () => {
     let janna = new Person();
     janna.gender ='female'
     let danielJanna = new Relationship(daniel, janna);
-    expect(danielJanna.startDatingDate).to.deep.equal(new Date());
+    expect(danielJanna.startDatingDate).toEqual(new Date());
   })
   it('it will get start dating date female goes first', () => {
     let daniel = new Person();
@@ -88,7 +86,7 @@ describe('Testing Relationship.js', () => {
     let janna = new Person();
     janna.gender ='Female'
     let danielJanna = new Relationship(janna, daniel);
-    expect(danielJanna.startDatingDate).to.deep.equal(new Date());
+    expect(danielJanna.startDatingDate).toEqual(new Date());
   })
   it('it will get start dating date', () => {
     let daniel = new Person();
@@ -96,7 +94,7 @@ describe('Testing Relationship.js', () => {
     let janna = new Person();
     janna.gender ='female'
     let danielJanna = new Relationship(janna, daniel);
-    expect(danielJanna.startDatingDate).to.not.equal(new Date());
+    expect(danielJanna.startDatingDate).not.toBe(new Date());
   })
   it('it will set the start date when they started to date', () => {
     let daniel = new Person();
@@ -105,9 +103,7 @@ describe('Testing Relationship.js', () => {
     janna.gender = 'female'
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.startDatingDate = '2020-07-08T17:17:46.123Z';
-    expect(danielJanna.startDatingDate).to.deep.equal(
-      '2020-07-08T17:17:46.123Z'
-    );
+    expect(danielJanna.startDatingDate).toEqual('2020-07-08T17:17:46.123Z');
   });
 
   // this will change dating status automatically
@@ -118,7 +114,7 @@ describe('Testing Relationship.js', () => {
     janna.gender = 'Male';
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.relationshipStatus).to.deep.equal('NOT POSSIBLE');
+    expect(danielJanna.relationshipStatus).toEqual('NOT POSSIBLE');
   });
   it('dating status will say started to date', () => {
     let daniel = new Person();
@@ -130,10 +126,8 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.connection = 100;
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.relationshipStatus).to.deep.equal(
-      `congratulations You Daniel and Janna just started dating`
-    );
-    expect(danielJanna.dating).to.equal(true);
+    expect(danielJanna.relationshipStatus).toEqual(`congratulations You Daniel and Janna just started dating`);
+    expect(danielJanna.dating).toBe(true);
   });
   it('dating relationship status will say close to breakup', () => {
     let daniel = new Person();
@@ -147,10 +141,8 @@ describe('Testing Relationship.js', () => {
     danielJanna.checkRelationshipStatus();
     danielJanna.connection = 65;
     danielJanna.checkRelationshipStatus();
-    expect(danielJanna.relationshipStatus).to.deep.equal(
-      `You Daniel and Janna are close to breaking up`
-    );
-    expect(danielJanna.dating).to.equal(true);
+    expect(danielJanna.relationshipStatus).toEqual(`You Daniel and Janna are close to breaking up`);
+    expect(danielJanna.dating).toBe(true);
   });
   it('dating relationship status will say you broke up', () => {
     let daniel = new Person();
@@ -166,11 +158,9 @@ describe('Testing Relationship.js', () => {
     danielJanna.connection = 0;
     danielJanna.checkRelationshipStatus();
     endDate = danielJanna.endDatingDate;
-    expect(danielJanna.relationshipStatus).to.deep.equal(
-      `You Daniel and Janna break up`
-    );
-    expect(danielJanna.dating).to.equal(false);
-    expect(danielJanna.endDatingDate).to.deep.equal(endDate);
+    expect(danielJanna.relationshipStatus).toEqual(`You Daniel and Janna break up`);
+    expect(danielJanna.dating).toBe(false);
+    expect(danielJanna.endDatingDate).toEqual(endDate);
   });
   it('it will get the persons names', () => {
     let daniel = new Person();
@@ -181,7 +171,7 @@ describe('Testing Relationship.js', () => {
     janna.gender='female'
     let danielJanna = new Relationship(daniel, janna);
     let memberNames = danielJanna.getMemberNames();
-    expect(memberNames).to.deep.equal(['Daniel', 'Janna']);
+    expect(memberNames).toEqual(['Daniel', 'Janna']);
   });
   it('it will add a activity', () => {
     let daniel = new Person();
@@ -190,7 +180,7 @@ describe('Testing Relationship.js', () => {
     janna.gender='female'
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.addActivity('Golf');
-    expect(danielJanna.activityHistory).to.deep.equal(['Golf']);
+    expect(danielJanna.activityHistory).toEqual(['Golf']);
   });
   it('it will add multiple activity', () => {
     let daniel = new Person();
@@ -199,7 +189,7 @@ describe('Testing Relationship.js', () => {
     janna.gender='female'
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.addActivity('golf', 'boardgames', 'swing dancing');
-    expect(danielJanna.activityHistory).to.deep.equal([
+    expect(danielJanna.activityHistory).toEqual([
       'golf',
       'boardgames',
       'swing dancing',
@@ -213,7 +203,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     danielJanna.addActivity('golf', 'boardgames', 'swing dancing');
     danielJanna.removeHobby('boardgames');
-    expect(danielJanna.activityHistory).to.deep.equal([
+    expect(danielJanna.activityHistory).toEqual([
       'golf',
       'swing dancing',
     ]);

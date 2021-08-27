@@ -1,8 +1,6 @@
 const Person = require('../src/Person');
 const Marriage = require('../src/Marriage');
 const Relationship = require('../src/Relationship');
-const chai = require('chai');
-const expect = chai.expect;
 
 
 describe('testing Marriage class', () => {
@@ -13,8 +11,8 @@ describe('testing Marriage class', () => {
     leah.name = "Leah"
     let danielLeah = new Relationship(daniel, leah);
     danielLeah = new Marriage(danielLeah);
-    expect(danielLeah.members[0].name).to.deep.equal('Daniel');
-    expect(danielLeah.members[1].name).to.deep.equal('Leah');
+    expect(danielLeah.members[0].name).toEqual('Daniel');
+    expect(danielLeah.members[1].name).toEqual('Leah');
   });
   it('it will add the money from the two married people together', () => {
     let daniel = new Person();
@@ -23,7 +21,7 @@ describe('testing Marriage class', () => {
     daniel.money =20 
     let danielLeah = new Relationship(daniel, leah);
     danielLeah = new Marriage(danielLeah);
-    expect(danielLeah.money).to.equal(40);
+    expect(danielLeah.money).toBe(40);
   });
   it('it will set the connection value', () => {
     let daniel = new Person();
@@ -34,7 +32,7 @@ describe('testing Marriage class', () => {
     leah.gender = 'female'
     let danielLeah = new Relationship(daniel, leah);
     danielLeah = new Marriage(danielLeah);
-    expect(danielLeah.connection).to.equal(100);
+    expect(danielLeah.connection).toBe(100);
   });
   it('it will get the connection', () => {
     let daniel = new Person();
@@ -47,7 +45,7 @@ describe('testing Marriage class', () => {
     danielLeah = new Marriage(danielLeah);
     danielLeah.connection = 6;
     let tempConnection = danielLeah.connection;
-    expect(danielLeah.connection).to.equal(tempConnection);
+    expect(danielLeah.connection).toBe(tempConnection);
   });
   it('it will keep the activity history', () => {
     let daniel = new Person();
@@ -60,7 +58,7 @@ describe('testing Marriage class', () => {
     danielLeah.addActivity('golf', 'boardgames', 'swing dancing');
     danielLeah.removeHobby('boardgames');
     danielLeah = new Marriage(danielLeah);
-    expect(danielLeah.activityHistory).to.deep.equal(['golf', 'swing dancing']);
+    expect(danielLeah.activityHistory).toEqual(['golf', 'swing dancing']);
   });
   it('it will add to the activity history', () => {
     let daniel = new Person();
@@ -74,24 +72,25 @@ describe('testing Marriage class', () => {
     danielLeah.removeHobby('boardgames');
     danielLeah = new Marriage(danielLeah);
     danielLeah.addActivity('video chat', 'hiking');
-    expect(danielLeah.activityHistory).to.deep.equal([
+    expect(danielLeah.activityHistory).toEqual([
       'video chat',
       'hiking',
       'golf',
       'swing dancing',
     ]);
   });
-  it('it will test to see if the start dating date and the wedding dates are different', () => {
-    let daniel = new Person();
-    let leah = new Person();
-    daniel.name='Daniel'
-    daniel.gender ='male'
-    leah.name='Leah'
-    leah.gender = 'female'
-    let danielLeah = new Relationship(daniel, leah);
-    let danielLeahMarriage = new Marriage(danielLeah);
-    expect(danielLeah.startDatingDate).to.not.deep.equal(
-      danielLeahMarriage.weddingDay
-    );
-  });
+  it(
+    'it will test to see if the start dating date and the wedding dates are different',
+    () => {
+      let daniel = new Person();
+      let leah = new Person();
+      daniel.name='Daniel'
+      daniel.gender ='male'
+      leah.name='Leah'
+      leah.gender = 'female'
+      let danielLeah = new Relationship(daniel, leah);
+      let danielLeahMarriage = new Marriage(danielLeah);
+      expect(danielLeah.startDatingDate).not.toEqual(danielLeahMarriage.weddingDay);
+    }
+  );
 });

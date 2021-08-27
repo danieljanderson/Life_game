@@ -4,8 +4,6 @@ const Person = require('../src/Person');
 const Marriage = require('../src/Marriage');
 const Relationship = require('../src/Relationship');
 const Employment = require('../src/Employment');
-const chai = require('chai');
-const expect = chai.expect;
 
 describe('it combines all the classes', () => {
   // it('it will store the job object in the person object', () => {
@@ -41,7 +39,7 @@ describe('it combines all the classes', () => {
     danielJob.numberOfHours = 40
     danielJob.payRate = 20
     daniel.currentJob = danielJob;
-    expect(daniel.currentJob.payRate).to.equal(20);
-    expect(daniel.currentJob.numberOfHours).to.equal(40);
+    expect(daniel.currentJob.payRate).toBe(20);
+    expect(daniel.currentJob.numberOfHours).toBe(40);
   });
 });
