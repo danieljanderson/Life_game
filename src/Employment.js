@@ -93,5 +93,5 @@ class Employment {
     this._endDate = new Date();
   }
 }
-module.exports = Employment;
-
+//module.exports = Employment;
+export default Employment

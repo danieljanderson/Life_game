@@ -4,7 +4,7 @@ import Relationship from '../src/Relationship';
 
 describe('Testing Relationship.js', () => {
   // testing getting and setting functions
-  it('it will retrieve the members', () => {
+  it('will retrieve the members', () => {
     let daniel = new Person();
     daniel.name= 'Daniel'
     let janna = new Person();
@@ -17,13 +17,13 @@ describe('Testing Relationship.js', () => {
   // testing the setters and getters for activity property.
 
   //I have to test the setter for the the activity history because its not an argument in the constructor
-  it('it will get activity history', () => {
+  it('will get activity history', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
     expect(danielJanna.activityHistory).toEqual([]);
   });
-  it('it will set activity history', () => {
+  it('will set activity history', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
@@ -33,13 +33,13 @@ describe('Testing Relationship.js', () => {
   });
 
   // testing the getter and setters for the connection property
-  it('it will get the connection value', () => {
+  it('will get the connection value', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
     expect(danielJanna.connection).toBe(0);
   });
-  it('it will set the connection', () => {
+  it('will set the connection', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
@@ -49,13 +49,13 @@ describe('Testing Relationship.js', () => {
   });
 
   // testing the getters and setters for dating property
-  it('it will get the dating property', () => {
+  it('will get the dating property', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
     expect(danielJanna.dating).toBe(false);
   });
-  it('it will set the dating property', () => {
+  it('will set the dating property', () => {
     let daniel = new Person();
     let janna = new Person();
     let danielJanna = new Relationship(daniel, janna);
@@ -64,7 +64,7 @@ describe('Testing Relationship.js', () => {
   });
 
   // testing the getters and setters for start dating date
-  it('it will get start dating date capital Male and Female', () => {
+  it('will get start dating date capital Male and Female', () => {
     let daniel = new Person();
     daniel.gender = 'Male'
     let janna = new Person();
@@ -72,7 +72,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     expect(danielJanna.startDatingDate).toEqual(new Date());
   });
-  it('it will get start dating date lowercase male and female', () => {
+  it('will get start dating date lowercase male and female', () => {
     let daniel = new Person();
     daniel.gender = 'male'
     let janna = new Person();
@@ -80,7 +80,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(daniel, janna);
     expect(danielJanna.startDatingDate).toEqual(new Date());
   })
-  it('it will get start dating date female goes first', () => {
+  it('will get start dating date female goes first', () => {
     let daniel = new Person();
     daniel.gender = 'Male'
     let janna = new Person();
@@ -88,7 +88,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(janna, daniel);
     expect(danielJanna.startDatingDate).toEqual(new Date());
   })
-  it('it will get start dating date', () => {
+  it('will get start dating date', () => {
     let daniel = new Person();
     daniel.gender = 'male'
     let janna = new Person();
@@ -96,7 +96,7 @@ describe('Testing Relationship.js', () => {
     let danielJanna = new Relationship(janna, daniel);
     expect(danielJanna.startDatingDate).not.toBe(new Date());
   })
-  it('it will set the start date when they started to date', () => {
+  it('will set the start date when they started to date', () => {
     let daniel = new Person();
     let janna = new Person();
     daniel.gender = 'male'
@@ -107,7 +107,7 @@ describe('Testing Relationship.js', () => {
   });
 
   // this will change dating status automatically
-  it('it will not be possible because both persons are males', () => {
+  it('will not be possible because both persons are males', () => {
     let daniel = new Person();
     let janna = new Person();
     daniel.gender ='Male'
@@ -162,7 +162,7 @@ describe('Testing Relationship.js', () => {
     expect(danielJanna.dating).toBe(false);
     expect(danielJanna.endDatingDate).toEqual(endDate);
   });
-  it('it will get the persons names', () => {
+  it('will get the persons names', () => {
     let daniel = new Person();
     daniel.name = 'Daniel'
     let janna = new Person();
@@ -173,7 +173,7 @@ describe('Testing Relationship.js', () => {
     let memberNames = danielJanna.getMemberNames();
     expect(memberNames).toEqual(['Daniel', 'Janna']);
   });
-  it('it will add a activity', () => {
+  it('will add a activity', () => {
     let daniel = new Person();
     let janna = new Person();
     daniel.gender='male'
@@ -182,7 +182,7 @@ describe('Testing Relationship.js', () => {
     danielJanna.addActivity('Golf');
     expect(danielJanna.activityHistory).toEqual(['Golf']);
   });
-  it('it will add multiple activity', () => {
+  it('will add multiple activity', () => {
     let daniel = new Person();
     let janna = new Person();
     daniel.gender='male'
@@ -195,7 +195,7 @@ describe('Testing Relationship.js', () => {
       'swing dancing',
     ]);
   });
-  it('it will remove an activity', () => {
+  it('will remove an activity', () => {
     let daniel = new Person();
     let janna = new Person();
     daniel.gender='male'

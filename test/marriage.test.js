@@ -4,7 +4,7 @@ import Relationship from '../src/Relationship';
 
 
 describe('testing Marriage class', () => {
-  it('it will create a marriage', () => {
+  it('will create a marriage', () => {
     let daniel = new Person();
     daniel.name="Daniel"
     let leah = new Person();
@@ -14,7 +14,7 @@ describe('testing Marriage class', () => {
     expect(danielLeah.members[0].name).toEqual('Daniel');
     expect(danielLeah.members[1].name).toEqual('Leah');
   });
-  it('it will add the money from the two married people together', () => {
+  it('will add the money from the two married people together', () => {
     let daniel = new Person();
     let leah = new Person();
     leah.money = 20
@@ -23,7 +23,7 @@ describe('testing Marriage class', () => {
     danielLeah = new Marriage(danielLeah);
     expect(danielLeah.money).toBe(40);
   });
-  it('it will set the connection value', () => {
+  it('will set the connection value', () => {
     let daniel = new Person();
     let leah = new Person();
     daniel.name='Daniel'
@@ -34,7 +34,7 @@ describe('testing Marriage class', () => {
     danielLeah = new Marriage(danielLeah);
     expect(danielLeah.connection).toBe(100);
   });
-  it('it will get the connection', () => {
+  it('will get the connection', () => {
     let daniel = new Person();
     let leah = new Person();
     daniel.name='Daniel'
@@ -47,7 +47,7 @@ describe('testing Marriage class', () => {
     let tempConnection = danielLeah.connection;
     expect(danielLeah.connection).toBe(tempConnection);
   });
-  it('it will keep the activity history', () => {
+  it('will keep the activity history', () => {
     let daniel = new Person();
     let leah = new Person();
     daniel.name='Daniel'
@@ -60,7 +60,7 @@ describe('testing Marriage class', () => {
     danielLeah = new Marriage(danielLeah);
     expect(danielLeah.activityHistory).toEqual(['golf', 'swing dancing']);
   });
-  it('it will add to the activity history', () => {
+  it('will add to the activity history', () => {
     let daniel = new Person();
     let leah = new Person();
     daniel.name='Daniel'
@@ -80,7 +80,7 @@ describe('testing Marriage class', () => {
     ]);
   });
   it(
-    'it will test to see if the start dating date and the wedding dates are different',
+    'will test to see if the start dating date and the wedding dates are different',
     () => {
       let daniel = new Person();
       let leah = new Person();

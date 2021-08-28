@@ -106,9 +106,10 @@ class Relationship {
   }
   removeHobby(Activity) {
     //finds the activity in the activityHistory array and removes it
-    this._activityHistory.splice(this._activityHistory.indexOf(Activity), 1);
+    let newHistory = this._activityHistory
+      newHistory.splice(newHistory.indexOf(Activity), 1);
     // reasigns the this._activityHistory to the new array
-    this._activityHistory = this._activityHistory;
+    this._activityHistory = newHistory;
   }
 }
 //module.exports = Relationship;

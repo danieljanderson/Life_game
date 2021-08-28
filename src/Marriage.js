@@ -1,4 +1,4 @@
-const Relationship = require('./Relationship');
+import  Relationship  from './Relationship';
 
 class Marriage extends Relationship {
   constructor(relationshipDetails) {

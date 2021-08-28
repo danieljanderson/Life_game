@@ -13,34 +13,34 @@ describe('Employment.js', () => {
     expect(job.location).toEqual('Strongsville');
   });
   
-  it('it will get the job title', () => {
+  it('will get the job title', () => {
     let job = new Employment();
     job.jobTitle = 'Programmer'
     expect(job.jobTitle).toEqual('Programmer');
   });
  
-  it('it will get supervisor', () => {
+  it('will get supervisor', () => {
     let job = new Employment();
     job.supervisor = 'John Smith'
     expect(job.supervisor).toEqual('John Smith');
   });
   
-  it('it will get job details', () => {
+  it('will get job details', () => {
     let job = new Employment();
     job.jobDuties ='I write code for a living.  I make apis using C#'
     expect(job.jobDuties).toEqual('I write code for a living.  I make apis using C#');
   });
-  it('it will get the number of hours per week', () => {
+  it('will get the number of hours per week', () => {
     let job = new Employment();
     job.numberOfHours = 40
     expect(job.numberOfHours).toBe(40);
   });
-  it('it will get the pay rate', () => {
+  it('will get the pay rate', () => {
     let job = new Employment();
     job.payRate = 80;
     expect(job.payRate).toBe(80);
   });
-  it('it will calculate the paycheck', () => {
+  it('will calculate the paycheck', () => {
     let job = new Employment();
     job.numberOfHoursWorked = 40
     job.payRate =20
@@ -74,7 +74,7 @@ describe('Employment.js', () => {
     expect(job.jobTitle).toEqual('ITO');
     expect(job.jobDuties).toEqual('I write code for a living.  I make apis using C#');
   });
-  it('it will run the fired method', () => {
+  it('will run the fired method', () => {
     let job = new Employment();
     job.companyName = 'State Farm'
     job.fired();

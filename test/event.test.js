@@ -6,7 +6,7 @@ import Event  from'../src/Event';
 describe('tests event class', () => {
   describe('event functions that modifiy single person object', () => {
     //! START OF SINGLE PERSON SECTION  TEST
-    it('it will add intelligence', () => {
+    it('will add intelligence', () => {
       let daniel = new Person();
       daniel.intelligence = 100
       daniel = Event.selfStudy(daniel);
@@ -53,7 +53,7 @@ describe('tests event class', () => {
       daniel = Event.rent(daniel, 300);
       expect(daniel.moneyMessage).toEqual(`you need to talk to you landlord you can't pay rent this month`);
     });
-    it('it will deduct money for rent', () => {
+    it('will deduct money for rent', () => {
       let daniel = new Person();
       daniel.money = 350;
       daniel = Event.rent(daniel, 300);
@@ -64,7 +64,7 @@ describe('tests event class', () => {
       daniel = Event.shopping(daniel, 300);
       expect(daniel.moneyMessage).toEqual(`you can't buy this because you dont have money`);
     });
-    it('it will deduct the shopping cost', () => {
+    it('will deduct the shopping cost', () => {
       let daniel = new Person();
       daniel.money =10
       daniel = Event.shopping(daniel, 5);
@@ -135,7 +135,7 @@ describe('tests event class', () => {
       expect(daniel.money).toBe(810);
       expect(daniel.currentJob.numberOfHoursWorked).toBe(0)
     });
-    it('it will add work hours', ()=>{
+    it('will add work hours', ()=>{
       let daniel = new Person();
       const danieljob = new Employment();
       
@@ -144,7 +144,7 @@ describe('tests event class', () => {
       daniel = Event.workedHours(daniel,20)
       expect(daniel.currentJob.numberOfHoursWorked).toBe(60)
     })
-    it('it will remove the current job and add unemployed', () => {
+    it('will remove the current job and add unemployed', () => {
       let daniel = new Person();
       const danieljob = new Employment();
       danieljob.companyName = "Auto Zone"
@@ -154,7 +154,7 @@ describe('tests event class', () => {
       expect(daniel.currentJob).toEqual('unemployed');
       expect(daniel.feeling).toBeLessThan(45);
     });
-    it('it will add state farm to the employment history', () => {
+    it('will add state farm to the employment history', () => {
       let daniel = new Person();
       const danielJob = new Employment();
       danielJob.companyName = 'State Farm'
@@ -185,7 +185,7 @@ describe('tests event class', () => {
       );
       expect(daniel.feeling).toBe(44);
     });
-    it('It will add an application applied', ()=>{
+    it('will add an application applied', ()=>{
       let daniel = new Person();
       daniel.feeling = 45
       daniel = Event.apply(daniel);
@@ -203,7 +203,7 @@ describe('tests event class', () => {
       expect(daniel.feeling).toBe(46);
     });
     it(
-      'It will aske me to move on to the second round.  Testing the 10 percent (when the number is 0)',
+      'will aske me to move on to the second round.  Testing the 10 percent (when the number is 0)',
       () => {
         let daniel = new Person();
         daniel.feeling = 45
@@ -216,7 +216,7 @@ describe('tests event class', () => {
       }
     );
     it(
-      'it will return an error because phone interview shouldnt have been run because you didnt apply',
+      'will return an error because phone interview shouldnt have been run because you didnt apply',
       () => {
         let daniel = new Person();
         daniel.feeling = 45
