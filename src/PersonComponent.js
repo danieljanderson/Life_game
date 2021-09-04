@@ -39,7 +39,7 @@ class PersonComponent extends Component {
           <p>Employment History: {this.props.player.employmentHistory}</p>
         </div>
         <div className="PersonComponent-car">
-          <p>Owns a Car: {this.props.player.car}</p>
+          <p>Owns a Car: {this.props.player.numberCar}</p>
         </div>
       </div>
     );
