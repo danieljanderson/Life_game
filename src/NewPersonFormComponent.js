@@ -33,7 +33,8 @@ class NewPersonFormComponent extends Component {
     this.setState({ newPlayer });
 
     // this sends the data up to lifeGameComponent
-    this.state.setParentState({ player: newPlayer });
+    //this.state.setParentState({ player: newPlayer });
+    this.state.setParentState(newPlayer);
   }
   render() {
     return (

@@ -1,39 +1,39 @@
 # this file is for me to document all the issues that I get stumped on and the solutions I found to fix the issues
 
-this file is more of a journal of isses that I have creating the project.  I will post the solutions on this file too.
+this file is more of a journal of isses that I have creating the project. I will post the solutions on this file too.
 
 # Thursday Feb 13, 2020
-still having difficulty understanding getters and setters.  I get the concept but the application is difficult.  
+
+still having difficulty understanding getters and setters. I get the concept but the application is difficult.  
 https://javascript.info/property-accessors  
 that site seemed to help
 
-
 # Tuesday Feb 18 2020
-It seems that when I run the code 
+
+It seems that when I run the code
 daniel.getNewJob('Autozone');
 daniel.getNewJob('Miller');
 it adds state farm twice to the employmentHistory array.
-It seems that the method getNewJob is running as soon as the class is being invocked.  Meaning that its running getNewJob before I mean to.
+It seems that the method getNewJob is running as soon as the class is being invocked. Meaning that its running getNewJob before I mean to.
 
-some pointed out that this.employmentHistory.unshift(this.currentJob) is mutating the data directly.  instead I should write it like this :
-this._employmentHistory = [this._currentJob, ...this._employmentHistory];
-    this._currentJob = newJob;
+some pointed out that this.employmentHistory.unshift(this.currentJob) is mutating the data directly. instead I should write it like this :
+this.\_employmentHistory = [this._currentJob, ...this._employmentHistory];
+this.\_currentJob = newJob;
 
-
-The reason why I had the above issue is because I was making a shallow copy of the array of employmentHistory.  Spread syntax doesnt copy nested arrays.  and employmentHistory is nested because its storied inside the variable of person.  
+The reason why I had the above issue is because I was making a shallow copy of the array of employmentHistory. Spread syntax doesnt copy nested arrays. and employmentHistory is nested because its storied inside the variable of person.  
 That fixed the issue.
 
 # Friday Feb 28 2020
 
-I am having a issue with my design.  So Inheritance is when a class gets functions from a parent class (any time you see the key word `extends` its a parent function of the what ever comes next.)  However my design is already having issues.  If I keep going the way I am going I am going to have a Person class, a Relationship class , a dating class , and a jobs class.  This is where I am introduced to composition.  
+I am having a issue with my design. So Inheritance is when a class gets functions from a parent class (any time you see the key word `extends` its a parent function of the what ever comes next.) However my design is already having issues. If I keep going the way I am going I am going to have a Person class, a Relationship class , a dating class , and a jobs class. This is where I am introduced to composition.  
 https://tylermcginnis.com/javascript-inheritance-vs-composition/
 https://alligator.io/js/class-composition/
 https://www.youtube.com/watch?v=PFmuCDHHpwk
 
-Composition is using premade functions to define the objects.  In other words inheritance is designing objects on what they are and composition is designing objects around what they do.
+Composition is using premade functions to define the objects. In other words inheritance is designing objects on what they are and composition is designing objects around what they do.
 
-Whatching the last link is very helpful.  In it the author describes the difference between primitives and Reference types
-the main take away is primitives value is stored in the variable name and reference  variables store the address of said value.
+Whatching the last link is very helpful. In it the author describes the difference between primitives and Reference types
+the main take away is primitives value is stored in the variable name and reference variables store the address of said value.
 
 primitives in javascript are : Number, string, boolean, symbol, undifined, and null
 and the reference types are Objects,arrays and functions
@@ -44,19 +44,21 @@ y=5
 x=4
 y will always be 5 no matter how many times I change x.
 
-if I do this 
+if I do this
 x = [3,4]
 y = x
 
 x = [3,2,3]
-y will change with  x because its pointing to an address NOT A VALUE.
+y will change with x because its pointing to an address NOT A VALUE.
 
 My design might need to be refactored.
 
-# March 25, 2020 
-I am having difficulty finding a solution to the ability to add multiple activies at once.  If I just add one activity it will work but not two.
-in my function I had 
-``` addActivity(newActivity, ...otherActivity) {
+# March 25, 2020
+
+I am having difficulty finding a solution to the ability to add multiple activies at once. If I just add one activity it will work but not two.
+in my function I had
+
+````addActivity(newActivity, ...otherActivity) {
     this._activityHistory = [
       newActivity,
       otherActivity,
@@ -65,7 +67,7 @@ in my function I had
   }```
   the issue was that the out put would be ['golf,[swing,boardgames]]
   as a side note golf and swing and boardgames are activites I wanted to add.
-  the reason why is that rest keeps everything in an array.  meaning that otherActivity becomes an array because rest doesnt unpack it.  
+  the reason why is that rest keeps everything in an array.  meaning that otherActivity becomes an array because rest doesnt unpack it.
    addActivity(newActivity, ...otherActivity) {
     this._activityHistory = [
       newActivity,
@@ -74,9 +76,11 @@ in my function I had
     ];
   }
   this solves it because rest unpacks the otherActivity array.
-```
-#  March 26, 2020
-I am making a sub class of Relationships.  However the issue is how its storing things.  
+````
+
+# March 26, 2020
+
+I am making a sub class of Relationships. However the issue is how its storing things.  
 so when I go from relationship to marriage the data looks like this
 Relationship
 members:['person one','person 2']
@@ -84,27 +88,29 @@ and then all the methods below it.
 
 the marriage then goes like this
 marriage{
-    relationship[members[]]
+relationship[members[]]
 }
 
 The solution to it was that I need to send the members of the relationship in the constructor of the marriage class.
 I need to do this
+
 ```
    super(relationshipDetails.members[0], relationshipDetails.members[1]);
-   ``` 
-   the reason being is that the constructor of the relationship class is looking for two people.
+```
 
-# April 30th 
+the reason being is that the constructor of the relationship class is looking for two people.
 
-this is part of the Event class 
+# April 30th
 
-``` static getRandomNumber() {
+this is part of the Event class
+
+````static getRandomNumber() {
     //this will get a number that is random between 0 and 10
     const x = Math.round(Math.random() * 10);
     console.log('this is the random number' + x);
     return x;
   }
-  I wanted to use this funtion in 
+  I wanted to use this funtion in
   ```static fired(person) {
     person.employmentHistory = [person.currentJob, ...person.employmentHistory];
     person._currentJob = 'unemployed';
@@ -116,19 +122,21 @@ this is part of the Event class
 
   I fixed it I didnt need to call person  here
   ```person.feeling = person.depression(getRandomNumber());
-  ```
-  because I was storing the change inside the person already.
+````
 
+because I was storing the change inside the person already.
 
-  # May 13, 2020
-  I dont understand why this   person.numberInterviews = person.numberInterviews + 1; evaluates to from 1 to 3
+# May 13, 2020
 
-  The problem i had was i had the setter for person.numberInterviews adding one.
-  it was 
-  set numberInterivews (interview){
-    this._numberInterviews = this._numberInterviews + 1
-  }
-  when i got rid of the plus one it the test passes.
+I dont understand why this person.numberInterviews = person.numberInterviews + 1; evaluates to from 1 to 3
 
-  # September 4, 2021
-  So I am new to React and am trying to set state so it will render my name in the PersonComponent.  The reason why I am having difficulty is that it is setting the form state just fine but not the parent state.  
+The problem i had was i had the setter for person.numberInterviews adding one.
+it was
+set numberInterivews (interview){
+this.\_numberInterviews = this.\_numberInterviews + 1
+}
+when i got rid of the plus one it the test passes.
+
+# September 4, 2021
+
+So I am new to React and am trying to set state so it will render my name in the PersonComponent. The reason why I am having difficulty is that it is setting the form state just fine but not the parent state. With the help of another person I was able to fix my issue. The first issue was how the state was being updated. However, the main issue was how I understood how React works. In the person component file i attempted to shorten the variable by using this.player = this.props.player. Technically that works however because it was in the constructor it only looked at props once (at creation). However, I wanted it to listen to it at render so I had to add this.props.player.fieldname to get it to display correctly.

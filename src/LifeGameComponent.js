@@ -13,9 +13,10 @@ class LifeGameComponent extends Component {
     };
     this.createPlayer = this.createPlayer.bind(this);
   }
-  createPlayer() {
-    this.setState();
-    console.log('this is after state change', this.state);
+  createPlayer(player) {
+    this.setState({ player }, () => {
+      console.log('this is after state change', this.state);
+    });
   }
   // I AM going to need help getting form data from this form
   render() {
