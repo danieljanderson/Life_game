@@ -33,7 +33,7 @@ class PersonComponent extends Component {
           <p>Location: {this.props.player.location}</p>
         </div>
         <div className="PersonComponent-currentJob">
-          <p>Current Job: {this.props.player.currentJob}</p>
+          <p>Current Job: {this.props.player.currentJob.companyName}</p>
         </div>
         <div className="PersonComponent-employmentHistory">
           <p>Employment History: {this.props.player.employmentHistory}</p>

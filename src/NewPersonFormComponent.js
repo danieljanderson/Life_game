@@ -1,5 +1,7 @@
 import { Component } from 'react';
+import Employment from './Employment';
 import Person from './Person';
+const faker = require('faker');
 
 class NewPersonFormComponent extends Component {
   constructor(props) {
@@ -23,6 +25,9 @@ class NewPersonFormComponent extends Component {
 
   handleSubmit(evt) {
     let newPlayer = new Person();
+    let newJob = new Employment();
+    const supervisorFirstName = faker.name.firstName() + ' ';
+    const supervisorLastName = faker.name.lastName();
     newPlayer.name = this.state.name;
     newPlayer.birthdate = this.state.birthdate;
     newPlayer.gender = this.state.gender;
@@ -33,6 +38,13 @@ class NewPersonFormComponent extends Component {
     newPlayer.hobbies = this.state.hobbies;
     newPlayer.location = this.state.location;
     newPlayer.numberCar = 1;
+    newJob.companyName = faker.company.companyName();
+    newJob.supervisor = supervisorFirstName + supervisorLastName;
+    newJob.jobTitle = faker.name.jobTitle();
+    newJob.jobDuties = faker.lorem.sentences();
+    newJob.payRate = Math.floor(Math.random() * (15 - 10 + 1)) + 10;
+    newJob.location = this.state.location;
+    newPlayer.currentJob = newJob;
     evt.preventDefault();
     console.log(newPlayer);
     // this sets the state for the new PersonFormComponent
