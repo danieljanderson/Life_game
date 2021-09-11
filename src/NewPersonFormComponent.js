@@ -13,7 +13,7 @@ class NewPersonFormComponent extends Component {
       hobbies: this.props.player.hobbies,
       location: this.props.player.location,
       currentJob: this.props.player.currentJob,
-      setParentState: this.props.functionName,
+      setParentState: this.props.onCreatePlayer,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
