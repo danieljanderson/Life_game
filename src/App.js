@@ -1,19 +1,17 @@
-import React,{Component} from "react"
-import LifeGameComponent from "./LifeGameComponent";
+import React from 'react';
+import NewPlayerForm from './Components/NewPlayerForm';
+import DateAdapter from '@mui/lab/AdapterMoment';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import './App.css';
 
-
-
-
-class App extends Component {
-  render(){
-    return (
-      <div className="App">
-        <LifeGameComponent></LifeGameComponent>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <LocalizationProvider dateAdapter={DateAdapter}>
+        <NewPlayerForm></NewPlayerForm>
+      </LocalizationProvider>
+    </div>
+  );
 }
 
 export default App;
-
