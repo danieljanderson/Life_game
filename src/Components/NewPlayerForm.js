@@ -12,15 +12,21 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/lab';
+import MenuItem from '@mui/material/MenuItem';
 
 function NewPlayerForm() {
   const [value, setValue] = React.useState(null);
+  const [gender, setGender] = React.useState('');
+
+  const handleChange = (event) => {
+    setGender(event.target.value);
+  };
   return (
     <Box component="form" noValidate>
       <FormControl variant="standard">
-        <Grid>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {/* Start of First Name input*/}
-          <Grid>
+          <Grid item md={8}>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
               <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
@@ -29,24 +35,17 @@ function NewPlayerForm() {
                 variant="standard"
               />
             </Box>
-            {/* <TextField 
-            
-              id="First Name"
-              label="First Name"
-              variant="standard"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle
-                      
-                    />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            */}
           </Grid>
-          {/* End of Name input */}
+          {/* End of First Name input */}
+
+          {/* Start of Last Name input */}
+          <Grid>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+              <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField id="Last-Name" label="Last Name" variant="standard" />
+            </Box>
+          </Grid>
+          {/* End of Last Name input */}
           {/* This is for the start of the birthday date picker */}
           <Grid>
             <DatePicker
@@ -59,6 +58,21 @@ function NewPlayerForm() {
             />
           </Grid>
           {/* end of birthday date picker */}
+          {/* Start of Gender picker */}
+          <Grid item md={3}>
+            <TextField
+              label="Gender"
+              select
+              id="Gender-Select"
+              value={gender}
+              sx={{ width: '100%' }}
+              onChange={handleChange}
+            >
+              <MenuItem value={'Male'}>Male</MenuItem>
+              <MenuItem value={'Female'}>Female</MenuItem>
+            </TextField>
+          </Grid>
+          {/* End of Gender Picker */}
         </Grid>
       </FormControl>
     </Box>
