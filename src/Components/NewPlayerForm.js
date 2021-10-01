@@ -19,6 +19,7 @@ import IconButton from '@mui/material/IconButton';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import SportsTennisIcon from '@mui/icons-material/SportsTennis';
+import Button from '@mui/material/Button';
 
 function NewPlayerForm() {
   const [value, setValue] = React.useState(null);
@@ -118,6 +119,9 @@ function NewPlayerForm() {
             </Box>
           </Grid>
           {/* End of Hobbies Input */}
+          <Grid>
+            <Button variant="contained">Start Journey</Button>
+          </Grid>
         </Grid>
       </FormControl>
     </Box>
