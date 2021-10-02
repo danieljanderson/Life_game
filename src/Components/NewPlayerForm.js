@@ -20,6 +20,11 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import Button from '@mui/material/Button';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Typography from '@mui/material/Typography';
 
 function NewPlayerForm() {
   const [value, setValue] = React.useState(null);
@@ -30,6 +35,11 @@ function NewPlayerForm() {
   };
   return (
     <Box component="form" noValidate>
+      <Box>
+        <Typography variant="h4" component="h4" align="center">
+          New Player Form
+        </Typography>
+      </Box>
       <FormControl variant="standard">
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {/* Start of First Name input*/}
