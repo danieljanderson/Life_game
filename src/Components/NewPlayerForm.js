@@ -40,100 +40,133 @@ function NewPlayerForm() {
           New Player Form
         </Typography>
       </Box>
-      <FormControl variant="standard">
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          {/* Start of First Name input*/}
-          <Grid item md={8}>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-              <TextField
-                id="First-Name"
-                label="First Name"
-                variant="standard"
-              />
-            </Box>
-          </Grid>
-          {/* End of First Name input */}
+      <Paper elevation={16}>
+        <FormControl variant="standard">
+          <Grid
+            container
+            rowSpacing={2}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            direction="row"
+          >
+            {/* Start of First Name input*/}
+            <Grid item md={6}>
+              <Box>
+                <TextField
+                  id="First-Name"
+                  label="First Name"
+                  variant="standard"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <AccountCircle></AccountCircle>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
+            </Grid>
+            {/* End of First Name input */}
 
-          {/* Start of Last Name input */}
-          <Grid>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-              <TextField id="Last-Name" label="Last Name" variant="standard" />
-            </Box>
-          </Grid>
-          {/* End of Last Name input */}
-          {/* This is for the start of the birthday date picker */}
-          <Grid>
-            <DatePicker
-              label="Birthday"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </Grid>
-          {/* end of birthday date picker */}
-          {/* Start of Gender picker */}
-          <Grid item md={3}>
-            <Box>
-              <TextField
-                label="Gender"
-                select
-                id="Gender-Select"
-                value={gender}
-                sx={{ width: '100%' }}
-                onChange={handleChange}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WcIcon></WcIcon>
-                    </InputAdornment>
-                  ),
+            {/* Start of Last Name input */}
+            <Grid item md>
+              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <TextField
+                  id="Last-Name"
+                  label="Last Name"
+                  variant="standard"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <AccountCircle></AccountCircle>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
+            </Grid>
+            {/* End of Last Name input */}
+            {/* This is for the start of the birthday date picker */}
+            <Grid item md>
+              <DatePicker
+                label="Birthday"
+                value={value}
+                onChange={(newValue) => {
+                  setValue(newValue);
                 }}
-              >
-                <MenuItem value={'Male'}>Male</MenuItem>
-                <MenuItem value={'Female'}>Female</MenuItem>
-              </TextField>
-            </Box>
-          </Grid>
-          {/* End of Gender Picker */}
-          {/* Start of Location */}
-
-          <Grid item md={12}>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <LocationCityIcon />
-              <TextField id="Location" label="Location" variant="standard" />
-            </Box>
-          </Grid>
-          {/* End of Location */}
-          {/* Strart of Hobbies Input */}
-          <Grid item md={5}>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <TextField
-                id="Hobbies"
-                label="Please enter a Hobby"
-                variant="standard"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SportsTennisIcon></SportsTennisIcon>
-                    </InputAdornment>
-                  ),
-                }}
+                renderInput={(params) => <TextField {...params} />}
               />
-              <IconButton aria-label="Add an Hobby">
-                <ControlPointIcon></ControlPointIcon>
-              </IconButton>
-            </Box>
+            </Grid>
+            {/* end of birthday date picker */}
+            {/* Start of Gender picker */}
+            <Grid item md>
+              <Box>
+                <TextField
+                  label="Gender"
+                  select
+                  id="Gender-Select"
+                  value={gender}
+                  sx={{ width: '100%' }}
+                  onChange={handleChange}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <WcIcon></WcIcon>
+                      </InputAdornment>
+                    ),
+                  }}
+                >
+                  <MenuItem value={'Male'}>Male</MenuItem>
+                  <MenuItem value={'Female'}>Female</MenuItem>
+                </TextField>
+              </Box>
+            </Grid>
+            {/* End of Gender Picker */}
+            {/* Start of Location */}
+
+            <Grid item md>
+              <Box>
+                <TextField
+                  id="Location"
+                  label="Location"
+                  variant="standard"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LocationCityIcon></LocationCityIcon>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Box>
+            </Grid>
+            {/* End of Location */}
+            {/* Strart of Hobbies Input */}
+            <Grid item md>
+              <Box>
+                <TextField
+                  id="Hobbies"
+                  label="Please enter a Hobby"
+                  variant="standard"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SportsTennisIcon></SportsTennisIcon>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <IconButton aria-label="Add an Hobby">
+                  <ControlPointIcon></ControlPointIcon>
+                </IconButton>
+              </Box>
+            </Grid>
+            {/* End of Hobbies Input */}
+            <Grid justifyContent={'center'} item xs={5}>
+              <Button variant="contained">Start Journey</Button>
+            </Grid>
           </Grid>
-          {/* End of Hobbies Input */}
-          <Grid>
-            <Button variant="contained">Start Journey</Button>
-          </Grid>
-        </Grid>
-      </FormControl>
+        </FormControl>
+      </Paper>
     </Box>
   );
 }
