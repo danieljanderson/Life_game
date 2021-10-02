@@ -1,7 +1,7 @@
 {
   "name": "life",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@date-io/moment": "^2.11.0",
     "@emotion/react": "^11.4.1",
@@ -26,7 +26,8 @@
     "react-scripts": "4.0.3",
     "react-test-renderer": "^17.0.2",
     "styled-components": "^5.3.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.15"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -55,5 +56,9 @@
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:danieljanderson/life_game.git",
+  "author": "Daniel Anderson <danieljanderson0616@gmail.com>",
+  "license": "MIT"
 }
