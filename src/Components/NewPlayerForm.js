@@ -45,11 +45,11 @@ function NewPlayerForm() {
           <Grid
             container
             rowSpacing={2}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            columnSpacing={{ xs: 1, sm: 1, md: 3 }}
             direction="row"
           >
             {/* Start of First Name input*/}
-            <Grid item md={6}>
+            <Grid item xs={12} sm={6} md={3} lg={6}>
               <Box>
                 <TextField
                   id="First-Name"
@@ -68,8 +68,8 @@ function NewPlayerForm() {
             {/* End of First Name input */}
 
             {/* Start of Last Name input */}
-            <Grid item md>
-              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Grid item xs={12} sm={6} md={3} lg={6}>
+              <Box>
                 <TextField
                   id="Last-Name"
                   label="Last Name"
@@ -86,7 +86,7 @@ function NewPlayerForm() {
             </Grid>
             {/* End of Last Name input */}
             {/* This is for the start of the birthday date picker */}
-            <Grid item md>
+            <Grid item xs={6} sm={3} md={5} lg={2}>
               <DatePicker
                 label="Birthday"
                 value={value}
@@ -98,7 +98,7 @@ function NewPlayerForm() {
             </Grid>
             {/* end of birthday date picker */}
             {/* Start of Gender picker */}
-            <Grid item md>
+            <Grid item xs={6} sm={2} md={3} lg={2.5}>
               <Box>
                 <TextField
                   label="Gender"
@@ -123,7 +123,7 @@ function NewPlayerForm() {
             {/* End of Gender Picker */}
             {/* Start of Location */}
 
-            <Grid item md>
+            <Grid item xs={12} sm={5} md={5} lg={6}>
               <Box>
                 <TextField
                   id="Location"
@@ -141,7 +141,7 @@ function NewPlayerForm() {
             </Grid>
             {/* End of Location */}
             {/* Strart of Hobbies Input */}
-            <Grid item md>
+            <Grid item xs={12} md={12}>
               <Box>
                 <TextField
                   id="Hobbies"
