@@ -49,7 +49,7 @@ function NewPlayerForm() {
             direction="row"
           >
             {/* Start of First Name input*/}
-            <Grid item md={6}>
+            <Grid item xs={12} md={6}>
               <Box>
                 <TextField
                   id="First-Name"
@@ -68,7 +68,7 @@ function NewPlayerForm() {
             {/* End of First Name input */}
 
             {/* Start of Last Name input */}
-            <Grid item md>
+            <Grid item xs={12} md>
               <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <TextField
                   id="Last-Name"
@@ -86,7 +86,7 @@ function NewPlayerForm() {
             </Grid>
             {/* End of Last Name input */}
             {/* This is for the start of the birthday date picker */}
-            <Grid item md>
+            <Grid item xs={6} md>
               <DatePicker
                 label="Birthday"
                 value={value}
@@ -98,7 +98,7 @@ function NewPlayerForm() {
             </Grid>
             {/* end of birthday date picker */}
             {/* Start of Gender picker */}
-            <Grid item md>
+            <Grid item xs={6} md>
               <Box>
                 <TextField
                   label="Gender"
@@ -123,7 +123,7 @@ function NewPlayerForm() {
             {/* End of Gender Picker */}
             {/* Start of Location */}
 
-            <Grid item md>
+            <Grid item xs={12} md>
               <Box>
                 <TextField
                   id="Location"
@@ -141,7 +141,7 @@ function NewPlayerForm() {
             </Grid>
             {/* End of Location */}
             {/* Strart of Hobbies Input */}
-            <Grid item md>
+            <Grid item xs={12} md>
               <Box>
                 <TextField
                   id="Hobbies"
