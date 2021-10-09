@@ -1,6 +1,5 @@
-//import React, { useState } from 'react' why does this not work;
-// and this does
-import * as React from 'react';
+import React, { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 //import { styled } from '@mui/material/styles';
@@ -27,8 +26,10 @@ import '@fontsource/roboto/700.css';
 import Typography from '@mui/material/Typography';
 
 function NewPlayerForm() {
-  const [value, setValue] = React.useState(null);
-  const [gender, setGender] = React.useState('');
+  // this is for birthday input
+  const [value, setValue] = useState(null);
+  // this is for the gender
+  const [gender, setGender] = useState('');
 
   const handleChange = (event) => {
     setGender(event.target.value);
@@ -140,7 +141,7 @@ function NewPlayerForm() {
               </Box>
             </Grid>
             {/* End of Location */}
-            {/* Strart of Hobbies Input */}
+            {/* Start of Hobbies Input */}
             <Grid item xs={12} md={12}>
               <Box>
                 <TextField
@@ -161,6 +162,7 @@ function NewPlayerForm() {
               </Box>
             </Grid>
             {/* End of Hobbies Input */}
+
             <Grid justifyContent={'center'} item xs={5}>
               <Button variant="contained">Start Journey</Button>
             </Grid>
