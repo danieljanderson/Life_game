@@ -7,7 +7,7 @@ const newPerson = new Person();
 function PersonProvider(props) {
   const [user, setUser] = useState(newPerson);
   return (
-    <PersonContext.Provider value={{ user }}>
+    <PersonContext.Provider value={{ ...user }}>
       {props.children}
     </PersonContext.Provider>
   );
